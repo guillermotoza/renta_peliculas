@@ -4,8 +4,11 @@
     "\\sistemardp",
     "\\sistemardp\\clientes",
     "\\sistemardp\\peliculas",
-    "\\sistemardp\\sistemardp"
+    "\\sistemardp\\peliculas\\static",
+    "\\sistemardp\\sistemardp",
+    "\\venv",
+    "\\venv\\Scripts"
   ],
-  "SelectedNode": "\\sistemardp\\sistemardp\\urls.py",
+  "SelectedNode": "\\venv\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
