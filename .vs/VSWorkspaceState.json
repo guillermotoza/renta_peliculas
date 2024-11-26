@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
-    "\\sistemardp\\peliculas"
+    "\\sistemardp\\peliculas",
+    "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\peliculas\\views.py",
+  "SelectedNode": "\\sistemardp\\sistemardp\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
