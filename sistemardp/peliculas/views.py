@@ -28,6 +28,10 @@ def resultados_peliculas(request):
         if len(pelicula) > 25 :
             messages.error(request, 'texto de busqueda demasiado largo')
             return redirect('busqueda_peliculas')
+        
+        elif pelicula == "venom" :
+            messages.error(request, 'que fea pelicula, elije otra')
+            return redirect('busqueda_peliculas')
 
         elif fecha_inicio >= fecha_devolver:
             messages.error(request,"la fecha de devolucion no puede ser antes de la fecha de inicio de renta")
