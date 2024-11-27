@@ -70,3 +70,8 @@ def eliminar_cliente(request, cliente_id):
         except Cliente.DoesNotExist:
             return JsonResponse({'error': 'Cliente no encontrado'}, status=404)
     return JsonResponse({'error': 'Solicitud no válida'}, status=400)
+
+def cargar_clientes(request):
+    clientes = Cliente.objects.filter(detalles_membresia='premium')  
+    clientes_data = list(clientes.values('id', 'nombre', 'correo', 'direccion', 'detalles_membresia'))
+    return JsonResponse({'clientes': clientes_data})

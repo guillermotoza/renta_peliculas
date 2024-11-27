@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,7 +32,7 @@
             </table>
         </section>
 
-        <!-- agregar o editar cliente -->
+        <!-- Modal para agregar o editar cliente -->
         <div class="modal fade" id="modalCliente" tabindex="-1" aria-labelledby="modalClienteLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -40,7 +41,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
+                        <!-- Formulario para agregar un cliente -->
                         <form id="clienteForm">
+                            {% csrf_token %}
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" required>
@@ -54,8 +57,8 @@
                                 <input type="text" class="form-control" id="direccion" required>
                             </div>
                             <div class="mb-3">
-                                <label for="membresia" class="form-label">Membresía</label>
-                                <input type="text" class="form-control" id="membresia" required>
+                                <label for="detalles_membresia" class="form-label">Membresía</label>
+                                <input type="text" class="form-control" id="detalles_membresia" required>  <!-- Cambiar a 'detalles_membresia' -->
                             </div>
                             <button type="submit" class="btn btn-success">Guardar</button>
                         </form>
@@ -73,3 +76,4 @@
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
+

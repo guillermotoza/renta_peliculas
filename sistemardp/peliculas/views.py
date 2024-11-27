@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponsen, JsonResponse 
+from django.http import HttpResponse, JsonResponse 
 from peliculas.models import pelicula, CategoriaPel
 from django.contrib import messages
 from datetime import date, datetime
@@ -42,4 +42,4 @@ def resultados_peliculas(request):
 
     else:
         messages.error(request, "No has introducido nada")
-        return redirect('busqueda_peliculas')  # Redirige a la página de búsqueda
+        return redirect('busqueda_peliculas')  # Redirige a la pï¿½gina de bï¿½squeda
