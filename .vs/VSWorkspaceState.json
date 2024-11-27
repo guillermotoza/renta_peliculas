@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
+    "\\sistemardp\\lobby",
+    "\\sistemardp\\lobby\\templates",
     "\\sistemardp\\peliculas",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\sistemardp\\.gitignore",
+  "SelectedNode": "\\sistemardp\\lobby\\templates\\base.html",
   "PreviewInSolutionExplorer": false
 }
