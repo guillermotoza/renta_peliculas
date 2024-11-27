@@ -5,8 +5,9 @@
     "\\sistemardp\\lobby",
     "\\sistemardp\\lobby\\templates",
     "\\sistemardp\\peliculas",
+    "\\sistemardp\\peliculas\\templates",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\lobby\\templates\\base.html",
+  "SelectedNode": "\\sistemardp\\peliculas\\templates\\resultados_peliculas.html",
   "PreviewInSolutionExplorer": false
 }

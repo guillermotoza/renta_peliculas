@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="registro " id="carga" onload="deshabilitaRetroceso()" style="z-index:2;">
+    
+    {% if messages %}
+        <div class="alert alert-danger" role="alert" onload="deshabilitaRetroceso()">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    
+    <div class="container" style="padding:0; margin-top:10%;">
+        <!--encabezado de busqueda -->
+        <div class="row">
+            <div class="col">
+                <h3><b>Busca tu Pelicula</b></h3>
+            </div>
+            
+        </div>
+    </div>
+    <br />
+    <!--parte 2 (barra de busqueda)-->
+    <div class="container" style="padding:0;margin:0;">
+        <form action="resultados_pelicula/" method="GET"  onload="deshabilitaRetroceso()">
+            <div class="row">
+                <div class="row">
+
+                    <div class="col">
+                        <label for="vlPart" style="color:black;"><b>Origen:</b></label>
+                        <input list="peliculas_generos" type="text" name="Pelicula" required placeholder="Scary Movie" style="width:90%;">
+                        <datalist id="peliculas_generos">
+                            <option value="Estrenos"></option>
+                            <option value="Tendencias"></option>
+                            <option value="Terror"></option>
+                            <option value="Comedia"></option>
+                            <option value="Romanticas"></option>
+                        </datalist>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--parte 3 (ingreso de fecha de inicio y termino de renta)-->
+            <br>
+            <div class="row">
+
+                <div class="col">
+                    <label for="fecha_inicio" style="color:black;"><b>Inicio de renta</b></label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" required style="width:90%;">
+
+                </div>
+
+                <div class="col">
+                    <label for="fecha_devolver" style="color:black;"><b>Termino de rennta</b></label>
+                    <input type="date" id="fecha_devolver" name="fecha_devolver" style="width:90%;">
+
+                </div>
+
+            </div>
+            <!--parte de abajo(boton buscar ) -->
+            <br />
+            <div class="row justify-content-center">
+                <center>
+                    <div class="col justify-content-center" style="justify-content:center;margin:auto;">
+                        <input type="submit" value="buscar vuelos" class="btn btn-outline-danger">
+                    </div>
+                </center>
+            </div>
+        </form>
+    </div>
+
+    <br>
+    <br>
+
+</div>
+
+    {% endblock %}
