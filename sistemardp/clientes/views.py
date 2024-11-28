@@ -22,6 +22,10 @@ def agregar_cliente(request):
         correo = request.POST.get('correo')
         direccion = request.POST.get('direccion')
         membresia = request.POST.get('membresia')
+        
+        if not nombre or not correo or not direccion or not membresia:
+            return JsonResponse({'error': 'Todos los campos son obligatorios'}, status=400)
+        
         cliente = Cliente.objects.create(
             nombre=nombre,
             correo=correo,

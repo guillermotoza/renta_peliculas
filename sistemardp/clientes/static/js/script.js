@@ -1,129 +1,108 @@
-$(document).ready(function() {
-    
-    cargarClientes();
+document.addEventListener('DOMContentLoaded', function() {
+    const clientesList = document.getElementById('clientes-list');
+    const clienteForm = document.getElementById('cliente-form');
+    const editModal = document.getElementById('edit-modal');
+    const closeButton = document.querySelector('.close-button');
+    const editForm = document.getElementById('edit-form');
+    let currentEditId = null;
 
-    // Manejo del formulario para agregar o editar clientes
-    $('#clienteForm').submit(function(e) {
-        e.preventDefault();
-        var nombre = $('#nombre').val();
-        var correo = $('#correo').val();
-        var direccion = $('#direccion').val();
-        var detallesMembresia = $('#detalles_membresia').val();  // Cambiar a 'detalles_membresia'
-    
-        $.ajax({
-            type: 'POST',
-            url: '/clientes/agregar/',
-            data: {
-                nombre: nombre,
-                correo: correo,
-                direccion: direccion,
-                detalles_membresia: detallesMembresia,  // Cambiar a 'detalles_membresia'
-                csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
-            },
-            success: function(response) {
-                $('#modalCliente').modal('hide');
-                cargarClientes(); 
-            }
-        });
-    });
-
-    // Cargar los clientes
+    // Cargar clientes
     function cargarClientes() {
-        $.ajax({
-            type: 'GET',
-            url: '/clientes',  
-            success: function(response) {
-                var clientes = response.clientes;  // Asegúrate de que esta respuesta esté bien formada
-                
-                $('#clientesTable tbody').empty();  // Limpiar la tabla antes de llenarla
-
-                // Llenar la tabla con los nuevos datos
-                clientes.forEach(function(cliente) {
-                    var fila = `<tr>
-                        <td>${cliente.nombre}</td>
-                        <td>${cliente.correo}</td>
-                        <td>${cliente.direccion}</td>
-                        <td>${cliente.membresia}</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm editarClienteBtn" data-id="${cliente.id}">Editar</button>
-                            <button class="btn btn-danger btn-sm eliminarClienteBtn" data-id="${cliente.id}">Eliminar</button>
-                        </td>
-                    </tr>`;
-                    $('#clientesTable tbody').append(fila);
+        fetch('/clientes/')
+            .then(response => response.json())
+            .then(data => {
+                clientesList.innerHTML = '';
+                data.clientes.forEach(cliente => {
+                    const clienteDiv = document.createElement('div');
+                    clienteDiv.innerHTML = `
+                        ${cliente.nombre} - ${cliente.correo} - ${cliente.direccion} - ${cliente.membresia}
+                        <button onclick="editarCliente(${cliente.id})">Editar</button>
+                        <button onclick="eliminarCliente(${cliente.id})">Eliminar</button>
+                    `;
+                    clientesList.appendChild(clienteDiv);
                 });
-            },
-            error: function(xhr, status, error) {
-                console.error('Error al cargar los clientes: ', status, error);
-            }
-        });
+            });
     }
 
-    // Eliminar cliente
-    $(document).on('click', '.eliminarClienteBtn', function() {
-        var clienteId = $(this).data('id');
-        
-        $.ajax({
-            type: 'POST',
-            url: '/clientes/eliminar/',  
-            data: {
-                id: clienteId,
-                csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
-            },
-            success: function(response) {
-                cargarClientes();  // Volver a cargar la lista de clientes
-            },
-            error: function(xhr, status, error) {
-                console.error('Error al eliminar cliente: ', status, error);
+    cargarClientes();
+
+    // Agregar cliente
+    clienteForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(clienteForm);
+        fetch('/clientes/agregar/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                cargarClientes();
+                clienteForm.reset();
             }
         });
     });
 
     // Editar cliente
-    $(document).on('click', '.editarClienteBtn', function() {
-        var clienteId = $(this).data('id');
-        
-        $.ajax({
-            type: 'GET',
-            url: '/clientes/' + clienteId + '/editar/',  
-            success: function(response) {
-                var cliente = response.cliente;  
-                $('#nombre').val(cliente.nombre);
-                $('#correo').val(cliente.correo);
-                $('#direccion').val(cliente.direccion);
-                $('#membresia').val(cliente.membresia);
-                
-                // Cambiar el título del modal
-                $('#modalClienteLabel').text('Editar Cliente');
-                
-                // Cambiar la acción del formulario
-                $('#clienteForm').off('submit').on('submit', function(e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: 'POST',
-                        url: '/clientes/' + clienteId + '/editar/',  
-                        data: {
-                            nombre: $('#nombre').val(),
-                            correo: $('#correo').val(),
-                            direccion: $('#direccion').val(),
-                            membresia: $('#membresia').val(),
-                            csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
-                        },
-                        success: function(response) {
-                            $('#modalCliente').modal('hide');
-                            cargarClientes();  // Volver a cargar la lista de clientes
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error al editar cliente: ', status, error);
-                        }
-                    });
-                });
-    
-                // Mostrar el modal
-                $('#modalCliente').modal('show');
-            },
-            error: function(xhr, status, error) {
-                console.error('Error al obtener los datos del cliente: ', status, error);
+    window.editarCliente = function(clienteId) {
+        currentEditId = clienteId;
+        fetch(`/clientes/${clienteId}/editar/`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('edit-nombre').value = data.nombre;
+                document.getElementById('edit-correo').value = data.correo;
+                document.getElementById('edit-direccion').value = data.direccion;
+                document.getElementById('edit-membresia').value = data.membresia;
+                editModal.style.display = 'block';
+            });
+    };
+
+    editForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(editForm);
+        fetch(`/clientes/${currentEditId}/editar/`, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                cargarClientes();
+                editModal.style.display = 'none';
             }
         });
     });
+
+    closeButton.addEventListener('click', function() {
+        editModal.style.display = 'none';
+    });
+
+    window.eliminarCliente = function(clienteId) {
+        if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
+            fetch(`/clientes/eliminar/${clienteId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    cargarClientes();
+                }
+            });
+        }
+    };
 });

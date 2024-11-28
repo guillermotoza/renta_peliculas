@@ -16,7 +16,6 @@ from django.contrib.messages import constants as mensajes_de_error
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -119,26 +118,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#envio de correo electronico
-EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST="smtp.office365.com"
-EMAIL_USE_TLS=True
-EMAIL_PORT=587
-EMAIL_HOST_USER="moises.ramirezr@fgr.org.mx"
-EMAIL_HOST_PASSWORD="Et050941-MOraR"
+# Envío de correo electrónico
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.office365.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "moises.ramirezr@fgr.org.mx"
+EMAIL_HOST_PASSWORD = "Et050941-MOraR"
 DEFAULT_FROM_EMAIL = 'moises.ramirezr@fgr.org.mx'
 
-#mostrar mensajes de error
-MESSAGE_TAGS={
-    mensajes_de_error.DEBUG:'debug',
-    mensajes_de_error.INFO:'info',
-    mensajes_de_error.SUCCESS:'success',
-    mensajes_de_error.WARNING:'warning',
-    mensajes_de_error.ERROR:'danger',
+# Mostrar mensajes de error
+MESSAGE_TAGS = {
+    mensajes_de_error.DEBUG: 'debug',
+    mensajes_de_error.INFO: 'info',
+    mensajes_de_error.SUCCESS: 'success',
+    mensajes_de_error.WARNING: 'warning',
+    mensajes_de_error.ERROR: 'danger',
 }

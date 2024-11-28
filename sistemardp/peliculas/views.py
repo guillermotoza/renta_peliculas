@@ -4,12 +4,7 @@ from peliculas.models import pelicula, CategoriaPel
 from django.contrib import messages
 from datetime import date, datetime
 
-'''
-urlpatterns = [
-    path('', views.busqueda_vuelos,name="busqueda_vuelos"),
-    path('buscar/',views.buscar,name="buscar"),
-]
-'''
+
 # Create your views here.
 
 def busqueda_peliculas(request):
@@ -41,7 +36,7 @@ def resultados_peliculas(request):
             messages.error(request, "la fecha de inicio de renta no puede ser anterior al dia actual")
 
         else:
-            pelicula_buscar = pelicula.objects.filter(titulo__icontains=pelicula, habitacionesDIS__gt=1)
+            pelicula_buscar = pelicula.objects.filter(titulo__icontains=pelicula)
             return render(request, "resultados_busqueda_peliculas.html",{"peliculas":pelicula_buscar })
 
     else:
