@@ -4,10 +4,9 @@
     "\\sistemardp",
     "\\sistemardp\\clientes",
     "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\static\\lobby",
     "\\sistemardp\\peliculas",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\clientes\\static",
+  "SelectedNode": "\\sistemardp\\sistemardp\\urls.py",
   "PreviewInSolutionExplorer": false
 }
