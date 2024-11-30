@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renta de Películas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Renta de Películas</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="mostrarSeccion('clientes')">Clientes</a></li>
+                <li><a href="#" onclick="mostrarSeccion('peliculas')">Películas</a></li>
+                <li><a href="#" onclick="mostrarSeccion('membresias')">Membresías</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="clientes" class="seccion">
+            <h2>Clientes</h2>
+            <div id="clientes-list"></div>
+            <form id="cliente-form">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="email" id="correo" placeholder="Correo" required>
+                <input type="text" id="direccion" placeholder="Dirección" required>
+                <input type="text" id="membresia" placeholder="Membresía" required>
+                <button type="submit">Agregar Cliente</button>
+            </form>
+        </section>
+        <section id="peliculas" class="seccion" style="display: none;">
+            <h2>Películas</h2>
+            <!-- Contenido de películas -->
+        </section>
+        <section id="membresias" class="seccion" style="display: none;">
+            <h2>Membresías</h2>
+            <!-- Contenido de membresías -->
+        </section>
+    </main>
+
+    <!-- Modal para editar cliente -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Editar Cliente</h2>
+            <form id="edit-form">
+                <input type="text" id="edit-nombre" placeholder="Nombre" required>
+                <input type="email" id="edit-correo" placeholder="Correo" required>
+                <input type="text" id="edit-direccion" placeholder="Dirección" required>
+                <input type="text" id="edit-membresia" placeholder="Membresía" required>
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>

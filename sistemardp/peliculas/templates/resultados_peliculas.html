@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<img src="{% static 'img/fondos/fondo_cafe.jpg' %}" alt="fondo" class="imagen2">
+
+<div>
+    <div>
+      
+        <b> <a href="{% url 'busqueda_peliculas' %}">Volver a buscar</a> </b>
+        <br>
+        <br>
+
+        {% if peliculas %}
+        <p>peliculas encontrados: {{peliculas|length}} coincidencia </p>
+
+        <table>
+            
+            {% for pelicula in peliculas %}
+            <tr>
+                <td>{{pelicula.titulo}}</td>
+
+                <td>{{pelicula.descripcion}}</td>
+
+                <td>{{pelicula.categorias}}</td>
+
+                <td>{{pelicula.precio}}</td>
+                <td>
+                    {% if pelicula.stock > 0 %}
+                    <h3> rentar ahora </h3>
+                    {% else %}
+                    <h3> Agotado </h3>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if pelicula.stock > 0 %}
+
+                    <a href="{% url 'busqueda_peliculas' %}"><input type="submit" value="rentar" class="activo"></a>
+                    {% else %}
+                    <input type="submit" value="Agotados" class="inactivo">
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        {% else %}
+        <p> no se encontraron resultados para {{peliculas}} </p>
+        {% endif %}
+
+        <br>
+    </div>
+</div>
+{% endblock %}

@@ -32,7 +32,7 @@ class pelicula(models.Model):
     categorias = models.ForeignKey(CategoriaPel, on_delete=models.CASCADE, null=False,blank=False, help_text="categorias de la pelicula")
     stock = models.PositiveIntegerField(help_text="cantidad disponible en stock")
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
-    director = models.CharField(max_length=25)
+    director = models.CharField(max_length=100, default='Desconocido')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
