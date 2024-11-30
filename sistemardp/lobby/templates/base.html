@@ -43,10 +43,10 @@
                             <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="{% url 'crear_post' %}"> BLOG </a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}"> <img src="{% static 'img/iconos/house.svg' %}" width="25px" height="25px">Home</a>
+                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}"> <img src="{% static 'img/iconos/house.svg' %}" width="25px" height="25px">INICIO</a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/vuelos/' %}active{% endif %}" href="{% url 'busqueda_vuelos' %}"><img src="{% static 'img/iconos/airplane.svg' %}" width="25px" height="25px">Vuelos</a>
+                            <a class="btn nav-link {% if request.path == '/peliculas/' %}active{% endif %}" href="{% url 'buscar_pelicula' %}"><img src="{% static 'img/iconos/airplane.svg' %}" width="25px" height="25px">PELICULAS</a>
                         </li>
                         <li class="nav-item  px-lg4">
                             <a class="btn nav-link {% if request.path == '/hoteles/' %}active{% endif %}" href="{% url 'busqueda_hoteles' %}"><img src="{% static 'img/iconos/hotel.svg' %}" width="25px" height="25px">Hoteles</a>

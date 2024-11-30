@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="frame2">
+        <form class="row g-3 text-center" method="post" action="">
+            {% csrf_token %}
+            {{form}}
+            <div class="btn-animate">
+            <button class="card-footer btn-signin" type="submit"  >REGISTRAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+ {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+<div class="container">
+    <div class="frame">
+        {% if messages %}
+            {%for mensaje in messages %}
+                <div class="text-danger text-center alert-warning">
+                    <h4>{{mensaje}}</h4>
+                </div>
+            {%endfor%}
+        {% endif%}
+        <div class="nav">
+            <ul class"links">
+                <li class="signin-active"><a class="btn">INGRESAR</a></li>
+            </ul>
+        </div>
+        <div ng-app ng-init="checked = false">
+            <form class="form-login" action="" method="post" name="form">
+                {% csrf_token %}
+                {{form}}
+                <br>
+                <li class="signin-active text-center">No tienes cuenta?<a class="btn" href="{% url 'autentificacion:autentificar' %}"> REGISTRATE</a></li>
+                <li><a href="{% url 'autentificacion:password_reset' %}"><b>Olvide mi Contraseña</b></a></li>
+
+                <div class="btn-animate">
+                    <button class="card-footer  btn-signin" type="submit" >ENTRAR</button>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+</div>
+
+{% endblock %}

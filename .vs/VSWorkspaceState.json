@@ -2,12 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
+    "\\sistemardp\\clientes",
     "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\templates",
     "\\sistemardp\\peliculas",
-    "\\sistemardp\\peliculas\\templates",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\peliculas\\templates\\resultados_peliculas.html",
+  "SelectedNode": "\\sistemardp\\sistemardp\\urls.py",
   "PreviewInSolutionExplorer": false
 }
