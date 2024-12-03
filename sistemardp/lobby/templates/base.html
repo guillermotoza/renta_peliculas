@@ -40,22 +40,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="{% url 'crear_post' %}"> BLOG </a>
+                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="#"> BLOG </a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}"> <img src="{% static 'img/iconos/house.svg' %}" width="25px" height="25px">INICIO</a>
+                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="#"> <img src="{% static 'img/iconos/house.svg' %}" width="25px" height="25px">INICIO</a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/peliculas/' %}active{% endif %}" href="{% url 'buscar_pelicula' %}"><img src="{% static 'img/iconos/airplane.svg' %}" width="25px" height="25px">PELICULAS</a>
+                            <a class="btn nav-link {% if request.path == '/peliculas/' %}active{% endif %}" href="#"><img src="{% static 'img/iconos/airplane.svg' %}" width="25px" height="25px">PELICULAS</a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/hoteles/' %}active{% endif %}" href="{% url 'busqueda_hoteles' %}"><img src="{% static 'img/iconos/hotel.svg' %}" width="25px" height="25px">Hoteles</a>
+                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#"><img src="{% static 'img/iconos/hotel.svg' %}" width="25px" height="25px">Membresia</a>
                         </li>
+           
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/tienda/' %}active{% endif %}" href="{% url 'tienda' %}"><img src="{% static 'img/iconos/gift.svg' %}" width="25px" height="25px">Tienda</a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="{% url 'contactanos' %}"><img src="{% static 'img/iconos/blog.svg' %}" width="25px" height="25px">contactanos</a>
+                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#"><img src="{% static 'img/iconos/blog.svg' %}" width="25px" height="25px">contactanos</a>
                         </li>
                         <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg4">
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -75,7 +73,7 @@
                                 <li><a class="dropdown-item" href="#">Cambiar Contrase�a</a></li>
 
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'autentificacion:cerrar_sesion' %}">Cerrar Sesion</a></li>
+                                <li><a class="dropdown-item" >Cerrar Sesion</a></li>
                             </ul>
                             {%else%}
 
@@ -87,8 +85,8 @@
 
                             <ul class="dropdown-menu" style="z-index:100;">
 
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="{% url 'autentificacion:iniciar_sesion' %}">INICIAR SESION</a></li>
-                                <li><a class="dropdown-item" href="{% url 'autentificacion:autentificar' %}">CREAR UNA CUENTA</a></li>
+                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">INICIAR SESION</a></li>
+                                <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
 
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>

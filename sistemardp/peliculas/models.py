@@ -29,10 +29,10 @@ class pelicula(models.Model):
     descuento = models.IntegerField(default=0, help_text='Descuento en porcentaje')
     publicacion = models.DateField(help_text="año en que se publico la pelicula")
     calificacion = models.IntegerField(help_text="calificacion de la pelicula")
-    categorias = models.ForeignKey(CategoriaPel, on_delete=models.CASCADE, null=False,blank=False, help_text="categorias de la pelicula")
+    categorias = models.ManyToManyField(CategoriaPel, help_text="categorias de la pelicula")
     stock = models.PositiveIntegerField(help_text="cantidad disponible en stock")
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
-    director = models.CharField(max_length=25)
+    director = models.CharField(max_length=25, default="Desconocido")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
