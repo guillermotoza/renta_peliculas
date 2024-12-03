@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const editForm = document.getElementById('edit-form');
     let currentEditId = null;
 
-    // Función para obtener el token CSRF
+   
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -25,11 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const csrftoken = getCookie('csrftoken');
 
     function csrfSafeMethod(method) {
-        
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
 
-    
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -70,9 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     clienteForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const formData = new FormData(clienteForm);
-        for (let [key, value] of formData.entries()) {
-            console.log(key, value);  // Verifica los datos enviados
-        }
         fetch('/clientes/agregar/', {
             method: 'POST',
             body: formData,
