@@ -25,6 +25,9 @@
                             <th>Precio</th>
                             <th>Calificación</th>
                             <th>imagen</th>
+                            <th>
+                                accion
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,9 +36,20 @@
                                 <td>{{ pelicula.titulo }}</td>
                                 <td>{{ pelicula.categorias.nombreCatPel }}</td>
                                 <td>{{ pelicula.stock }}</td>
-                                <td>{{ pelicula.precio_final }}</td>
+                                <td>{{ pelicula.precio_final }} /dia </td>
                                 <td>{{ pelicula.calificacion }}</td>
-                                <td>{{ pelicula.imagen }}</td>
+                                <td>
+                                    {% if producto.imagen %}
+                                    <img src="{{ MEDIA_ROOT }}{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top" style="height: 40%">
+                                    {% else %}
+                                    <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if pelicula.stock > 0 %}
+                                    <input type="submit" class="btn btn-sucess " value="RENTAR">
+                                    {% endif %}
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
