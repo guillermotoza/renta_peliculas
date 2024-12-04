@@ -7,3 +7,5 @@ urlpatterns = [
     path('clientes/eliminar/<int:cliente_id>/', views.eliminar_cliente, name='eliminar_cliente'),
     path('clientes/<int:cliente_id>/editar/', views.editar_cliente, name='editar_cliente'),
 ]
+
+

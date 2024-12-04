@@ -6,45 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const editForm = document.getElementById('edit-form');
     let currentEditId = null;
 
-   
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
+    // Función para mostrar la sección seleccionada
+    window.mostrarSeccion = function(seccionId) {
+        const secciones = document.querySelectorAll('.seccion');
+        secciones.forEach(seccion => {
+            seccion.style.display = 'none';
+        });
+        document.getElementById(seccionId).style.display = 'block';
+    };
 
-    const csrftoken = getCookie('csrftoken');
-
-    function csrfSafeMethod(method) {
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    });
+    // Mostrar la sección de clientes por defecto
+    mostrarSeccion('clientes');
 
     // Cargar clientes
     function cargarClientes() {
         fetch('/clientes/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 clientesList.innerHTML = '';
                 data.clientes.forEach(cliente => {
@@ -56,9 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                     clientesList.appendChild(clienteDiv);
                 });
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
             });
     }
 
@@ -72,18 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData,
             headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRFToken': csrftoken  
+                'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(errorData => {
-                    throw new Error(errorData.error || 'Error desconocido');
-                });
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             if (data.error) {
                 alert(data.error);
@@ -91,10 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 cargarClientes();
                 clienteForm.reset();
             }
-        })
-        .catch(error => {
-            console.error('Error al agregar cliente:', error);
-            alert('Hubo un problema al agregar el cliente. Por favor, intenta nuevamente.');
         });
     });
 
@@ -119,8 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData,
             headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRFToken': csrftoken  
+                'X-Requested-With': 'XMLHttpRequest'
             }
         })
         .then(response => response.json())
@@ -138,13 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
         editModal.style.display = 'none';
     });
 
-    window.eliminarCliente = function(clienteId) {
+     // Eliminar cliente
+     window.eliminarCliente = function(clienteId) {
         if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
             fetch(`/clientes/eliminar/${clienteId}/`, {
                 method: 'POST',
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': csrftoken  
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
             })
             .then(response => response.json())
