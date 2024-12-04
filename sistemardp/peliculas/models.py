@@ -39,12 +39,11 @@ class pelicula(models.Model):
     categorias = models.ManyToManyField(CategoriaPel, help_text="categorias de la pelicula")
     stock = models.PositiveIntegerField(help_text="cantidad disponible en stock")
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
-<<<<<<< HEAD
+
     director = models.CharField(max_length=100, default='Desconocido')
-=======
-    director = models.CharField(max_length=25, default="Desconocido")
+
     trailer = models.TextField(max_length=1000,default="trailer no disponible" ,help_text="codigo de insertar de youtube",validators=[validar_trailer])
->>>>>>> 71ece2a1699d7f2dbc3610f2b59ae902a07f7de7
+
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
