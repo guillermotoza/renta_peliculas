@@ -5,11 +5,11 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-def upload_to(instance, filename):
-    return os.path.join('peliculas', datetime.now().strftime('%Y/%m/%d'), filename)
+
 
 # Create your models here.
 class CategoriaPel(models.Model):
+    id = models.AutoField(primary_key=True)
     nombreCatPel = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -23,8 +23,9 @@ class CategoriaPel(models.Model):
 
 
 class pelicula(models.Model):
+    id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=25, help_text="nombre de la pelicula")
-    imagen = models.ImageField(upload_to=upload_to, null=True, blank=True, help_text='Imagen del producto frontal')
+    imagen = models.ImageField(upload_to="peliculas", null=True, blank=True, help_text='Imagen del poster de pelicula')
     precio = models.DecimalField(max_digits=5, decimal_places=2, help_text='Precio de la pelicula')
     descuento = models.IntegerField(default=0, help_text='Descuento en porcentaje')
     publicacion = models.DateField(help_text="año en que se publico la pelicula")
@@ -33,6 +34,7 @@ class pelicula(models.Model):
     stock = models.PositiveIntegerField(help_text="cantidad disponible en stock")
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
     director = models.CharField(max_length=25, default="Desconocido")
+    trailer = models.TextField(max_length=1000,default="trailer no disponible" ,help_text="codigo de insertar de youtube")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
