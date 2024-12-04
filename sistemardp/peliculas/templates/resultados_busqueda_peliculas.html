@@ -12,6 +12,9 @@
     <div class="container">
         <header class="py-4">
             <h1 class="text-center">Resultados de Búsqueda</h1>
+            <center>
+                <b> <a href="{% url 'busqueda_peliculas' %}">Volver a buscar</a> </b>
+            </center>
         </header>
 
         <section class="my-5" id="resultados">
@@ -25,6 +28,7 @@
                             <th>Precio</th>
                             <th>Calificación</th>
                             <th>imagen</th>
+                            <td> Trailer </td>
                             <th>
                                 accion
                             </th>
@@ -32,25 +36,40 @@
                     </thead>
                     <tbody>
                         {% for pelicula in peliculas %}
-                            <tr>
-                                <td>{{ pelicula.titulo }}</td>
-                                <td>{{ pelicula.categorias.nombreCatPel }}</td>
-                                <td>{{ pelicula.stock }}</td>
-                                <td>{{ pelicula.precio_final }} /dia </td>
-                                <td>{{ pelicula.calificacion }}</td>
-                                <td>
-                                    {% if producto.imagen %}
-                                    <img src="{{ MEDIA_ROOT }}{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top" style="height: 40%">
-                                    {% else %}
-                                    <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    {% if pelicula.stock > 0 %}
-                                    <input type="submit" class="btn btn-sucess " value="RENTAR">
-                                    {% endif %}
-                                </td>
-                            </tr>
+                        <tr>
+                            <td> <a href="{% url 'pelicula_id' pelicula.id %}"> {{ pelicula.titulo }} </a></td>
+                            <td>
+                                {% for categoria in pelicula.categorias.all %}
+                                {{ categoria.nombreCatPel }}
+                                {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>{{ pelicula.stock }}</td>
+                            <td>{{ pelicula.precio_final }} /dia </td>
+                            <td>{{ pelicula.calificacion }}</td>
+
+                            <td>
+                                {% if pelicula.imagen %}
+                                <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}"  class="card-img-top">
+                                {% else %}
+                                <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if pelicula.trailer %}
+                                {{ pelicula.trailer|safe }}
+                                {% else %}
+                                <p>Trailer no disponible</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if pelicula.stock > 0 %}
+                                <input type="submit" class="btn btn-outline-success " value="RENTAR">
+                                {% else %}
+                                <input type="submit" class="btn btn-disabled disabled " value="sin stock">
+                                {% endif %}
+                            </td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>

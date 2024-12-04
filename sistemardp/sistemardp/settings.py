@@ -80,6 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        
     }
 }
 
@@ -120,7 +121,7 @@ USE_TZ = True
 
 # Ruta de acceso para archivos estáticos durante el desarrollo
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "sistemardp\\static"),
 ]
 
 # Ruta de acceso para la recopilación de archivos estáticos de cada aplicacion
@@ -128,6 +129,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # URL base para archivos estáticos
 STATIC_URL = '/static/'
+
+#direccion de archivos multimedia que inserta django/admin
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

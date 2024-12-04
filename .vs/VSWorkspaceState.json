@@ -4,10 +4,13 @@
     "\\sistemardp",
     "\\sistemardp\\clientes",
     "\\sistemardp\\lobby",
+    "\\sistemardp\\media",
+    "\\sistemardp\\media\\peliculas",
     "\\sistemardp\\peliculas",
     "\\sistemardp\\peliculas\\templates",
+    "\\sistemardp\\peliculas\\__pycache__",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
+  "SelectedNode": "\\sistemardp\\peliculas\\templates\\detalles_pelicula.html",
   "PreviewInSolutionExplorer": false
 }
