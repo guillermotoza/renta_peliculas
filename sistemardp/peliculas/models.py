@@ -31,6 +31,7 @@ class pelicula(models.Model):
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=25, help_text="nombre de la pelicula")
     imagen = models.ImageField(upload_to="peliculas", null=True, blank=True, help_text='Imagen del poster de pelicula')
+    banner = models.ImageField(upload_to="peliculas/banners", null=True, blank=True, help_text=" imagen de fondo para la pagina de detalles de la pelicula" )
     precio = models.DecimalField(max_digits=5, decimal_places=2, help_text='Precio de la pelicula')
     descuento = models.IntegerField(default=0, help_text='Descuento en porcentaje')
     publicacion = models.DateField(help_text="año en que se publico la pelicula")
