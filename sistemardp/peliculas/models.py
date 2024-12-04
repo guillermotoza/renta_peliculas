@@ -2,10 +2,15 @@ from django.db import models
 import os
 from datetime import datetime
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
 
+#validar que la insercion del video sea de youtube
+def validar_trailer(value):
+    if '<iframe' not in value or 'youtube.com' not in value:
+        raise ValidationError("El código debe ser un iframe válido de YouTube.")
 
 # Create your models here.
 class CategoriaPel(models.Model):
@@ -34,7 +39,7 @@ class pelicula(models.Model):
     stock = models.PositiveIntegerField(help_text="cantidad disponible en stock")
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
     director = models.CharField(max_length=25, default="Desconocido")
-    trailer = models.TextField(max_length=1000,default="trailer no disponible" ,help_text="codigo de insertar de youtube")
+    trailer = models.TextField(max_length=1000,default="trailer no disponible" ,help_text="codigo de insertar de youtube",validators=[validar_trailer])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

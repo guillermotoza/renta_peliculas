@@ -42,3 +42,11 @@ def resultados_peliculas(request):
     else:
         messages.error(request, "No has introducido nada")
         return redirect('busqueda_peliculas')  # Redirige a la p�gina de b�squeda
+
+
+
+def pelicula_detalles(request, pelicula_id):
+    filtro_pelicula = pelicula.objects.get(id=pelicula_id)
+    resultado = pelicula.objects.filter(id=filtro_pelicula.id)
+    return render(request, "detalles_pelicula.html", {"query": filtro_pelicula,"pelicula":resultado})
+

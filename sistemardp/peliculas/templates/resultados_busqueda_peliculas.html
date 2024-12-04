@@ -12,6 +12,9 @@
     <div class="container">
         <header class="py-4">
             <h1 class="text-center">Resultados de Búsqueda</h1>
+            <center>
+                <b> <a href="{% url 'busqueda_peliculas' %}">Volver a buscar</a> </b>
+            </center>
         </header>
 
         <section class="my-5" id="resultados">
@@ -34,7 +37,7 @@
                     <tbody>
                         {% for pelicula in peliculas %}
                         <tr>
-                            <td>{{ pelicula.titulo }}</td>
+                            <td> <a href="{% url 'pelicula_id' pelicula.id %}"> {{ pelicula.titulo }} </a></td>
                             <td>
                                 {% for categoria in pelicula.categorias.all %}
                                 {{ categoria.nombreCatPel }}
@@ -47,7 +50,7 @@
 
                             <td>
                                 {% if pelicula.imagen %}
-                                <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top" style="height: 40%">
+                                <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}"  class="card-img-top">
                                 {% else %}
                                 <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
                                 {% endif %}
