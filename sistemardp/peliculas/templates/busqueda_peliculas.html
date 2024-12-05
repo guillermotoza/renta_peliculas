@@ -12,7 +12,7 @@
 <body>
     
     {% if messages %}
-        <div class="alert alert-danger" role="alert" onload="deshabilitaRetroceso()">
+        <div class="alert alert-danger" role="alert">
             <ul class="messages">
                 {% for message in messages %}
                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>

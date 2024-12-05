@@ -2,15 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
-    "\\sistemardp\\clientes",
     "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\migrations",
+    "\\sistemardp\\lobby\\static",
+    "\\sistemardp\\lobby\\static\\js",
     "\\sistemardp\\media",
     "\\sistemardp\\media\\peliculas",
+    "\\sistemardp\\media\\peliculas\\banners",
     "\\sistemardp\\peliculas",
     "\\sistemardp\\peliculas\\templates",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\lobby\\migrations\\__init__.py",
+  "SelectedNode": "\\sistemardp\\sistemardp\\urls.py",
   "PreviewInSolutionExplorer": false
 }
