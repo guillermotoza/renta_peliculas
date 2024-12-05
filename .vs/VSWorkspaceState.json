@@ -2,16 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
+    "\\sistemardp\\clientes",
+    "\\sistemardp\\clientes\\static",
+    "\\sistemardp\\clientes\\static\\clientes",
+    "\\sistemardp\\clientes\\templates",
+    "\\sistemardp\\clientes\\templates\\clientes",
     "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\static",
-    "\\sistemardp\\lobby\\static\\js",
-    "\\sistemardp\\media",
-    "\\sistemardp\\media\\peliculas",
-    "\\sistemardp\\media\\peliculas\\banners",
-    "\\sistemardp\\peliculas",
-    "\\sistemardp\\peliculas\\templates",
+    "\\sistemardp\\lobby\\templates",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\sistemardp\\urls.py",
+  "SelectedNode": "\\sistemardp\\clientes\\templates\\clientes\\login.html",
   "PreviewInSolutionExplorer": false
 }

@@ -10,7 +10,7 @@
     <!-- CSS personalizados -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/gestion.css' %}" rel="stylesheet">
-    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'clientes/css/login.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
@@ -43,17 +43,17 @@
                             <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="#"> BLOG </a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="#"> <img src="{% static 'img/iconos/house.svg' %}" width="25px" height="25px">INICIO</a>
+                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="#"> INICIO</a>
+                        </li>
+                        <li class="nav-item  px-lg4 {% if request.path == '/rentar/' %} active {% endif %}">
+                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/peliculas/' %}active{% endif %}" href="#"><img src="{% static 'img/iconos/airplane.svg' %}" width="25px" height="25px">PELICULAS</a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#"><img src="{% static 'img/iconos/hotel.svg' %}" width="25px" height="25px">Membresia</a>
+                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#">Membresia</a>
                         </li>
            
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#"><img src="{% static 'img/iconos/blog.svg' %}" width="25px" height="25px">contactanos</a>
+                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">contactanos</a>
                         </li>
                         <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg4">
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -105,7 +105,7 @@
                     <a aria-current="page" href="https://www.instagram.com/"> <img src="{% static 'img/iconos/instagram.svg' %}" width="25px" height="25px"></a>
 
 
-                    <a aria-current="page" href="{% url 'crear_post' %}"> <img src="{% static 'img/iconos/email.svg' %}" width="25px" height="25px"></a>
+                 
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -118,7 +118,7 @@
                                 <div class="modal-body">
                                     <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
                                     <hr style="color:red;">
-                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a href="{% url 'contactanos' %}"> CONTACTO </a></h3>
+                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a > CONTACTO </a></h3>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>

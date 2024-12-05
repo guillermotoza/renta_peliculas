@@ -1,90 +1,83 @@
+{% extends "base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de pelicula</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <div class="container">
-        <header class="py-4">
-            <h1 class="text-center">Detalles de {{ pelicula.titulo }}</h1>
-            <center>
-                <b> <a href="{% url 'busqueda_peliculas' %}">Volver a buscar</a> </b>
-            </center>
-        </header>
 
-        <section class="my-5" id="resultados">
-            {% if pelicula %}
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Categoria</th>
-                        <th>Disponibilidad</th>
-                        <th>Precio</th>
-                        <th>Calificacion</th>
-                        <th>imagen</th>
-                        <td> Trailer </td>
-                        <th>
-                            accion
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> {{ pelicula.titulo }} </a></td>
-                        <td>
-                            {% for categoria in pelicula.categorias.all %}
-                            {{ categoria.nombreCatPel }}
-                            {% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td>{{ pelicula.stock }}</td>
-                        <td>{{ pelicula.precio_final }} /dia </td>
-                        <td>{{ pelicula.calificacion }}</td>
+{% block content %}
+<div class="container">
+    <header class="py-4">
+        <h1 class="text-center">Detalles de {{ pelicula.titulo }}</h1>
+        <center>
+            <b> <a href="{% url 'busqueda_peliculas' %}">Volver a buscar</a> </b>
+        </center>
+    </header>
 
-                        <td>
-                            {% if pelicula.imagen %}
-                            <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top">
-                            {% else %}
-                            <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if pelicula.trailer %}
-                            {{ pelicula.trailer|safe }}
-                            {% else %}
-                            <p>Trailer no disponible</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if pelicula.stock > 0 %}
-                            <input type="submit" class="btn btn-outline-success " value="RENTAR">
-                            {% else %}
-                            <input type="submit" class="btn btn-disabled disabled " value="sin stock">
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th colspan="8"> descripcion </th>
+    <section class="my-5" id="resultados">
+        {% if pelicula %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Categoria</th>
+                    <th>Disponibilidad</th>
+                    <th>Precio</th>
+                    <th>Calificacion</th>
+                    <th>imagen</th>
+                    <td> Trailer </td>
+                    <th>
+                        accion
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> {{ pelicula.titulo }} </a></td>
+                    <td>
+                        {% for categoria in pelicula.categorias.all %}
+                        {{ categoria.nombreCatPel }}
+                        {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ pelicula.stock }}</td>
+                    <td>{{ pelicula.precio_final }} /dia </td>
+                    <td>{{ pelicula.calificacion }}</td>
 
-                    </tr>
-                    <tr>
-                        <td colspan="8">{{pelicula.descripcion}}</td> 
-                    </tr>
-                </tbody>
-            </table>
-            {% else %}
-            <p>No se encontraron pel�culas que coincidan con tu b�squeda.</p>
-            {% endif %}
-        </section>
-    </div>
+                    <td>
+                        {% if pelicula.imagen %}
+                        <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top">
+                        {% else %}
+                        <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if pelicula.trailer %}
+                        {{ pelicula.trailer|safe }}
+                        {% else %}
+                        <p>Trailer no disponible</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if pelicula.stock > 0 %}
+                        <input type="submit" class="btn btn-outline-success " value="RENTAR">
+                        {% else %}
+                        <input type="submit" class="btn btn-disabled disabled " value="sin stock">
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="8"> descripcion </th>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
-</html>
+                </tr>
+                <tr>
+                    <td colspan="8">{{pelicula.descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% else %}
+        <p>No se encontraron pel�culas que coincidan con tu b�squeda.</p>
+        {% endif %}
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
