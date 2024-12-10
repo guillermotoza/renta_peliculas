@@ -51,15 +51,11 @@
                         <li class="nav-item  px-lg4">
                             <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#">Membresia</a>
                         </li>
-           
+
                         <li class="nav-item  px-lg4">
                             <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">contactanos</a>
                         </li>
-                        <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg4">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <img src="{% static 'img/iconos/telephone.svg' %}" width="25px" height="25px">+52 55 987 654 32
-                            </button>
-                        </li>
+                        
                         <div class="dropdown" style="z-index:100;">
                             {% if user.is_authenticated %}
 
@@ -73,7 +69,7 @@
                                 <li><a class="dropdown-item" href="#">Cambiar Contrase�a</a></li>
 
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" >Cerrar Sesion</a></li>
+                                <li><a class="dropdown-item">Cerrar Sesion</a></li>
                             </ul>
                             {%else%}
 
@@ -87,7 +83,6 @@
 
                                 <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">INICIAR SESION</a></li>
                                 <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
-
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
@@ -96,16 +91,41 @@
 
 
                     </ul>
-                    <a aria-current="page" href="https://www.facebook.com/"> <img src="{% static 'img/iconos/facebook.svg' %}" width="25px" height="25px"></a>
+
+                    <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
+                        <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search" id="pelicula" name="pelicula" required>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
 
 
-                    <a aria-current="page" href="https://x.com/?lang=es"> <img src="{% static 'img/iconos/twitter.svg' %}" width="25px" height="25px"></a>
 
 
-                    <a aria-current="page" href="https://www.instagram.com/"> <img src="{% static 'img/iconos/instagram.svg' %}" width="25px" height="25px"></a>
 
 
-                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -118,7 +138,7 @@
                                 <div class="modal-body">
                                     <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
                                     <hr style="color:red;">
-                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a > CONTACTO </a></h3>
+                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>

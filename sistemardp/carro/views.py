@@ -4,7 +4,7 @@ from django.contrib import messages
 from carro.carro import Carro
 from django.views import View
 from peliculas.models import pelicula
-from sistemardp import carro, peliculas
+
 
 # Create your views here.
 

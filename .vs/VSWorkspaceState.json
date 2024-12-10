@@ -8,9 +8,11 @@
     "\\sistemardp\\clientes\\templates\\clientes",
     "\\sistemardp\\lobby",
     "\\sistemardp\\lobby\\templates",
+    "\\sistemardp\\pedidos",
     "\\sistemardp\\peliculas",
+    "\\sistemardp\\peliculas\\templates",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\carro\\urls.py",
+  "SelectedNode": "\\sistemardp\\sistemardp\\settings.py",
   "PreviewInSolutionExplorer": false
 }
