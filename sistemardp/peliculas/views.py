@@ -44,7 +44,6 @@ def resultados_peliculas(request):
         return redirect('busqueda_peliculas')  # Redirige
 
 
-
 def pelicula_detalles(request, pelicula_id):
     filtro_pelicula = pelicula.objects.get(id=pelicula_id)
     return render(request, "detalles_pelicula.html", {"pelicula": filtro_pelicula})
