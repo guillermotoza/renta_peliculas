@@ -32,9 +32,127 @@
 </head>
 <body onload="deshabilitaRetroceso()">
     <!--INICIO DEL ENCABEZADO-->
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Renta de Películas</a>
+=======
+    <div class="menu" style="text-align: center; justify-content:center;">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item  px-lg4">
+                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="#"> BLOG </a>
+                        </li>
+                        <li class="nav-item  px-lg4">
+                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="#"> INICIO</a>
+                        </li>
+                        <li class="nav-item  px-lg4 {% if request.path == '/rentar/' %} active {% endif %}">
+                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
+                        </li>
+                        <li class="nav-item  px-lg4">
+                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#">Membresia</a>
+                        </li>
+
+                        <li class="nav-item  px-lg4">
+                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">contactanos</a>
+                        </li>
+                        
+                        <div class="dropdown" style="z-index:100;">
+                            {% if user.is_authenticated %}
+
+                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hola {{ user.username }}
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">Actualizar Datos</a></li>
+                                <li><a class="dropdown-item" href="#">Cambiar Contrase�a</a></li>
+
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item">Cerrar Sesion</a></li>
+                            </ul>
+                            {%else%}
+
+                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                PERFIL
+                            </a>
+
+
+
+                            <ul class="dropdown-menu" style="z-index:100;">
+
+                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">INICIAR SESION</a></li>
+                                <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                            {% endif %}
+                        </div>
+
+
+                    </ul>
+
+                    <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
+                        <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search" id="pelicula" name="pelicula" required>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Linea de Ayuda</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
+                                    <hr style="color:red;">
+                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+>>>>>>> a4f6d002ee9af8c9765a610555f7b8c7680f4004
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
