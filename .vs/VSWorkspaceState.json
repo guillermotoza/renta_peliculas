@@ -3,16 +3,14 @@
     "",
     "\\sistemardp",
     "\\sistemardp\\carro",
-    "\\sistemardp\\clientes",
-    "\\sistemardp\\clientes\\templates",
-    "\\sistemardp\\clientes\\templates\\clientes",
-    "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\templates",
     "\\sistemardp\\pedidos",
+    "\\sistemardp\\pedidos\\templates",
+    "\\sistemardp\\pedidos\\templates\\email",
     "\\sistemardp\\peliculas",
     "\\sistemardp\\peliculas\\templates",
+    "\\sistemardp\\peliculas\\templates\\carro",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\sistemardp\\settings.py",
+  "SelectedNode": "\\sistemardp\\peliculas\\templates\\carro\\widget.html",
   "PreviewInSolutionExplorer": false
 }
