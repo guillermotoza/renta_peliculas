@@ -70,11 +70,11 @@
                 // Itera sobre cada elemento de línea
                 lineasElement.forEach(function(linea) {
                     var producto = linea.querySelector("b").textContent.split(': ')[1];
-                    var productoId = linea.querySelector(".producto-id").textContent;
+                    var productoId = linea.querySelector(".pelicula-id").textContent;
                     var cantidad = linea.querySelector(".dias").textContent;
                     var precio = linea.querySelector(".precio").textContent;
 
-                    rows.push([producto, productoId, cantidad, precio]);
+                    rows.push([pelicula, peliculaId, dias, precio]);
                 });
 
                 // Definir el contenido del documento
@@ -88,7 +88,7 @@
                                 headerRows: 1,
                                 widths: ['*', '*', '*', '*'],
                                 body: [
-                                    [{ text: 'Producto', style: 'tableHeader', alignment: 'center' }, { text: 'ID Producto', style: 'tableHeader', alignment: 'center' }, { text: 'dias', style: 'tableHeader', alignment: 'center' }, { text: 'Precio', style: 'tableHeader', alignment: 'center' }],
+                                    [{ text: 'Producto', style: 'tableHeader', alignment: 'center' }, { text: 'ID Pelicula', style: 'tableHeader', alignment: 'center' }, { text: 'dias', style: 'tableHeader', alignment: 'center' }, { text: 'Precio', style: 'tableHeader', alignment: 'center' }],
                                     ...rows
                                 ]
                             },
