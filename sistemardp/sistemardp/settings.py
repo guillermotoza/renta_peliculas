@@ -124,9 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # Ruta de acceso para archivos estáticos durante el desarrollo
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "sistemardp\\static"),
-]
+static_dir = os.path.join(BASE_DIR, "sistemardp", "static")
 
 # Ruta de acceso para la recopilación de archivos estáticos de cada aplicacion
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

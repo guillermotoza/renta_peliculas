@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    {% if user.is_authenticated %}
+    {% endif %}
     {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -31,6 +32,11 @@
 </head>
 <body onload="deshabilitaRetroceso()">
     <!--INICIO DEL ENCABEZADO-->
+<<<<<<< HEAD
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Renta de Películas</a>
+=======
     <div class="menu" style="text-align: center; justify-content:center;">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
@@ -146,12 +152,60 @@
                             </div>
                         </div>
                     </div>
+>>>>>>> a4f6d002ee9af8c9765a610555f7b8c7680f4004
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menú
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Inicio</a></li>
+                            <li><a class="dropdown-item" href="{% url 'busqueda_peliculas' %}">Películas</a></li>
+                            <li><a class="dropdown-item" href="#">Membresía</a></li>
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
+                <!-- Usuario activo -->
+                <div class="ms-auto d-flex align-items-center">
+                    <span class="text-light me-3">Hola, {{ user.username }}</span>
+                    <a href="#" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
                 </div>
-
             </div>
-        </nav>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Linea de Ayuda</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
+                    <hr style="color:red;">
+                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    </div>
+    </nav>
 
 
     </div>
@@ -233,6 +287,7 @@
     <!--FIN DEL PIE DE PAGINA-->
     <script src="{% static 'js\main.js' %}"></script>
     <script src="{% static 'js\validar.js' %}"></script>
+
 
 </body>
 </html>
