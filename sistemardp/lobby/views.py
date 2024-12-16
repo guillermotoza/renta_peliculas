@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Cliente, Pelicula
 from django.shortcuts import render
+from carro.carro import Carro
+
 
 def lobby(request):
     carro=Carro(request)
