@@ -8,10 +8,12 @@ from datetime import date, datetime
 # Create your views here.
 
 def busqueda_peliculas(request):
+    carro=Carro(request)
     return render(request, "busqueda_peliculas.html")
 
 
 def resultados_peliculas(request):
+    carro=Carro(request)
     if request.GET.get("pelicula"):
         pelicula_nombre = request.GET.get("pelicula")
         fecha_inicio_str = request.GET.get("fecha_inicio")
