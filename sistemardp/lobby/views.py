@@ -4,6 +4,7 @@ from .models import Cliente, Pelicula
 from django.shortcuts import render
 
 def lobby(request):
+    carro=Carro(request)
     return render(request, 'lobby.html')
 
 # Vistas para clientes
