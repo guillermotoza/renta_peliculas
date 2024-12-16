@@ -3,6 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from peliculas.models import pelicula, CategoriaPel
 from django.contrib import messages
 from datetime import date, datetime
+from carro.carro import Carro
+
 
 
 # Create your views here.
