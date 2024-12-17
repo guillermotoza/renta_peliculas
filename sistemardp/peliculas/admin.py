@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from peliculas.models import pelicula, CategoriaPel
+from peliculas.models import Pelicula, CategoriaPel
 # Register your models here.
 
 class gestion_peliculas(admin.ModelAdmin):
@@ -10,5 +10,5 @@ class gestion_peliculas(admin.ModelAdmin):
 class categoria_admin(admin.ModelAdmin):
     readonly_fields=('created','updated')
 
-admin.site.register(pelicula,gestion_peliculas)
+admin.site.register(Pelicula,gestion_peliculas)
 admin.site.register(CategoriaPel)

@@ -27,7 +27,7 @@ class CategoriaPel(models.Model):
         return self.nombreCatPel
 
 
-class pelicula(models.Model):
+class Pelicula(models.Model):
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=25, help_text="nombre de la pelicula")
     imagen = models.ImageField(upload_to="peliculas", null=True, blank=True, help_text='Imagen del poster de pelicula')

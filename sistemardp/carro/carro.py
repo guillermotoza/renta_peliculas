@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from peliculas.models import pelicula
+from peliculas.models import Pelicula
 from decimal import Decimal, ROUND_HALF_UP
 
 
@@ -18,18 +18,18 @@ class Carro:
             self.carro[pelicula.id]={
                 "pelicula_id":pelicula.id,
                 "titulo":pelicula.titulo,
-                "precio":pelicula.precio,
+                "precio":float(pelicula.precio),
                 "dias":1, #dias de renta de la pelicula
                 "imagen":pelicula.imagen.url,
-                "descuento":pelicula.descuento,
-                "precio_final":pelicula.precio_final,
+                "descuento":float(pelicula.descuento),
+                "precio_final":float(pelicula.precio_final),
                 "stock":pelicula.stock,
                 }
         else:
             for key, value in self.carro.items():
                 if key == str(pelicula.id):
                     value["dias"] = value["dias"]+1
-                    value["precio"] = str(Decimal(value["precio"])+ pelicula.precio_final)
+                    value["precio"] = round(float(value["precio"])+ float(pelicula.precio_final),2)
                 break
 
         self.guardar_carro()
@@ -48,7 +48,7 @@ class Carro:
         for key, value in self.carro.items():
             if key == str(pelicula.id):
                 value["dias"]=value["dias"]-1
-                value["precio"]= str(Decimal(value["precio"]) - pelicula.precio_final)
+                value["precio"]= round(float(value["precio"]) - float(pelicula.precio_final),2)
             if value["dias"] < 1:
                 self.eliminar(pelicula)
 

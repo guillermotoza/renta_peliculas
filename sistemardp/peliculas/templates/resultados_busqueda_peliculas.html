@@ -3,94 +3,99 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-    <div class="col-lg-8">
-        
+<div>
+
+
     <header class="py-4">
         <h1 class="text-center">Resultados de Búsqueda</h1>
         <center>
             <b> <a href="{% url 'busqueda_peliculas' %}">Volver a buscar</a> </b>
         </center>
     </header>
+    <div id="mensaje-carro"></div> <!-- Aquí mostraremos los mensajes -->
+    <div class="row">
+        <div class="col-lg-8">
 
-    <section class="my-5" id="resultados">
-        
-        {% if peliculas %}
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Categoría</th>
-                    <th>Disponibilidad</th>
-                    <th>Precio</th>
-                    <th>Calificación</th>
-                    <th>imagen</th>
-                    <td>Trailer</td>
-                    <th>
-                        accion
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for pelicula in peliculas %}
-                <tr>
-                    <td> <a href="{% url 'pelicula_id' pelicula.id %}"> {{ pelicula.titulo }} </a></td>
-                    <td>
-                        {% for categoria in pelicula.categorias.all %}
-                        {{ categoria.nombreCatPel }}
-                        {% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td>{{ pelicula.stock }}</td>
-                    <td>{{ pelicula.precio_final }} /dia </td>
-                    <td>{{ pelicula.calificacion }}</td>
 
-                    <td>
-                        {% if pelicula.imagen %}
-                        <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top">
-                        {% else %}
-                        <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible" class="card-img-top" style="height: 40%">
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if pelicula.trailer %}
-                        {{ pelicula.trailer|safe }}
-                        {% else %}
-                        <p>Trailer no disponible</p>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if pelicula.stock > 0 %}
-                        <input type="submit" class="btn btn-outline-success " value="RENTAR">
-                        {% else %}
-                        <input type="submit" class="btn btn-disabled disabled " value="sin stock">
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <p>No se encontraron películas que coincidan con tu búsqueda.</p>
-        {% endif %}
-    </section>
-    </div>
-    <div class="col-lg-4"> <!--carro de compra-->
-        <div class="sticky-top" style="float:right; width:100%; ">
+            {% if peliculas %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Categoría</th>
+                        <th>Disponibilidad</th>
+                        <th>Precio</th>
+                        <th>Calificación</th>
+                        <th>imagen</th>
+                        <td>Trailer</td>
+                        <th>
+                            accion
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pelicula in peliculas %}
+                    <tr>
+                        <td> <a href="{% url 'pelicula_id' pelicula.id %}"> {{ pelicula.titulo }} </a></td>
+                        <td>
+                            {% for categoria in pelicula.categorias.all %}
+                            {{ categoria.nombreCatPel }}
+                            {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>{{ pelicula.stock }}</td>
+                        <td>{{ pelicula.precio_final }} /dia </td>
+                        <td>{{ pelicula.calificacion }}</td>
+
+                        <td>
+                            {% if pelicula.imagen %}
+                            <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="card-img-top">
+                            {% else %}
+                            <img src="{% static 'path/to/default-image.jpg' %}" alt="Imagen no disponible"
+                                class="card-img-top" style="height: 40%">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if pelicula.trailer %}
+                            {{ pelicula.trailer|safe }}
+                            {% else %}
+                            <p>Trailer no disponible</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form method="post" action="{% url 'carro:agregar' pelicula.id %}">
+                                {% csrf_token %}
+                                {% if pelicula.stock > 0 %}
+                                <input type="submit" class="btn btn-outline-success " value="RENTAR">
+                                {% else %}
+                                <input type="submit" class="btn btn-disabled disabled " value="sin stock">
+                                {% endif %}
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No se encontraron películas que coincidan con tu búsqueda.</p>
+            {% endif %}
+
+        </div>
+        <div class="col-lg-3" style="float: right;"> <!--carro de compra-->
+            <div class="sticky-top">
                 {% if request.user.is_authenticated %}
 
-                    {% include "carro/widget.html" %}
+                {% include "carro/widget.html" %}
 
                 {% else %}
 
-                    <div class="alert alert-danger text-center" style="width:200%;">
-                        Inicia sesión para realizar tu pedido
-                    </div> 
+                <div class="alert alert-danger text-center" style="width:200%;">
+                    Inicia sesión para realizar tu pedido
+                </div>
 
                 {% endif %}
             </div>
-    </div>
+        </div>
     </div>
 </div>
 

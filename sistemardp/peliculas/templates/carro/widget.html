@@ -16,16 +16,7 @@
 <body onload="deshabilitaRetroceso()">
     <table class="table table-bordered" style="color: rgb(22, 21, 21);" onload="deshabilitaRetroceso()">
         <thead onload="deshabilitaRetroceso()">
-            <tr>
-                <td colspan="5">
-                    <h2>Categorias</h2>
-                    <ul>
-                        {% for cat in categorias %}
-                        <li>{{ cat.nombreCatProd }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
+            
             <tr>
                 <th colspan="5" class="text-center">
                     Articulos Seleccionados
@@ -90,7 +81,7 @@
             {% if request.session.carro.items %}
             <tr>
                 <td colspan="1" style="text-align:center;">
-                    <form method="post" action="{% url 'carro:vaciar_carro' key %}" style="display:inline;">
+                    <form method="post" action="{% url 'carro:vaciar'%}" style="display:inline;">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-sm btn-warning">Vaciar carro</button>
                     </form>
