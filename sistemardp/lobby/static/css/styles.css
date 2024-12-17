@@ -5,16 +5,64 @@ body {
     padding: 0;
 }
 
+/* Encabezado */
 header {
     background-color: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 0px 10px;
     text-align: center;
 }
 
-header h1 {
+    header h1 {
+        margin: 15px;
+    }
+
+/* Estilos del menú */
+.navbar {
     margin: 0;
+    padding: 5px 10px; 
+    background: linear-gradient(90deg, #000b82, #040d1a);
+    border: none;
+    height: 85px;
+    display: flex;
+    align-items: center; 
 }
+
+.navbar-nav .nav-link {
+    padding: 5px 10px;
+    font-size: 14px; 
+}
+
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+        color: #f4b400; 
+        text-decoration: underline;
+    }
+
+.dropdown-menu {
+    background-color: #4b0082; 
+    border: none;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+    .dropdown-item:hover {
+        background-color: #8a2be2;
+        color: #f4b400;
+    }
+
+
+.carousel {
+    margin: auto;
+    margin-top:-107px;
+    margin-left:-310px;
+    padding: 0;
+    width: 100vw; 
+    height: auto; 
+    overflow: hidden;
+}
+
 
 nav ul {
     list-style: none;
@@ -24,19 +72,46 @@ nav ul {
     justify-content: center;
 }
 
-nav ul li {
-    margin: 0 15px;
+    nav ul li {
+        margin: 0 15px;
+    }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            nav ul li a:hover {
+                text-decoration: underline;
+            }
+
+/* Estilo del buscador */
+.form-control {
+    border-radius: 20px;
+    border: 2px solid #8a2be2;
+    outline: none;
+    box-shadow: none;
+    padding: 0px 5px;
+    font-size: 14px;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+    .form-control:focus {
+        border-color: #f4b400;
+        box-shadow: 0 0 5px rgba(244, 180, 0, 0.5);
+    }
+
+.btn-outline-success {
+    border-color: #f4b400;
+    color: #f4b400;
+    border-radius: 20px; 
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
+    .btn-outline-success:hover {
+        background-color: #f4b400;
+        color: #fff;
+    }
+
 
 main {
     padding: 20px;
@@ -46,10 +121,11 @@ main {
     display: none;
 }
 
-.seccion.active {
-    display: block;
-}
+    .seccion.active {
+        display: block;
+    }
 
+/* Formularios */
 form {
     max-width: 600px;
     margin: 20px auto;
@@ -59,25 +135,25 @@ form {
     border-radius: 5px;
 }
 
-form input, form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+    form input, form button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
 
-form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
+    form button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
 
-form button:hover {
-    background-color: #0056b3;
-}
+        form button:hover {
+            background-color: #0056b3;
+        }
 
 /* Estilos para el modal */
 .modal {
@@ -109,9 +185,9 @@ form button:hover {
     font-weight: bold;
 }
 
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }

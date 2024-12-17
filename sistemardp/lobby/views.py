@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Cliente, Pelicula
 from django.shortcuts import render
+from django.contrib.auth import logout
 
 def lobby(request):
     return render(request, 'lobby.html')
@@ -145,3 +146,7 @@ def eliminar_pelicula(request, pelicula_id):
         except Pelicula.DoesNotExist:
             return JsonResponse({'error': 'Película no encontrada'}, status=404)
     return JsonResponse({'error': 'Solicitud no válida'}, status=400)
+
+def custom_logout_view(request):
+    logout(request)
+    return redirect('home')

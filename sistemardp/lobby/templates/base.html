@@ -1,293 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
-    {% if user.is_authenticated %}
-    {% endif %}
-    {% load static %}
+
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- CSS personalizados -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     <link href="{% static 'css/gestion.css' %}" rel="stylesheet">
     <link href="{% static 'clientes/css/login.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <!--PDF-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
-    <!--links para tienda-->
-    <script src="{% static 'miMuebleria/js/app.js' %}"></script>
-
+    <!-- PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
 
-
-    {% block title %} {% endblock %}
-
+    {% block title %}Renta de Películas{% endblock %}
 </head>
+
 <body onload="deshabilitaRetroceso()">
-    <!--INICIO DEL ENCABEZADO-->
-<<<<<<< HEAD
+    <!-- INICIO DEL ENCABEZADO -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Renta de Películas</a>
-=======
-    <div class="menu" style="text-align: center; justify-content:center;">
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="#"> BLOG </a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="#"> INICIO</a>
-                        </li>
-                        <li class="nav-item  px-lg4 {% if request.path == '/rentar/' %} active {% endif %}">
-                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#">Membresia</a>
-                        </li>
-
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">contactanos</a>
-                        </li>
-                        
-                        <div class="dropdown" style="z-index:100;">
-                            {% if user.is_authenticated %}
-
-                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Hola {{ user.username }}
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">Actualizar Datos</a></li>
-                                <li><a class="dropdown-item" href="#">Cambiar Contrase�a</a></li>
-
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item">Cerrar Sesion</a></li>
-                            </ul>
-                            {%else%}
-
-                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                PERFIL
-                            </a>
-
-
-
-                            <ul class="dropdown-menu" style="z-index:100;">
-
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">INICIAR SESION</a></li>
-                                <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                            {% endif %}
-                        </div>
-
-
-                    </ul>
-
-                    <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
-                        <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search" id="pelicula" name="pelicula" required>
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Linea de Ayuda</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
-                                    <hr style="color:red;">
-                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
->>>>>>> a4f6d002ee9af8c9765a610555f7b8c7680f4004
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Menú
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Inicio</a></li>
-                            <li><a class="dropdown-item" href="{% url 'busqueda_peliculas' %}">Películas</a></li>
-                            <li><a class="dropdown-item" href="#">Membresía</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item px-lg-4">
+                        <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" href="/">INICIO</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="btn nav-link {% if request.path == '/rentar/' %}active{% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="btn nav-link" href="#">MEMBRESÍA</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="btn nav-link" href="#">CONTACTANOS</a>
                     </li>
                 </ul>
 
-                <!-- Usuario activo -->
-                <div class="ms-auto d-flex align-items-center">
-                    <span class="text-light me-3">Hola, {{ user.username }}</span>
-                    <a href="#" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+                <!-- Usuario autenticado -->
+                <div class="dropdown">
+                    {% if user.is_authenticated %}
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hola, {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Actualizar Datos</a></li>
+                        <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    </ul>
+                    {% else %}
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        PERFIL
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Iniciar Sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Crear una Cuenta</a></li>
+                    </ul>
+                    {% endif %}
                 </div>
+
+                <!-- Barra de búsqueda -->
+                <form class="d-flex ms-3" action="{% url 'resultados_peliculas' %}" method="get">
+                    <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Buscar" id="pelicula" name="pelicula" required>
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
             </div>
         </div>
     </nav>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Linea de Ayuda</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
-                    <hr style="color:red;">
-                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    </div>
-
-    </div>
-    </nav>
-
-
-    </div>
-
-    <!--FIN DEL ENCABEZADO-->
-    <!--Declaracion del bloque cambiante-->
-    <main class="flex-grow-1" style="margin-top:5%;">
+    <!-- FIN DEL ENCABEZADO -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container my-5">
         {% block content %}
-
-        <!--insercion de las plantilla hijas-->
+        <!-- Aquí se insertan las plantillas hijas -->
         {% endblock %}
     </main>
-    <!--Fin del bloque cambiante-->
-    <!--INICIO DEL PIE DE PAGINA-->
-    <footer class="py-3 text-center" style="margin-top:15%;">
-        <div class="piep card-footer" style="padding:0; margin:0;">
-            <center>
-                <table class="tabla2" style="width: 80%;">
-                    <tr>
-                        <th style="width: 20%;"> UMBRA FURNITURE</th>
-                        <th style="width: 15%;">OPENING TIME</th>
 
-                        <th style="width: 10%;">ABOUT</th>
-                        <th style="width: 10%;">ACCOUNT</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul class="no-puntos gris espaciado">
-                                <li>We are a global housewares product design company. We bring thought and creativity to everyday items through original design</li>
-                                <li><b>A</b> 1001 Milacian Crest Street, Paris France</li>
-                                <li><b>T</b> +(084) 888-6789</li>
-                                <li><b>M</b> contact@Umbra.com</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="no-puntos gris espaciado">
-                                <li>Mon-Fri: 8AM-10PM</li>
-                                <li>Sat: 9AM-8PM</li>
-                                <li>Sun: Closed</li>
-                                <li>We Work All The Holidays</li>
-                            </ul>
-                        </td>
-
-                        <td>
-                            <ul class="no-puntos gris espaciado">
-                                <li>About Us</li>
-                                <li>Shopping Guide</li>
-                                <li>Delivery Information</li>
-                                <li>Privacy Policy</li>
-                                <li>Our Store</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="no-puntos gris espaciado">
-                                <li>
-                                    <a>My Account</a>
-                                </li>
-                                <li>Wishlist</li>
-                                <li>Order Tracking</li>
-                                <li>Shipping Info</li>
-                                <li>Return Policy</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-
-                <table class="negocios">
-                    <tr>
-                        <td><img src="{% static 'img/iconos/paypal.png' %}" style="width: 80px; height: 40px;" alt="Paypal"></td>
-                        <td><img src="{% static 'img/iconos/american-express.png' %}" style="width: 80px; height: 40px;" alt="American Express"></td>
-                        <td><img src="{% static 'img/iconos/amazon.png' %}" style="width: 80px; height: 40px;" alt="Amazon"></td>
-                        <td><img src="{% static 'img/iconos/visa.png' %}" style="width: 80px; height: 40px;" alt="Visa"></td>
-                    </tr>
-                </table>
-                <p style="color: gray;">Copyright &#9400 MOI6. Design. All rights reserved</p>
-            </center>
+    <!-- INICIO DEL PIE DE PÁGINA -->
+    <footer class="py-3 bg-dark text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Renta de Películas</h5>
+                    <p>Nos dedicamos a ofrecer las mejores películas para disfrutar en casa.</p>
+                    <p>+52 55 987 654 32</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Horario</h5>
+                    <ul class="list-unstyled">
+                        <li>Lun-Vie: 8AM-10PM</li>
+                        <li>Sáb: 9AM-8PM</li>
+                        <li>Dom: Cerrado</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Información</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-white">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Cuenta</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Mi Cuenta</a></li>
+                        <li><a href="#" class="text-white">Historial de Pedidos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <p>&copy; 2024 Renta de Películas. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!--FIN DEL PIE DE PAGINA-->
-    <script src="{% static 'js\main.js' %}"></script>
-    <script src="{% static 'js\validar.js' %}"></script>
-
-
+    <!-- FIN DEL PIE DE PÁGINA -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/validar.js' %}"></script>
 </body>
 </html>
