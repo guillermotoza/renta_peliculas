@@ -17,8 +17,8 @@
     <table class="table table-bordered" style="color: rgb(22, 21, 21);" onload="deshabilitaRetroceso()">
         <thead onload="deshabilitaRetroceso()">
             <tr>
-                <td colspan="4">
-                    <h2>Categorías</h2>
+                <td colspan="5">
+                    <h2>Categorias</h2>
                     <ul>
                         {% for cat in categorias %}
                         <li>{{ cat.nombreCatProd }}</li>
@@ -27,13 +27,14 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="4" class="text-center">
-                    Artículos Seleccionados
+                <th colspan="5" class="text-center">
+                    Articulos Seleccionados
                 </th>
             </tr>
             <tr>
+                <th>Eliminar</th>
+                <th>Pelicula</th>
                 <th>Agregar/Quitar</th>
-                <th>Producto</th>
                 <th>N. Dias</th>
                 <th>Subtotal</th>
             </tr>
@@ -43,6 +44,13 @@
             {% for key, value in request.session.carro.items %}
             <tr class="text-center">
                 <td>
+                    <form method="post" action="{% url 'carro:eliminar' key %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
+                    </form>
+                </td>
+                <td>{{ value.titulo }}</td>
+                <td>
                     <!--BOTON AUMENTAR Producto-->
                     <form method="post" action="{% url 'carro:agregar' key %}" style="display:inline;">
                         {% csrf_token %}
@@ -51,10 +59,9 @@
                     <!--BOTON RESTAR Producto-->
                     <form method="post" action="{% url 'carro:restar' key %}" style="display:inline;">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-sm btn-danger">-</button>
+                        <button type="submit" class="btn btn-sm btn-warning">-</button>
                     </form>
                 </td>
-                <td>{{ value.nombre }}</td>
                 <td>{{ value.dias }}</td>
                 {% if value.descuento > 0 %}
                 <td>$ {{value.precio_final }}</td>
@@ -66,7 +73,7 @@
 
                 {% else %}
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     <div class=" alert alert-danger text-center">
                         <p> sin articulos </p>
                     </div>
@@ -76,12 +83,18 @@
         </tbody>
         <tfoot onload="deshabilitaRetroceso()">
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     TOTAL: {{importe_total_carro}}
                 </td>
             </tr>
             {% if request.session.carro.items %}
             <tr>
+                <td colspan="1" style="text-align:center;">
+                    <form method="post" action="{% url 'carro:vaciar_carro' key %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-warning">Vaciar carro</button>
+                    </form>
+                </td>
                 <td colspan="4" style="text-align:center;">
                     <a href="../pedidos" class="btn btn-success"> Hacer pedido</a>
                 </td>
