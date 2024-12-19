@@ -119,3 +119,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 });
+
+// boton dropdown
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".dropdown");
+    const button = dropdown.querySelector(".dropdown-button");
+
+    button.addEventListener("click", function () {
+      dropdown.classList.toggle("active");
+    });
+
+    // Cerrar el menú si haces clic fuera del dropdown
+    document.addEventListener("click", function (event) {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+  });
