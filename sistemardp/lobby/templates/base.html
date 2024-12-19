@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-    {% if user.is_authenticated %}
-    {% endif %}
-    {% load static %}
+{% if user.is_authenticated %}
+{% endif %}
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- CSS personalizados -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/gestion.css' %}" rel="stylesheet">
     <link href="{% static 'clientes/css/login.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static '/js/script.js' %}"></script>
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
@@ -20,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
     <!--links para peliculas -->
     <script src="{% static 'peliculas/js/carro.js' %}"></script>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
@@ -30,189 +33,111 @@
     {% block title %} {% endblock %}
 
 </head>
+
 <body onload="deshabilitaRetroceso()">
     <!--INICIO DEL ENCABEZADO-->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Renta de Películas</a>
 
     <div class="menu" style="text-align: center; justify-content:center;">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">Renta de Películas</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}" aria-current="page" href="#"> BLOG </a>
+                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}"
+                                aria-current="page" href="#"> BLOG </a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="#"> INICIO</a>
+                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page"
+                                href="#"> INICIO</a>
                         </li>
                         <li class="nav-item  px-lg4 {% if request.path == '/rentar/' %} active {% endif %}">
-                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
+                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}"
+                                href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
                         </li>
                         <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#">Membresia</a>
+                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}"
+                                href="#">Membresia</a>
                         </li>
 
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">contactanos</a>
-                        </li>
-                        
-                        <div class="dropdown" style="z-index:100;">
+                        <LI class="nav-item dropdown">
                             {% if user.is_authenticated %}
 
-                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">
                                 Hola {{ user.username }}
                             </a>
+                            <div class="dropdown">
+                                <button class="dropdown-button">Opciones</button>
+                                <div class="dropdown-menu">
+                                  <a href="#">Acción 1</a>
+                                  <a href="#">Acción 2</a>
+                                  <a href="#">Otra acción</a>
+                                </div>
+                              </div>
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">Actualizar Datos</a></li>
-                                <li><a class="dropdown-item" href="#">Cambiar Contrase�a</a></li>
+                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">Actualizar
+                                        Datos</a></li>
+                                <li><a class="dropdown-item" href="#">Cambiar Contrasena</a></li>
 
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li><a class="dropdown-item" href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a></li>
                             </ul>
                             {%else%}
-
-                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" style="color:rgb(166, 52, 211);">
                                 PERFIL
                             </a>
-
-
-
-                            <ul class="dropdown-menu" style="z-index:100;">
-
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="{% url 'iniciar_sesion' %}">INICIAR SESION</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'iniciar_sesion' %}">INICIAR SESION</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                             {% endif %}
-                        </div>
+                        </LI>
+			        </ul>
 
+                            
+                    
 
-                    </ul>
+                <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
+                    <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search"
+                        id="pelicula" name="pelicula" required>
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
 
-                    <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
-                        <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search" id="pelicula" name="pelicula" required>
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Linea de Ayuda</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
-                                    <hr style="color:red;">
-                                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Menú
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Inicio</a></li>
-                            <li><a class="dropdown-item" href="{% url 'busqueda_peliculas' %}">Películas</a></li>
-                            <li><a class="dropdown-item" href="#">Membresía</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <!-- Usuario activo -->
-                <div class="ms-auto d-flex align-items-center">
-                    <span class="text-light me-3">Hola, {{ user.username }}</span>
-                    <a href="#" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
-                </div>
+                
             </div>
-        </div>
-    </nav>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Linea de Ayuda</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h2>Puedes comunicarte 24/7, para problemas sobre tus reservaciones, compras y asesoria <b>+52 55 987 654 32</b></h2>
-                    <hr style="color:red;">
-                    <h3>Tambien puedes comunicarte desde la pagina utilizando el formulario<a> CONTACTO </a></h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
+        </nav>
     </div>
+    
 
-
-    </div>
-
-    </div>
-    </nav>
 
 
     </div>
 
     <!--FIN DEL ENCABEZADO-->
     <!--Declaracion del bloque cambiante-->
-    <main  style="margin-top:5%;">
+    <main style="margin-top:5%;">
         {% block content %}
 
         <!--insercion de las plantilla hijas-->
@@ -234,7 +159,8 @@
                     <tr>
                         <td>
                             <ul class="no-puntos gris espaciado">
-                                <li>We are a global housewares product design company. We bring thought and creativity to everyday items through original design</li>
+                                <li>We are a global housewares product design company. We bring thought and creativity
+                                    to everyday items through original design</li>
                                 <li><b>A</b> 1001 Milacian Crest Street, Paris France</li>
                                 <li><b>T</b> +(084) 888-6789</li>
                                 <li><b>M</b> contact@Umbra.com</li>
@@ -274,10 +200,14 @@
 
                 <table class="negocios">
                     <tr>
-                        <td><img src="{% static 'img/iconos/paypal.png' %}" style="width: 80px; height: 40px;" alt="Paypal"></td>
-                        <td><img src="{% static 'img/iconos/american-express.png' %}" style="width: 80px; height: 40px;" alt="American Express"></td>
-                        <td><img src="{% static 'img/iconos/amazon.png' %}" style="width: 80px; height: 40px;" alt="Amazon"></td>
-                        <td><img src="{% static 'img/iconos/visa.png' %}" style="width: 80px; height: 40px;" alt="Visa"></td>
+                        <td><img src="{% static 'img/iconos/paypal.png' %}" style="width: 80px; height: 40px;"
+                                alt="Paypal"></td>
+                        <td><img src="{% static 'img/iconos/american-express.png' %}" style="width: 80px; height: 40px;"
+                                alt="American Express"></td>
+                        <td><img src="{% static 'img/iconos/amazon.png' %}" style="width: 80px; height: 40px;"
+                                alt="Amazon"></td>
+                        <td><img src="{% static 'img/iconos/visa.png' %}" style="width: 80px; height: 40px;" alt="Visa">
+                        </td>
                     </tr>
                 </table>
                 <p style="color: gray;">Copyright &#9400 MOI6. Design. All rights reserved</p>
@@ -290,4 +220,5 @@
 
 
 </body>
+
 </html>

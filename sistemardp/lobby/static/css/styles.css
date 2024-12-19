@@ -115,3 +115,59 @@ form button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* boton dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Estilo del botón */
+  .dropdown-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .dropdown-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Estilo del menú */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 1000;
+  }
+
+  /* Estilo de los items del menú */
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Quita el borde inferior al último item */
+  .dropdown-menu a:last-child {
+    border-bottom: none;
+  }
+
+  /* Mostrar el menú cuando esté activo */
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
