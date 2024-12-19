@@ -3,7 +3,7 @@ from django.db import models
 
 from django.contrib.auth import get_user_model
 
-from peliculas.models import pelicula, CategoriaPel
+from peliculas.models import Pelicula, CategoriaPel
 
 from django.db.models import F, Sum, FloatField
 
@@ -33,7 +33,7 @@ class Pedido(models.Model):
 
 class LineaPedido(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
-    pelicula=models.ForeignKey(pelicula, on_delete=models.CASCADE)
+    pelicula=models.ForeignKey(Pelicula, on_delete=models.CASCADE)
     pedido=models.ForeignKey(Pedido, on_delete=models.CASCADE)
     dias=models.IntegerField(default=1)
     create_at=models.DateTimeField(auto_now_add=True)

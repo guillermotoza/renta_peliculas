@@ -56,11 +56,14 @@
                                 {% endif %}
                             </td>
                             <td>
-                                {% if pelicula.stock > 0 %}
-                                <input type="submit" class="btn btn-outline-success" value="RENTAR">
-                                {% else %}
-                                <input type="submit" class="btn btn-disabled disabled" value="Sin stock">
-                                {% endif %}
+                                <form method="post" action="{% url 'carro:agregar' pelicula.id %}">
+                                    {% csrf_token %}
+                                    {% if pelicula.stock > 0 %}
+                                    <input type="submit" class="btn btn-outline-success" value="RENTAR">
+                                    {% else %}
+                                    <input type="submit" class="btn btn-disabled disabled" value="Sin stock">
+                                    {% endif %}
+                                </form>
                             </td>
                         </tr>
                         {% endfor %}
