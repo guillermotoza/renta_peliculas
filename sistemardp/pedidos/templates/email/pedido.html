@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hola <p id="usuario">{{nombreusuario}}</p>
+    <hr>
+    <br>
+    <p id="pedido-numero">numero de pedido: {{pedido.id}}</p>
+    <br>
+    email del usuario:<p id="email"> {{email}} </p>
+    <br>
+    <h3>Detalles de los productos comprados:</h3>
+    <ul>
+        {% for linea in lineas_pedido %}
+        <li id="lineas-pedido">
+            <b>Producto: {{linea.producto.nomProduct}}</b><br>
+            Producto ID: <span class="producto-id">{{ linea.producto_id }}</span><br>
+            Cantidad: <span class="dias">{{ linea.dias }}</span><br>
+            Sub-total:
+            {% if linea.producto.descuento > 0 %}
+            <span class="precio">${{ linea.producto.precio_final }}</span>
+            {% else %}
+            <span class="precio">${{ linea.producto.precio }}</span>
+            {% endif %}
+        </li>
+        {% empty %}
+        <p>No hay productos en el pedido.</p>
+        {% endfor %}
+        <p id="total"><b>TOTAL: {{ importe_total_carro }}</b></p>
+    </ul>
+    <p>Gracias por tu compra, {{ request.user.username }}!</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pdfButton = document.getElementById('pdfoutb');
+
+            pdfButton.onclick = function (event) {
+                event.preventDefault(); // Evitar la acción predeterminada del enlace
+
+                // Obtener los datos del HTML
+                var pedidoNumeroElement = document.getElementById('pedido-numero');
+                var usuarioElement = document.getElementById('usuario');
+                var estadoElement = document.getElementById('estado');
+                var totalElement = document.getElementById('total');
+                var lineasElement = document.querySelectorAll('#lineas-pedido li');
+
+                if (!pedidoNumeroElement || !usuarioElement || !estadoElement || !totalElement) {
+                    console.error("Error: Uno o más elementos no se encontraron en el DOM.");
+                    alert("Error en la generación del PDF. Consulta la consola para más detalles.");
+                    return;
+                }
+
+                var pedidoNumero = pedidoNumeroElement.textContent.split(': ')[1];
+                var usuario = usuarioElement.textContent.split(': ')[1];
+                var estado = estadoElement.textContent.split(': ')[1];
+                var total = totalElement.textContent.split(': ')[1];
+
+                var rows = [];
+
+                lineasElement.forEach(function (linea) {
+                    var detalles = linea.textContent.split('\n');
+                    var row = [];
+
+                    detalles.forEach(function (detalle) {
+                        detalle = detalle.trim();
+                        if (detalle) {
+                            row.push(detalle.split(': ')[1]); // Extraer el valor después de ": "
+                        }
+                    });
+
+                    rows.push(row);
+                });
+
+                var docDefinition = {
+                    content: [
+                        { text: 'Confirmación de Pedido', style: 'header', alignment: 'center' },
+                        { text: 'Pedido Número: ' + pedidoNumero, style: 'subheader' },
+                        { text: 'Usuario: ' + usuario, style: 'subheader' },
+                        { text: 'Estado: ' + estado, style: 'subheader' },
+                        {
+                            table: {
+                                headerRows: 1,
+                                widths: ['*', '*', '*'],
+                                body: [
+                                    [{ text: 'Producto', style: 'tableHeader', alignment: 'center' }, { text: 'dias', style: 'tableHeader', alignment: 'center' }, { text: 'Precio', style: 'tableHeader', alignment: 'center' }],
+                                    ...rows
+                                ]
+                            },
+                            alignment: 'center'
+                        },
+                        { text: 'Total: ' + total, style: 'total', alignment: 'right' }
+                    ],
+                    styles: {
+                        header: { fontSize: 18, bold: true, margin: [0, 0, 0, 10] },
+                        subheader: { fontSize: 14, margin: [0, 5, 0, 5] },
+                        total: { fontSize: 14, bold: true, margin: [0, 10, 0, 0] },
+                        tableHeader: { bold: true, fillColor: '#CCCCCC' }
+                    }
+                };
+
+                pdfMake.createPdf(docDefinition).download('Compra_' + pedidoNumero + '.pdf');
+            };
+        });
+    </script>
+
+</body>
+</html>

@@ -4,37 +4,39 @@
 
 {% block content %}
 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
 
-<div class="container">
-    <div class="frame">
-        {% if messages %}
-            {%for mensaje in messages %}
-                <div class="text-danger text-center alert-warning">
-                    <h4>{{mensaje}}</h4>
-                </div>
-            {%endfor%}
-        {% endif%}
-        <div class="nav">
-            <ul class"links">
-                <li class="signin-active"><a class="btn">INGRESAR</a></li>
-            </ul>
-        </div>
-        <div ng-app ng-init="checked = false">
-            <form class="form-login" action="" method="post" name="form">
-                {% csrf_token %}
-                {{form}}
-                <br>
-                <li class="signin-active text-center">No tienes cuenta?<a class="btn" href="{% url 'autentificar' %}"> REGISTRATE</a></li>
-                <li><a href="{% url 'password_reset' %}"><b>Olvide mi Contraseña</b></a></li>
+            <div class="form-group">
+                <label for="id_username">Usuario</label>
+                {{ form.username }}
+            </div>
 
-                <div class="btn-animate">
-                    <button class="card-footer  btn-signin" type="submit" >ENTRAR</button>
-                </div>
-            </form>
-           
+            <div class="form-group">
+                <label for="id_password">Contraseña</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn-primary">Iniciar Sesión</button>
+        </form>
+        <div class="extra-options">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+            <a href="{% url 'registro' %}">Crear una cuenta</a>
         </div>
     </div>
-</div>
+</body>
+</html>
 
 {% endblock %}

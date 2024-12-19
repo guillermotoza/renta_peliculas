@@ -1,37 +1,39 @@
-body, html {
+body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    text-align: center;
-    background-color: #ecede8;
-    overflow-x: hidden;
-    margin-left:initial;
+    padding-top: 85px; 
+    height: 100%; 
 }
 
-/* Encabezado */
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 0px 10px;
+    text-align: center;
+    margin: 0;
 }
 
     header h1 {
         margin: 15px;
     }
 
-/* Estilos del menú */
 .navbar {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin: 0;
+    padding: 5px 10px;
+    padding-top: 0px;
     background: linear-gradient(90deg, #000b82, #040d1a);
     border: none;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .navbar-nav .nav-link {
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
     .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
@@ -42,6 +44,7 @@ header {
 .dropdown-menu {
     background-color: #4b0082;
     border: none;
+    z-index: 1050;
 }
 
 .dropdown-item {
@@ -54,23 +57,22 @@ header {
     }
 
 .carousel {
-    margin: 0;
+    margin: auto;
     padding: 0;
-    width: 100vw; 
-    height: 400px;
+    width: 100%;
+    height: auto;
     overflow: hidden;
-    position: relative;
-    top: 0;
-    z-index: 1;
-    text-align: center;
-    margin-top:-107px;
-    margin-left:-420px;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
-    .carousel img {
-        width: 100vw; 
-        height: 100%;
+    .carousel img, .card img {
+        display: block;
+        width: 100%;
+        max-height: 500px;
         object-fit: cover;
+        margin: 0;
+        padding: 0;
     }
 
 nav ul {
@@ -95,13 +97,13 @@ nav ul {
                 text-decoration: underline;
             }
 
-/* Estilo del buscador */
 .form-control {
     border-radius: 20px;
     border: 2px solid #8a2be2;
     outline: none;
     box-shadow: none;
-    
+    padding: 0px 5px;
+    font-size: 14px;
 }
 
     .form-control:focus {
@@ -121,7 +123,13 @@ nav ul {
     }
 
 main {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    box-sizing: border-box;
+    margin-top: 85px; 
 }
 
 .seccion {
@@ -132,7 +140,6 @@ main {
         display: block;
     }
 
-/* Formularios */
 form {
     max-width: 600px;
     margin: 20px auto;
@@ -162,7 +169,6 @@ form {
             background-color: #0056b3;
         }
 
-/* Estilos para el modal */
 .modal {
     display: none;
     position: fixed;
@@ -198,22 +204,3 @@ form {
         text-decoration: none;
         cursor: pointer;
     }
-
-@media (max-width: 768px) {
-    .navbar-nav {
-        flex-direction: column;
-    }
-
-    .carousel img {
-        width: 100%;
-        height: auto;
-    }
-
-    form {
-        width: 90%;
-    }
-
-    .modal-content {
-        width: 90%;
-    }
-}

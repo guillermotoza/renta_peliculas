@@ -4,7 +4,7 @@ from decimal import Decimal, ROUND_HALF_UP
 
 
 class Carro:
-    def __ini__(self,request):
+    def __init__(self,request):
         self.request=request
         self.session=request.session
         carro=self.session.get("carro")

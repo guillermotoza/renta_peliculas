@@ -3,15 +3,19 @@ from django.http import HttpResponse, JsonResponse
 from peliculas.models import pelicula, CategoriaPel
 from django.contrib import messages
 from datetime import date, datetime
+from carro.carro import Carro
+
 
 
 # Create your views here.
 
 def busqueda_peliculas(request):
+    carro=Carro(request)
     return render(request, "busqueda_peliculas.html")
 
 
 def resultados_peliculas(request):
+    carro=Carro(request)
     if request.GET.get("pelicula"):
         pelicula_nombre = request.GET.get("pelicula")
         fecha_inicio_str = request.GET.get("fecha_inicio")

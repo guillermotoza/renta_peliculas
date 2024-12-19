@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar pedido</title>
+    <script src="{% static 'miMuebleria/js/app.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+<body onload="deshabilitaRetroceso()">
+    <table class="table table-bordered" style="color: rgb(22, 21, 21);" onload="deshabilitaRetroceso()">
+        <thead onload="deshabilitaRetroceso()">
+            <tr>
+                <td colspan="5">
+                    <h2>Categorias</h2>
+                    <ul>
+                        {% for cat in categorias %}
+                        <li>{{ cat.nombreCatProd }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="5" class="text-center">
+                    Articulos Seleccionados
+                </th>
+            </tr>
+            <tr>
+                <th>Eliminar</th>
+                <th>Pelicula</th>
+                <th>Agregar/Quitar</th>
+                <th>N. Dias</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody onload="deshabilitaRetroceso()">
+            {% if request.session.carro and request.session.carro.items %}
+            {% for key, value in request.session.carro.items %}
+            <tr class="text-center">
+                <td>
+                    <form method="post" action="{% url 'carro:eliminar' key %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">Borrar</button>
+                    </form>
+                </td>
+                <td>{{ value.titulo }}</td>
+                <td>
+                    <!--BOTON AUMENTAR Producto-->
+                    <form method="post" action="{% url 'carro:agregar' key %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-success">+</button>
+                    </form>
+                    <!--BOTON RESTAR Producto-->
+                    <form method="post" action="{% url 'carro:restar' key %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-warning">-</button>
+                    </form>
+                </td>
+                <td>{{ value.dias }}</td>
+                {% if value.descuento > 0 %}
+                <td>$ {{value.precio_final }}</td>
+                {%else%}
+                <td>$ {{value.precio }}</td>
+                {%endif%}
+
+                {% endfor %}
+
+                {% else %}
+            <tr>
+                <td colspan="5">
+                    <div class=" alert alert-danger text-center">
+                        <p> sin articulos </p>
+                    </div>
+                </td>
+
+                {% endif %}
+        </tbody>
+        <tfoot onload="deshabilitaRetroceso()">
+            <tr>
+                <td colspan="5">
+                    TOTAL: {{importe_total_carro}}
+                </td>
+            </tr>
+            {% if request.session.carro.items %}
+            <tr>
+                <td colspan="1" style="text-align:center;">
+                    <form method="post" action="{% url 'carro:vaciar_carro' key %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-warning">Vaciar carro</button>
+                    </form>
+                </td>
+                <td colspan="4" style="text-align:center;">
+                    <a href="../pedidos" class="btn btn-success"> Hacer pedido</a>
+                </td>
+            </tr>
+            {% endif %}
+
+
+        </tfoot>
+    </table>
+</body>
+</html>
