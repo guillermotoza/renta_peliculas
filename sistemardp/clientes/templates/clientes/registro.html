@@ -1,20 +1,60 @@
-{% extends "base.html" %}
-
 {% load static %}
-
-
 {% block content %}
-<div class="container">
-    <div class="frame2">
-        <form class="row g-3 text-center" method="post" action="">
-            {% csrf_token %}
-            {{form}}
-            <div class="btn-animate">
-            <button class="card-footer btn-signin" type="submit"  >REGISTRAR</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'clientes/css/registro.css' %}">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Informacion de beneficios -->
+        <div class="info-section">
+            <h2>Unete a nuestra comunidad de Renta de Peliculas</h2>
+            <p>Disfruta de beneficios exclusivos al crear tu cuenta:</p>
+            <ul>
+                <li>Acceso a contenido personalizado</li>
+                <li>Promociones especiales</li>
+                <li>Historial de membresias</li>
+            </ul>
+        </div>
+
+        <!-- Formulario de registro -->
+        <div class="form-section">
+            <h2>Crear Cuenta</h2>
+            <form method="POST" action="{% url 'agregar_cliente' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contrasena</label>
+                    <input type="password" id="password" name="password1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar Contrasena</label>
+                    <input type="password" id="confirm-password" name="password2" required>
+                </div>
+
+                <button type="submit" class="btn">Registrarse</button>
+            </form>
+
+            <div class="login-link">
+                <p>Ya tienes una cuenta? <a href="{% url 'iniciar_sesion' %}">Inicia sesion</a></p>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</body>
+</html>
+
 
 
  {% endblock %}

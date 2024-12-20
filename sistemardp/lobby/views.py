@@ -152,5 +152,5 @@ def eliminar_pelicula(request, pelicula_id):
 
 def custom_logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('iniciar_sesion')
 
