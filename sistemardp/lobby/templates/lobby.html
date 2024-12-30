@@ -1,60 +1,32 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renta de Películas</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Renta de Películas</h1>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="mostrarSeccion('clientes')">Clientes</a></li>
-                <li><a href="#" onclick="mostrarSeccion('peliculas')">Películas</a></li>
-                <li><a href="#" onclick="mostrarSeccion('membresias')">Membresías</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="clientes" class="seccion">
-            <h2>Clientes</h2>
-            <div id="clientes-list"></div>
-            <form id="cliente-form">
-                <input type="text" id="nombre" placeholder="Nombre" required>
-                <input type="email" id="correo" placeholder="Correo" required>
-                <input type="text" id="direccion" placeholder="Dirección" required>
-                <input type="text" id="membresia" placeholder="Membresía" required>
-                <button type="submit">Agregar Cliente</button>
-            </form>
-        </section>
-        <section id="peliculas" class="seccion" style="display: none;">
-            <h2>Películas</h2>
-            <!-- Contenido de películas -->
-        </section>
-        <section id="membresias" class="seccion" style="display: none;">
-            <h2>Membresías</h2>
-            <!-- Contenido de membresías -->
-        </section>
-    </main>
 
-    <!-- Modal para editar cliente -->
-    <div id="edit-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Editar Cliente</h2>
-            <form id="edit-form">
-                <input type="text" id="edit-nombre" placeholder="Nombre" required>
-                <input type="email" id="edit-correo" placeholder="Correo" required>
-                <input type="text" id="edit-direccion" placeholder="Dirección" required>
-                <input type="text" id="edit-membresia" placeholder="Membresía" required>
-                <button type="submit">Guardar Cambios</button>
-            </form>
+{% block content %}
+<!-- Encabezado -->
+<header>
+    <div>
+        <h1>¡Bienvenido a Renta de Películas!</h1>
+        <p>Tu lugar favorito para encontrar las mejores películas y disfrutar de grandes historias.</p>
+        <button onclick="window.location.href='/rentar/'">Explorar Películas</button>
+    </div>
+</header>
+
+<!-- Sección "Quiénes Somos" -->
+<div class="container">
+    <h2>¿Quiénes Somos?</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🎥</div>
+            <p>Somos tu plataforma confiable para alquilar películas y disfrutar de clásicos, estrenos y mucho más.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🍿</div>
+            <p>Proporcionamos un catálogo variado para que siempre tengas algo emocionante que ver.</p>
+        </div>
+        <div class="card">
+            <div class="icon">📽️</div>
+            <p>Disfruta de películas desde cualquier dispositivo, en cualquier lugar.</p>
         </div>
     </div>
-
-    <script src="{% static 'scripts.js' %}"></script>
-</body>
-</html>
+</div>
+{% endblock %}

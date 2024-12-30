@@ -2,68 +2,36 @@
 <html lang="es">
 
 {% load static %}
-{% if user.is_authenticated %}
-{% endif %}
-{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <!-- CSS personalizados -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    <link href="{% static 'clientes/css/login.css' %}" rel="stylesheet">
-
-    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <!-- PDF -->
-
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'js/script.js' %}"></script>
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <!--PDF-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
-    <!--links para peliculas -->
-    <script src="{% static 'peliculas/js/carro.js' %}"></script>
-    
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
-
-    {% block title %}Renta de Películas{% endblock %}
+    <script src="{% static 'peliculas/js/carro.js' %}"></script>
+    <title>{% block title %}Renta de Películas{% endblock %}</title>
 </head>
-
 
 <body onload="deshabilitaRetroceso()">
 
     <!-- INICIO DEL ENCABEZADO -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Renta de Películas</a>
-
-            <!-- Botón Responsivo -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="{% url 'lobby' %}">Renta de Películas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Menú Principal -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item px-2">
-                        <a class="nav-link {% if request.path == '/blog/' %}active{% endif %}" href="#">BLOG</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="#">INICIO</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'lobby' %}">INICIO</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link {% if request.path == '/rentar/' %}active{% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
@@ -75,14 +43,10 @@
                         <a class="nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">CONTÁCTANOS</a>
                     </li>
                 </ul>
-
-                <!-- Formulario de Búsqueda -->
                 <form class="d-flex ms-lg-4" action="{% url 'resultados_peliculas' %}" method="get">
                     <input class="form-control me-2" type="text" placeholder="Película" name="pelicula" required>
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
-
-                <!-- Dropdown de Usuario -->
                 <div class="dropdown ms-lg-4">
                     {% if user.is_authenticated %}
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,8 +63,8 @@
                         PERFIL
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="#">Iniciar Sesión</a></li>
-                        <li><a class="dropdown-item" href="#">Crear una Cuenta</a></li>
+                        <li><a class="dropdown-item" href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a></li>
+                        <li><a class="dropdown-item" href="{% url 'autentificar' %}">Crear una Cuenta</a></li>
                     </ul>
                     {% endif %}
                 </div>
@@ -117,125 +81,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h2>
-                        Puedes comunicarte 24/7 para problemas sobre tus reservaciones, compras y asesoría <b>+52 55 987 654 32</b>
-                    </h2>
+                    <h2>Puedes comunicarte 24/7 para problemas sobre tus reservaciones, compras y asesoría <b>+52 55 987 654 32</b></h2>
                     <hr style="color:red;">
-                    <h3>
-                        También puedes comunicarte desde la página utilizando el formulario <a href="#">CONTACTO</a>
-                    </h3>
+                    <h3>También puedes comunicarte desde la página utilizando el formulario <a href="#">CONTACTO</a></h3>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-
-<body onload="deshabilitaRetroceso()">
-    <!--INICIO DEL ENCABEZADO-->
-
-    <div class="menu" style="text-align: center; justify-content:center;">
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Renta de Películas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}"
-                                aria-current="page" href="#"> BLOG </a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page"
-                                href="#"> INICIO</a>
-                        </li>
-                        <li class="nav-item  px-lg4 {% if request.path == '/rentar/' %} active {% endif %}">
-                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}"
-                                href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}"
-                                href="#">Membresia</a>
-                        </li>
-
-                        <LI class="nav-item dropdown">
-                            {% if user.is_authenticated %}
-
-                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown">
-                                Hola {{ user.username }}
-                            </a>
-                            <div class="dropdown">
-                                <button class="dropdown-button">Opciones</button>
-                                <div class="dropdown-menu">
-                                  <a href="#">Acción 1</a>
-                                  <a href="#">Acción 2</a>
-                                  <a href="#">Otra acción</a>
-                                </div>
-                              </div>
-
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">Actualizar
-                                        Datos</a></li>
-                                <li><a class="dropdown-item" href="#">Cambiar Contrasena</a></li>
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a></li>
-                            </ul>
-                            {%else%}
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" style="color:rgb(166, 52, 211);">
-                                PERFIL
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
-                                <li><a class="dropdown-item" href="{% url 'iniciar_sesion' %}">INICIAR SESION</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                            {% endif %}
-                        </LI>
-			        </ul>
-
-                <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
-                    <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search"
-                        id="pelicula" name="pelicula" required>
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                
-            </div>
-        </nav>
     </div>
-    <!-- FIN DEL ENCABEZADO -->
+
     <!-- CONTENIDO PRINCIPAL -->
     <main class="container my-5">
-
-    </div>
-
-    <!--FIN DEL ENCABEZADO-->
-    <!--Declaracion del bloque cambiante-->
-    <main style="margin-top:5%;">
         {% block content %}
         <!-- Aquí se insertan las plantillas hijas -->
         {% endblock %}
     </main>
+
     <!-- INICIO DEL PIE DE PÁGINA -->
     <footer class="py-3 bg-dark text-white text-center">
         <div class="container">
@@ -270,12 +133,12 @@
             </div>
             <hr class="bg-white">
             <p>&copy; 2024 Renta de Películas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-    <!--Fin del bloque cambiante-->
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EO3hKqmb3O8eCNEONKmz+kt8/c3HRM1yQJRM1EDhaGEaPC7rHH0xg26n2jN1FTBi" crossorigin="anonymous">
 
 </body>
+
 </html>
