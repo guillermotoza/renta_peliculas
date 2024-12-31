@@ -40,7 +40,7 @@
             var pdfButton = document.getElementById('pdfoutb');
 
             pdfButton.onclick = function (event) {
-                event.preventDefault(); // Evitar la acción predeterminada del enlace
+                event.preventDefault(); 
 
                 // Obtener los datos del HTML
                 var pedidoNumeroElement = document.getElementById('pedido-numero');
@@ -50,8 +50,8 @@
                 var lineasElement = document.querySelectorAll('#lineas-pedido li');
 
                 if (!pedidoNumeroElement || !usuarioElement || !estadoElement || !totalElement) {
-                    console.error("Error: Uno o más elementos no se encontraron en el DOM.");
-                    alert("Error en la generación del PDF. Consulta la consola para más detalles.");
+                    console.error("Error: Uno o mï¿½s elementos no se encontraron en el DOM.");
+                    alert("Error en la generaciï¿½n del PDF. Consulta la consola para mï¿½s detalles.");
                     return;
                 }
 
@@ -69,7 +69,7 @@
                     detalles.forEach(function (detalle) {
                         detalle = detalle.trim();
                         if (detalle) {
-                            row.push(detalle.split(': ')[1]); // Extraer el valor después de ": "
+                            row.push(detalle.split(': ')[1]); // Extraer el valor despuï¿½s de ": "
                         }
                     });
 
@@ -78,8 +78,8 @@
 
                 var docDefinition = {
                     content: [
-                        { text: 'Confirmación de Pedido', style: 'header', alignment: 'center' },
-                        { text: 'Pedido Número: ' + pedidoNumero, style: 'subheader' },
+                        { text: 'Confirmaciï¿½n de Pedido', style: 'header', alignment: 'center' },
+                        { text: 'Pedido Nï¿½mero: ' + pedidoNumero, style: 'subheader' },
                         { text: 'Usuario: ' + usuario, style: 'subheader' },
                         { text: 'Estado: ' + estado, style: 'subheader' },
                         {

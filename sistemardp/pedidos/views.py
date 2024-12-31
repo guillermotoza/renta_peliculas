@@ -33,7 +33,7 @@ def procesar_pedido(request):
 
     for key, value in carro.carro.items():
         lineas_pedido.append(LineaPedido(
-            producto_id=key,
+            pelicula_id=key,
             dias=value["dias"],
             user=request.user,
             pedido=pedido,
@@ -41,7 +41,7 @@ def procesar_pedido(request):
 
     LineaPedido.objects.bulk_create(lineas_pedido)
 
-    # Enviar correo de confirmación
+    
     enviar_mail(
         pedido=pedido,
         lineas_pedido=lineas_pedido,

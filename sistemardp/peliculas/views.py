@@ -1,15 +1,32 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse 
 from peliculas.models import Pelicula
+from django.contrib.auth import get_user_model
+from pedidos.models import Pedido
 from django.contrib import messages
 from datetime import datetime
 from carro.carro import Carro
+from django.views import View
 
+# Create your views here.
+User = get_user_model()
 
 def busqueda_peliculas(request):
     carro = Carro(request)
     return render(request, "busqueda_peliculas.html")
 
+class ConfirmacionPedidoView(View):
+    def get(self, request, pedido_id):
+        pedido = get_object_or_404(Pedido, id=pedido_id, user=request.user)
+        lineas_pedido = pedido.lineapedido_set.all()
+        total_pedido = sum(linea.total_pedido for linea in lineas_pedido)
+        context = {
+            'pedido': pedido,
+            'lineas_pedido': lineas_pedido,
+            'total_pedido': total_pedido,
+            
+        }
+        return render(request, 'confirmacion_pedido.html', context)
 
 def resultados_peliculas(request):
     carro = Carro(request)

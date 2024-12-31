@@ -39,7 +39,7 @@ class Pelicula(models.Model):
     categorias = models.ManyToManyField(CategoriaPel, help_text="categorias de la pelicula")
     stock = models.PositiveIntegerField(help_text="cantidad disponible en stock")
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
-
+    ventas_totales = models.IntegerField(default=0)
     director = models.CharField(max_length=100, default='Desconocido')
 
     trailer = models.TextField(max_length=1000,default="trailer no disponible" ,help_text="codigo de insertar de youtube",validators=[validar_trailer])

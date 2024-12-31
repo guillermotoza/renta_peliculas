@@ -26,6 +26,10 @@ urlpatterns = [
     path('usuario/', include('clientes.urls')), 
     path('rentar/',include('peliculas.urls')),
     path('carro/',include('carro.urls')),
+<<<<<<< Updated upstream
     path('membership/', include('membership.urls')),
+=======
+    path('pedidos/',include('pedidos.urls')), #app para logear
+>>>>>>> Stashed changes
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
