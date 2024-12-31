@@ -37,7 +37,7 @@
                         <a class="nav-link {% if request.path == '/rentar/' %}active{% endif %}" href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="#">MEMBRESÍA</a>
+                        <a class="nav-link {% if request.path == '/Membresia/' %}active{% endif %}" href="{% url 'membership_list' %}">MEMBRESÍA</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link {% if request.path == '/contactanos/' %}active{% endif %}" href="#">CONTÁCTANOS</a>

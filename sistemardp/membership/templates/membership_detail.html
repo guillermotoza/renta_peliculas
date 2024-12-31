@@ -1,12 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ membership.membership_type }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>{{ membership.membership_type }}</h1>
-    <p>{{ membership.description }}</p>
-    <p>Price: ${{ membership.price }}</p>
-    <a href="{% url 'subscribe' membership.slug %}">Subscribe</a>
+    <div class="container">
+        <div class="membership-card">
+            <div class="membership-header">
+                <h2>{{ membership.membership_type }}</h2>
+            </div>
+            <div class="membership-body">
+                <p>{{ membership.description }}</p>
+                <p><strong>Precio:</strong> ${{ membership.price }}</p>
+            </div>
+            <div class="membership-footer">
+                <a href="{% url 'subscribe' membership.slug %}" class="btn btn-subscribe">Suscribirse</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+{% endblock %}

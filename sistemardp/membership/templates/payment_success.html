@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago Exitoso</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>¡Pago Exitoso!</h1>
-    <p>Gracias por tu compra.</p>
+    <div class="container">
+        <div class="alert alert-success mt-4">
+            <h4 class="alert-heading">¡Pago Exitoso!</h4>
+            <p>Gracias por tu compra.</p>
+            <hr>
+            <a href="{% url 'membership_list' %}" class="btn btn-primary">Volver a Membresías</a>
+        </div>
+    </div>
 </body>
 </html>
