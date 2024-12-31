@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-le&@ol0tn&kl&vif@97xpt93jla67cit3g39dghs+==#=7)7#!'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'lobby',
     'carro',
     'pedidos',
+    'membership',
 
 ]
 
@@ -159,3 +161,6 @@ MESSAGE_TAGS = {
     mensajes_de_error.WARNING: 'warning',
     mensajes_de_error.ERROR: 'danger',
 }
+
+STRIPE_PUBLIC_KEY = 'pk_test_51QaKoVRqxbIxbxPxVxeaywNXcl2vgBftk2OfMmR2V3jpfYM1vpwh1RSLNpwv3tbUwE1WP6rIisH2RGOK3AdVH7PB00GQIitpru'
+STRIPE_SECRET_KEY = 'sk_test_51QaKoVRqxbIxbxPx9hVgheq48DFGDwu7CIgV9CctHf1O6xT0ISa6stYmb2N9LczQ1d5D13tCMSA4FG2gLTWqGwWB00rfZPMTde'

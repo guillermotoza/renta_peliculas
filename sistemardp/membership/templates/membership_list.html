@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memberships</title>
+</head>
+<body>
+    <h1>Memberships</h1>
+    <ul>
+        {% for membership in memberships %}
+            <li><a href="{% url 'membership_detail' membership.slug %}">{{ membership.membership_type }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
