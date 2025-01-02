@@ -69,7 +69,7 @@ def enviar_mail(**kwargs):
         })
         
         mensaje_texto=strip_tags(mensaje)
-        from_email="moises.ramirezr@fgr.org.mx"
+        from_email=os.getenv('EMAIL_HOST_USER')
         to=kwargs.get("emailusuario")
         
         send_mail(asunto,mensaje_texto,from_email,[to],html_message=mensaje)
