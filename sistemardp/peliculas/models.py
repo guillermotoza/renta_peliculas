@@ -41,7 +41,7 @@ class Pelicula(models.Model):
     descripcion = models.TextField(max_length=200, help_text="descripcion de la pelicula")
     ventas_totales = models.IntegerField(default=0)
     director = models.CharField(max_length=100, default='Desconocido')
-
+    vistas = models.IntegerField(default=0, help_text="Número de vistas")
     trailer = models.TextField(max_length=1000,default="trailer no disponible" ,help_text="codigo de insertar de youtube",validators=[validar_trailer])
 
     created = models.DateTimeField(auto_now_add=True)

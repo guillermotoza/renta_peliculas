@@ -49,17 +49,11 @@
                             </td>
                             <td>
                                 {% if pelicula.trailer %}
-                                <iframe 
-                                    width="100%" 
-                                    height="200" 
-                                    src="{{ pelicula.trailer|safe }}" 
-                                    frameborder="0" 
-                                    allow="encrypted-media" 
-                                    allowfullscreen>
-                                </iframe>
+                                {{ pelicula.trailer|safe }}
                                 {% else %}
                                 <p>Trailer no disponible</p>
                                 {% endif %}
+                               
                             </td>
                             <td>
                                 <form method="post" action="{% url 'carro:agregar' pelicula.id %}">

@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse 
-from peliculas.models import Pelicula
+from peliculas.models import Pelicula, CategoriaPel
 from django.contrib.auth import get_user_model
 from pedidos.models import Pedido
 from django.contrib import messages
@@ -8,12 +7,23 @@ from datetime import datetime
 from carro.carro import Carro
 from django.views import View
 
-# Create your views here.
 User = get_user_model()
 
 def busqueda_peliculas(request):
     carro = Carro(request)
-    return render(request, "busqueda_peliculas.html")
+    top_10_peliculas = Pelicula.objects.order_by('-ventas_totales')[:10]
+    todas_peliculas = Pelicula.objects.all()
+    categoria_accion = CategoriaPel.objects.get(nombreCatPel='accion')
+    categoria_infantil = CategoriaPel.objects.get(nombreCatPel='Infantil')
+    peliculas_accion = Pelicula.objects.filter(categorias=categoria_accion)
+    peliculas_infantiles = Pelicula.objects.filter(categorias=categoria_infantil)
+    context = {
+        'top_10_peliculas': top_10_peliculas,
+        'todas_peliculas': todas_peliculas,
+        'peliculas_accion': peliculas_accion,
+        'peliculas_infantiles': peliculas_infantiles,
+    }
+    return render(request, "busqueda_peliculas.html", context)
 
 class ConfirmacionPedidoView(View):
     def get(self, request, pedido_id):
@@ -24,7 +34,6 @@ class ConfirmacionPedidoView(View):
             'pedido': pedido,
             'lineas_pedido': lineas_pedido,
             'total_pedido': total_pedido,
-            
         }
         return render(request, 'confirmacion_pedido.html', context)
 
@@ -59,12 +68,10 @@ def resultados_peliculas(request):
         messages.error(request, "No has introducido nada")
         return redirect('busqueda_peliculas')
 
-
 def mostrar_peliculas(request, pelicula_nombre):
     # Filtrar las películas por el nombre
     pelicula_buscar = Pelicula.objects.filter(titulo__icontains=pelicula_nombre)
     return render(request, "resultados_busqueda_peliculas.html", {"peliculas": pelicula_buscar})
-
 
 def pelicula_detalles(request, pelicula_id):
     filtro_pelicula = Pelicula.objects.get(id=pelicula_id)

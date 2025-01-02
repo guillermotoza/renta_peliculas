@@ -1,15 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Cliente
 from .forms import ClienteForm
-#vistas registro y login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.views.generic import View
 
-# listar clientes y enviar datos
+# Listar clientes y enviar datos
 def listar_clientes(request):
     clientes = Cliente.objects.all()
     clientes_data = [{
@@ -22,12 +21,10 @@ def listar_clientes(request):
     
     return JsonResponse({'clientes': clientes_data})
 
-# VAgregar clientes a traves de ajax
-
+# Agregar clientes a través de AJAX
 @csrf_exempt
 def agregar_cliente(request):
     if request.method == 'POST' and request.is_ajax():
-        print(request.POST)  # Verifica los datos recibidos
         nombre = request.POST.get('nombre')
         correo = request.POST.get('correo')
         direccion = request.POST.get('direccion')
@@ -54,7 +51,7 @@ def agregar_cliente(request):
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Solicitud no válida'}, status=400)
 
-# editar clientes con ajax
+# Editar clientes con AJAX
 @csrf_exempt
 def editar_cliente(request, cliente_id):
     if request.method == 'POST' and request.is_ajax():
@@ -94,46 +91,41 @@ def cargar_clientes(request):
     clientes_data = list(clientes.values('id', 'nombre', 'correo', 'direccion', 'detalles_membresia'))
     return JsonResponse({'clientes': clientes_data})
 
-
-# Create your views here.
+# Registro y autenticación
 class Vregistro(View):
-    
     def get(self, request):
-        form=UserCreationForm()
-        return render(request, "clientes/registro.html",{"form":form})
+        form = UserCreationForm()
+        return render(request, "clientes/registro.html", {"form": form})
     
     def post(self, request):
-        form=UserCreationForm(request.POST)
-        
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            usuario=form.save()
-            
+            usuario = form.save()
             login(request, usuario)
-            
             return redirect('busqueda_peliculas')
         else:
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
-            return render(request, "clientes/registro.html",{"form":form})    
+            return render(request, "clientes/registro.html", {"form": form})
 
 def cerrar_sesion(request):
     logout(request) 
     return redirect('busqueda_peliculas')
 
 def iniciar_sesion(request):
-    if request.method=="POST":
-        form=AuthenticationForm(request, data=request.POST)
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            nombre_usuario=form.cleaned_data.get("username")
-            contraseña_usuario=form.cleaned_data.get("password")
-            usuario=authenticate(username=nombre_usuario, password=contraseña_usuario)
+            nombre_usuario = form.cleaned_data.get("username")
+            contraseña_usuario = form.cleaned_data.get("password")
+            usuario = authenticate(username=nombre_usuario, password=contraseña_usuario)
             if usuario is not None:
                 login(request, usuario)
                 return redirect('busqueda_peliculas')
             else:
-                messages.error(request, "* usuario no valido")
+                messages.error(request, "* Usuario no válido")
         else:
-                messages.error(request, "* Informacion Incorrecta")
+            messages.error(request, "* Información incorrecta")
 
-    form=AuthenticationForm()
-    return render(request, "clientes/login.html",{"form":form})
+    form = AuthenticationForm()
+    return render(request, "clientes/login.html", {"form": form})

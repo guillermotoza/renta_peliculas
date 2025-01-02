@@ -1,4 +1,7 @@
+{% extends "base.html" %}
 {% load static %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +13,7 @@
 <body>
     <h1>Clientes</h1>
     <div id="clientes-list" class="clientes-container"></div>
-    <form id="cliente-form">
+        <form id="cliente-form">
         <input type="text" id="nombre" placeholder="Nombre" required>
         <input type="email" id="correo" placeholder="Correo" required>
         <input type="text" id="direccion" placeholder="Dirección" required>
@@ -18,21 +21,22 @@
         <button type="submit">Agregar Cliente</button>
     </form>
 
-    <!-- Modal para editar cliente -->
+<!-- Modal para editar cliente -->
     <div id="edit-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Editar Cliente</h2>
-            <form id="edit-form">
-                <input type="text" id="edit-nombre" placeholder="Nombre" required>
-                <input type="email" id="edit-correo" placeholder="Correo" required>
-                <input type="text" id="edit-direccion" placeholder="Dirección" required>
-                <input type="text" id="edit-membresia" placeholder="Membresía" required>
-                <button type="submit">Guardar Cambios</button>
-            </form>
-        </div>
+        <form id="edit-form">
+            <input type="text" id="edit-nombre" placeholder="Nombre" required>
+            <input type="email" id="edit-correo" placeholder="Correo" required>
+            <input type="text" id="edit-direccion" placeholder="Dirección" required>
+            <input type="text" id="edit-membresia" placeholder="Membresía" required>
+            <button type="submit">Guardar Cambios</button>
+        </form>
     </div>
+</div>
 
     <script src="{% static 'scripts.js' %}"></script>
 </body>
 </html>
+{% endblock %}

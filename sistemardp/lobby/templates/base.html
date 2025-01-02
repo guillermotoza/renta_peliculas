@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 {% load static %}
 
 <head>
@@ -24,7 +20,6 @@
 
 <body onload="deshabilitaRetroceso()">
 
-<<<<<<< Updated upstream
     <!-- INICIO DEL ENCABEZADO -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -49,80 +44,6 @@
                 </ul>
                 <form class="d-flex ms-lg-4" action="{% url 'resultados_peliculas' %}" method="get">
                     <input class="form-control me-2" type="text" placeholder="Película" name="pelicula" required>
-=======
-    <div class="menu" style="text-align: center; justify-content:center;">
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Renta de Películas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/blog/' %}active{% endif %}"
-                                aria-current="page" href="#"> BLOG </a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page"
-                                href="#"> INICIO</a>
-                        </li>
-                        <li class="nav-item  px-lg4 {% if request.path == '/rentar/' %} active {% endif %}">
-                            <a class="btn nav-link {% if request.path == '/rentar/' %} active {% endif %}"
-                                href="{% url 'busqueda_peliculas' %}">PELICULAS</a>
-                        </li>
-                        <li class="nav-item  px-lg4">
-                            <a class="btn nav-link {% if request.path == '/Membresia/' %}active{% endif %}"
-                                href="#">Membresia</a>
-                        </li>
-
-                        <LI class="nav-item dropdown">
-                            {% if user.is_authenticated %}
-
-                            <a style="color:rgb(166, 52, 211);" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown">
-                                Hola {{ user.username }}
-                            </a>
-                            
-
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                <li><a style="color:rgb(166, 52, 211);" class="dropdown-item" href="#">Actualizar
-                                        Datos</a></li>
-                                <li><a class="dropdown-item" href="#">Cambiar Contrasena</a></li>
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a></li>
-                            </ul>
-                            {%else%}
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" style="color:rgb(166, 52, 211);">
-                                PERFIL
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">CREAR UNA CUENTA</a></li>
-                                <li><a class="dropdown-item" href="{% url 'iniciar_sesion' %}">INICIAR SESION</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                            {% endif %}
-                        </LI>
-			        </ul>
-
-                            
-                    
-
-                <form class="d-flex" action="{% url 'resultados_peliculas' %}" method="get">
-                    <input class="form-control me-2" type="text" placeholder="Pelicula" aria-label="Search"
-                        id="pelicula" name="pelicula" required>
->>>>>>> Stashed changes
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
                 <div class="dropdown ms-lg-4">
@@ -170,19 +91,36 @@
         </div>
     </div>
 
-<<<<<<< Updated upstream
     <!-- CONTENIDO PRINCIPAL -->
     <main class="container my-5">
-=======
-    <!--FIN DEL ENCABEZADO-->
-    <!--Declaracion del bloque cambiante-->
-    <main >
->>>>>>> Stashed changes
         {% block content %}
         <!-- Aquí se insertan las plantillas hijas -->
+        <h1>Clientes</h1>
+        <div id="clientes-list" class="clientes-container"></div>
+        <form id="cliente-form">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="email" id="correo" placeholder="Correo" required>
+            <input type="text" id="direccion" placeholder="Dirección" required>
+            <input type="text" id="membresia" placeholder="Membresía" required>
+            <button type="submit">Agregar Cliente</button>
+        </form>
+
+        <!-- Modal para editar cliente -->
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Editar Cliente</h2>
+                <form id="edit-form">
+                    <input type="text" id="edit-nombre" placeholder="Nombre" required>
+                    <input type="email" id="edit-correo" placeholder="Correo" required>
+                    <input type="text" id="edit-direccion" placeholder="Dirección" required>
+                    <input type="text" id="edit-membresia" placeholder="Membresía" required>
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
         {% endblock %}
     </main>
-<<<<<<< Updated upstream
 
     <!-- INICIO DEL PIE DE PÁGINA -->
     <footer class="py-3 bg-dark text-white text-center">
@@ -208,83 +146,3 @@
                         <li><a href="#" class="text-white">Política de Privacidad</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h5>Cuenta</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Mi Cuenta</a></li>
-                        <li><a href="#" class="text-white">Historial de Pedidos</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="bg-white">
-            <p>&copy; 2024 Renta de Películas. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-=======
-    <!--Fin del bloque cambiante-->
-    <!--INICIO DEL PIE DE PAGINA-->
-    <footer class="py-3 text-center" style="margin-top:15%;">
-        <div class="piep card-footer" style="padding:0; margin:0;">
-            <center>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h5>Renta de Películas</h5>
-                            <p>Nos dedicamos a ofrecer las mejores películas para disfrutar en casa.</p>
-                            <p>+52 55 987 654 32</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Horario</h5>
-                            <ul class="list-unstyled">
-                                <li>Lun-Vie: 8AM-10PM</li>
-                                <li>Sáb: 9AM-8PM</li>
-                                <li>Dom: Cerrado</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Información</h5>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-white">Sobre Nosotros</a></li>
-                                <li><a href="#" class="text-white">Política de Privacidad</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Cuenta</h5>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-white">Mi Cuenta</a></li>
-                                <li><a href="#" class="text-white">Historial de Pedidos</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                <table class="negocios">
-                    <tr>
-                        <td><img src="{% static 'img/iconos/paypal.png' %}" style="width: 80px; height: 40px;"
-                                alt="Paypal"></td>
-                        <td><img src="{% static 'img/iconos/american-express.png' %}" style="width: 80px; height: 40px;"
-                                alt="American Express"></td>
-                        <td><img src="{% static 'img/iconos/amazon.png' %}" style="width: 80px; height: 40px;"
-                                alt="Amazon"></td>
-                        <td><img src="{% static 'img/iconos/visa.png' %}" style="width: 80px; height: 40px;" alt="Visa">
-                        </td>
-                    </tr>
-                </table>
-                <p style="color: gray;">Copyright &#9400 MOI6. Design. All rights reserved</p>
-            </center>
-        </div>
-    </footer>
-    <!--FIN DEL PIE DE PAGINA-->
-    <script src="{% static 'js\main.js' %}"></script>
-    <script src="{% static 'js\validar.js' %}"></script>
-      <!-- Scripts -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EO3hKqmb3O8eCNEONKmz+kt8/c3HRM1yQJRM1EDhaGEaPC7rHH0xg26n2jN1FTBi" crossorigin="anonymous">
->>>>>>> Stashed changes
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
