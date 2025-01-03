@@ -54,25 +54,20 @@ def agregar_cliente(request):
 # Editar clientes con AJAX
 @csrf_exempt
 def editar_cliente(request, cliente_id):
-    if request.method == 'POST' and request.is_ajax():
-        try:
-            cliente = Cliente.objects.get(id=cliente_id)
-            cliente.nombre = request.POST.get('nombre', cliente.nombre)
-            cliente.correo = request.POST.get('correo', cliente.correo)
-            cliente.direccion = request.POST.get('direccion', cliente.direccion)
-            cliente.detalles_membresia = request.POST.get('membresia', cliente.detalles_membresia)
-            cliente.save()
+    cliente = get_object_or_404(Cliente, id=cliente_id)
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_clientes')  # Redirige a la vista de lista de clientes después de guardar
+    else:
+        form = ClienteForm(instance=cliente)
+    return render(request, 'clientes/editar_cliente.html', {'form': form, 'cliente': cliente})
 
-            return JsonResponse({
-                'id': cliente.id,
-                'nombre': cliente.nombre,
-                'correo': cliente.correo,
-                'direccion': cliente.direccion,
-                'membresia': cliente.detalles_membresia
-            })
-        except Cliente.DoesNotExist:
-            return JsonResponse({'error': 'Cliente no encontrado'}, status=404)
-    return JsonResponse({'error': 'Solicitud no válida'}, status=400)
+@csrf_exempt
+def listar_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'clientes/listar_clientes.html', {'clientes': clientes})
 
 @csrf_exempt
 def eliminar_cliente(request, cliente_id):
