@@ -17,14 +17,14 @@
     <ul>
         {% for linea in lineas_pedido %}
         <li id="lineas-pedido">
-            <b>Producto: {{linea.producto.nomProduct}}</b><br>
-            Producto ID: <span class="producto-id">{{ linea.producto_id }}</span><br>
+            <b>Producto: {{linea.pelicula.titulo}}</b><br>
+            Producto ID: <span class="producto-id">{{ linea.pelicula_id }}</span><br>
             Cantidad: <span class="dias">{{ linea.dias }}</span><br>
             Sub-total:
             {% if linea.producto.descuento > 0 %}
-            <span class="precio">${{ linea.producto.precio_final }}</span>
+            <span class="precio">${{ linea.pelicula.precio_final }}</span>
             {% else %}
-            <span class="precio">${{ linea.producto.precio }}</span>
+            <span class="precio">${{ linea.pelicula.precio }}</span>
             {% endif %}
         </li>
         {% empty %}
@@ -69,7 +69,7 @@
                     detalles.forEach(function (detalle) {
                         detalle = detalle.trim();
                         if (detalle) {
-                            row.push(detalle.split(': ')[1]); // Extraer el valor despu�s de ": "
+                            row.push(detalle.split(': ')[1]); 
                         }
                     });
 

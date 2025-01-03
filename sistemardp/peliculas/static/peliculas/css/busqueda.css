@@ -75,3 +75,11 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
+.form-oval {
+ 
+    padding: 0%;
+    border: 2px solid #ccc;
+    border-radius: 50px !important; /* Hace las esquinas redondeadas */
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}

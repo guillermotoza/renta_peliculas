@@ -56,6 +56,15 @@ def procesar_pedido(request):
    
 
     messages.success(request, "El pedido se ha creado correctamente")
+    pdf_response = generar_pdf_pedido(request, pedido_id=pedido.id) #deberia descargar el pdf en automatico en la pagina
+
+    messages.success(request, "El pedido se ha creado correctamente")
+    return render(request, "confirmar_pedido.html", {
+        "pedido": pedido,
+        "lineas_pedido": lineas_pedido,
+        "pdf_response": pdf_response,
+        "total_pedido":total_pedido
+    })
     
 
 #funcion para enviar email
@@ -70,7 +79,7 @@ def enviar_mail(**kwargs):
         })
         
         mensaje_texto=strip_tags(mensaje)
-        from_email=os.getenv('EMAIL_HOST_USER')
+        from_email='moises.ramirezr@fgr.org.mx'
         to=kwargs.get("emailusuario")
         
         send_mail(asunto,mensaje_texto,from_email,[to],html_message=mensaje)

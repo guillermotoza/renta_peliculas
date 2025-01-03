@@ -242,7 +242,11 @@
           ]
         },
         {
+<<<<<<< Updated upstream
           "DockedWidth": 308,
+=======
+          "DockedWidth": 487,
+>>>>>>> Stashed changes
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -291,8 +295,7 @@
               "RelativeToolTip": "sistemardp\\carro\\urls.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2024-12-09T23:29:03.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T23:29:03.103Z"
             },
             {
               "$type": "Document",
