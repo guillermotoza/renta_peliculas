@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago Exitoso</title>
+    <title>Suscripción Cancelada</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <div class="alert alert-success mt-4">
-            <h4 class="alert-heading">¡Éxito!</h4>
-            <p>Tu pago ha sido procesado exitosamente.</p>
+        <div class="alert alert-info mt-4">
+            <h4 class="alert-heading">Información</h4>
+            <p>{{ message }}</p>
             <hr>
             <a href="{% url 'membership_list' %}" class="btn btn-primary">Volver a Membresías</a>
         </div>

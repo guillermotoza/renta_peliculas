@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8 mb-4">
             <header class="py-4">
                 <h1 class="text-center">Resultados de Búsqueda</h1>
                 <div class="text-center">
@@ -15,7 +15,7 @@
 
             <section class="my-5" id="resultados">
                 {% if peliculas %}
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover mb-5">
                     <thead class="table-dark">
                         <tr>
                             <th>Título</th>
@@ -53,7 +53,6 @@
                                 {% else %}
                                 <p>Trailer no disponible</p>
                                 {% endif %}
-                               
                             </td>
                             <td>
                                 <form method="post" action="{% url 'carro:agregar' pelicula.id %}">
@@ -76,7 +75,14 @@
         <div class="col-lg-4">
             <div class="sticky-top">
                 {% if request.user.is_authenticated %}
-                {% include "carro/widget.html" %}
+                <div class="card">
+                    <div class="card-header">
+                        Carrito
+                    </div>
+                    <div class="card-body">
+                        {% include "carro/widget.html" %}
+                    </div>
+                </div>
                 {% else %}
                 <div class="alert alert-danger text-center">
                     Inicia sesión para realizar tu pedido

@@ -50,6 +50,21 @@ def subscribe(request, membership_slug):
     return redirect('membership_list')
 
 @login_required
+def cancel_subscription(request):
+    user_membership = UserMembership.objects.get(user=request.user)
+    subscription = Subscription.objects.filter(user_membership=user_membership, active=True).first()
+
+    if subscription:
+        subscription.active = False
+        subscription.end_date = timezone.now()
+        subscription.save()
+        message = "Tu suscripción ha sido cancelada exitosamente."
+    else:
+        message = "No tienes una suscripción activa para cancelar."
+
+    return render(request, 'subscription_cancelled.html', {'message': message})
+
+@login_required
 def create_checkout_session(request):
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
@@ -59,7 +74,7 @@ def create_checkout_session(request):
                 'product_data': {
                     'name': 'Membresía Gold',
                 },
-                'unit_amount': 2000,  
+                'unit_amount': 2000,  # Precio en centavos (2000 centavos = $20.00)
             },
             'quantity': 1,
         }],

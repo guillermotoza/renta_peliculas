@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import send_mail
+import os
 #reportlab para generar PDF
 import openpyxl.workbook
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
@@ -75,7 +76,7 @@ def enviar_mail(**kwargs):
         send_mail(asunto,mensaje_texto,from_email,[to],html_message=mensaje)
 
 #funcion para generar pdf
-def generar_pdf(request, pedido_id):
+def generar_pdf_pedido(request, pedido_id):
     pedido = Pedido.objects.get(id=pedido_id, user=request.user)
     lineas_pedidos = LineaPedido.objects.filter(pedido=pedido)
     nombreusuario = request.user.username
