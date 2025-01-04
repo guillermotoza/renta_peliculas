@@ -34,9 +34,10 @@ class eliminar_pelicula(View):
         pelicula = get_object_or_404(Pelicula, id=pelicula_id)
         carro.eliminar(pelicula)
         messages.success(request, f'La película "{pelicula.titulo}" ha sido eliminada del carrito.') 
+        peliculas = Pelicula.objects.all()
 
         # Volver a renderizar la misma página con datos actualizados
-        return render(request, "resultados_busqueda_peliculas.html", {})
+        return render(request, "resultados_busqueda_peliculas.html", {"peliculas": peliculas})
 
 class restar_pelicula(View):
     def post(self, request, pelicula_id):
@@ -44,8 +45,9 @@ class restar_pelicula(View):
         pelicula = get_object_or_404(Pelicula, id=pelicula_id)
         carro.restar_pelicula(pelicula)
         messages.success(request, f'Se ha reducido un día de la película "{pelicula.titulo}" en el carrito.')
+        peliculas = Pelicula.objects.all()
 
-        return render(request, "resultados_busqueda_peliculas.html", {})
+        return render(request, "resultados_busqueda_peliculas.html", {"peliculas": peliculas})
 
 class limpiar_carro(View):
     def post(self, request):

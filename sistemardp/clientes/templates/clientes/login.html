@@ -1,7 +1,6 @@
-<<<<<<< Updated upstream
-=======
+
 {% extends "base.html" %}
->>>>>>> Stashed changes
+
 {% load static %}
 {% block content %}
 <!DOCTYPE html>
@@ -12,42 +11,6 @@
     <title>Bienvenido!</title>
     <link rel="stylesheet" type="text/css" href="{% static 'clientes/css/style.css' %}">
 </head>
-<<<<<<< Updated upstream
-    <body>
-        <div class="login-container">
-            <div class="info-section">
-                <h2>Bienvenido</h2>
-                <p>Vamos a buscar tu cuenta para iniciar sesión o registrarte.</p>
-            </div>
-            <div class="form-section">
-                <h2>Iniciar Sesión</h2>
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-
-                    <div class="form-group">
-                        <label for="id_username">Usuario</label>
-                        {{ form.username }}
-                    </div>
-
-                    <div class="form-group">
-                        <label for="id_password">Contraseña</label>
-                        {{ form.password }}
-                    </div>
-
-                    <button type="submit" class="btn-primary">Iniciar Sesión</button>
-                </form>
-                <div class="extra-options">
-                    <a href = "{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
-                    <a href = "{% url 'autentificar' %}">Crear una cuenta</a>
-=======
 <body>
     <div class="login-container">
         <div class="info-section">
@@ -63,7 +26,7 @@
                 <div class="form-group">
                     <label for="id_username">Usuario</label>
                     {{ form.username }}
->>>>>>> Stashed changes
+
                 </div>
 
                 <div class="form-group">
@@ -74,7 +37,7 @@
                 <button type="submit" class="btn-primary">Iniciar Sesión</button>
             </form>
             <div class="extra-options">
-                <a href="#">¿Olvidaste tu contraseña?</a>
+                <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
                 <a href="{% url 'autentificar' %}">Crear una cuenta</a>
             </div>
         </div>

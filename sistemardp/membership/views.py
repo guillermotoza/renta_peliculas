@@ -59,7 +59,7 @@ def complete_subscription(request, membership_slug, user_id):
     user_membership.save()
     Subscription.objects.create(user_membership=user_membership, end_date=timezone.now() + timezone.timedelta(days=30))
     
-    return redirect('payment_success')
+    return render(request, 'payment_success.html')
 
 @login_required
 def cancel_subscription(request):

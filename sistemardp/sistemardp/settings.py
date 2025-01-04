@@ -149,9 +149,9 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.office365.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "dfsf"
-EMAIL_HOST_PASSWORD = "fdsf"
-DEFAULT_FROM_EMAIL = ",hlj"
+EMAIL_HOST_USER = "moises.ramirezr@fgr.org.mx"
+EMAIL_HOST_PASSWORD = "MRR361852h17;99"
+DEFAULT_FROM_EMAIL = "moises.ramirezr@fgr.org.mx"
 
 # Mostrar mensajes de error
 MESSAGE_TAGS = {

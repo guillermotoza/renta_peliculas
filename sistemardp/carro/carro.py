@@ -58,10 +58,10 @@ class Carro:
                 if float(value["descuento"]) > 0:
                 # Si hay descuento, recalculamos el precio con descuento
                     precio_con_descuento = pelicula.precio - (pelicula.precio * pelicula.descuento / 100)
-                    value["precio"] = str(float(value["precio"]) - precio_con_descuento)
+                    value["precio"] = str(Decimal(value["precio"]) - precio_con_descuento)
                 else:
                     # Si no hay descuento, restamos el precio unitario directamente
-                    value["precio"] = str(float(value["precio"]) - pelicula.precio)
+                    value["precio"] = str(Decimal(value["precio"]) - pelicula.precio)
                 if value["dias"] < 1:
                     self.eliminar(pelicula)
 

@@ -2,15 +2,17 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
-    "\\sistemardp\\clientes",
-    "\\sistemardp\\clientes\\static",
-    "\\sistemardp\\clientes\\static\\clientes",
-    "\\sistemardp\\clientes\\templates",
-    "\\sistemardp\\clientes\\templates\\clientes",
+    "\\sistemardp\\carro",
     "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\static",
-    "\\sistemardp\\lobby\\static\\css"
+    "\\sistemardp\\lobby\\templates",
+    "\\sistemardp\\membership",
+    "\\sistemardp\\membership\\templates",
+    "\\sistemardp\\pedidos",
+    "\\sistemardp\\pedidos\\templates",
+    "\\sistemardp\\pedidos\\templates\\email",
+    "\\sistemardp\\peliculas",
+    "\\sistemardp\\peliculas\\templates"
   ],
-  "SelectedNode": "\\sistemardp\\pedidos\\templates\\email\\pedido.html",
+  "SelectedNode": "\\sistemardp\\clientes\\templates\\clientes\\registro.html",
   "PreviewInSolutionExplorer": false
 }
