@@ -1,7 +1,9 @@
+from re import template
 from django.urls import path
 from . import views
 from .views import Vregistro
 from django.contrib.auth import views as auth_views
+from .views import CustomPasswordChangeView, CustomPasswordChangeDoneView
 
 urlpatterns = [
     path('clientes/cargar/', views.cargar_clientes, name='cargar_clientes'),  
@@ -9,7 +11,7 @@ urlpatterns = [
     path('clientes/eliminar/<int:cliente_id>/', views.eliminar_cliente, name='eliminar_cliente'),
     path('clientes/', views.listar_clientes, name='listar_clientes'),
     path('clientes/<int:cliente_id>/editar/', views.editar_cliente, name='editar_cliente'),
-    path("", Vregistro.as_view(), name="autentificar"),
+    path(" ", Vregistro.as_view(), name="autentificar"),
     path("cerrar_sesion/", views.cerrar_sesion, name="cerrar_sesion"),
     path("iniciar_sesion/", views.iniciar_sesion, name="iniciar_sesion"),
    
@@ -34,6 +36,13 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
         template_name='clientes/auth/password_reset_complete.html'
     ), name='password_reset_complete'),
+
+    path('password_change/', CustomPasswordChangeView.as_view(
+        template_name="clientes/auth/password_change_form.html"
+    ), name='password_change'),
+
+    path('password_change/done/', CustomPasswordChangeDoneView.as_view(
+    ), name='password_change_done'),
 ]
 
 

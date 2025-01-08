@@ -26,6 +26,8 @@ def contactar (request):
         else:
             messages.error(request, "No has introducido nada")
             return render(request, "contacto.html")
+
+
             
     return render(request, "contacto.html")
 
@@ -173,4 +175,7 @@ def eliminar_pelicula(request, pelicula_id):
 def custom_logout_view(request):
     logout(request)
     return redirect('iniciar_sesion')
+
+def politica_privacidad(request):
+    return render(request, 'politica_privacidad.html')
 

@@ -13,4 +13,5 @@ urlpatterns = [
     path('peliculas/<int:pelicula_id>/editar/', views.editar_pelicula, name='editar_pelicula'),
     path('logout/', views.custom_logout_view, name='logout'),
     path('contactanos/',views.contactar,name="contactanos"),
+    path('politica-privacidad/', views.politica_privacidad, name='politica_privacidad'),
 ]
