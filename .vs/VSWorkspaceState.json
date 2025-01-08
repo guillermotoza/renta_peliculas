@@ -2,14 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
-    "\\sistemardp\\carro",
     "\\sistemardp\\lobby",
     "\\sistemardp\\lobby\\templates",
     "\\sistemardp\\peliculas",
     "\\sistemardp\\peliculas\\static",
     "\\sistemardp\\peliculas\\static\\peliculas",
     "\\sistemardp\\peliculas\\static\\peliculas\\js",
-    "\\sistemardp\\peliculas\\templates"
+    "\\sistemardp\\peliculas\\templates",
+    "\\sistemardp\\sistemardp"
   ],
   "SelectedNode": "\\sistemardp\\lobby\\templates\\base.html",
   "PreviewInSolutionExplorer": false
