@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/politica_privacidad.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="privacy-container mt-5">
+    <h1>Politica de Privacidad</h1>
+    <p>En Renta de Peliculas, nos comprometemos a proteger la privacidad de nuestros usuarios. Esta politica de privacidad explica como recopilamos, usamos, divulgamos y protegemos su informacion personal.</p>
+
+    <h2>1. Informacion que Recopilamos</h2>
+    <p>Recopilamos informacion personal que usted nos proporciona directamente, como su nombre, direccion de correo electronico, direccion postal, numero de telefono y detalles de pago. Tambien podemos recopilar informacion automaticamente a traves de su uso de nuestro sitio web, como su direccion IP, tipo de navegador y paginas visitadas.</p>
+
+    <h2>2. Uso de la Informacion</h2>
+    <p>Utilizamos la informacion recopilada para proporcionar y mejorar nuestros servicios, procesar transacciones, comunicarnos con usted, personalizar su experiencia y cumplir con nuestras obligaciones legales.</p>
+
+    <h2>3. Divulgacion de la Informacion</h2>
+    <p>No compartimos su informacion personal con terceros, excepto en las siguientes circunstancias:</p>
+    <ul>
+        <li>Con su consentimiento.</li>
+        <li>Para cumplir con obligaciones legales.</li>
+        <li>Para proteger nuestros derechos y propiedad.</li>
+        <li>Para proporcionar servicios en nuestro nombre.</li>
+    </ul>
+
+    <h2>4. Seguridad de la Informacion</h2>
+    <p>Implementamos medidas de seguridad razonables para proteger su informacion personal contra el acceso no autorizado, la divulgacion, la alteracion y la destruccion. Sin embargo, no podemos garantizar la seguridad absoluta de la informacion transmitida a traves de Internet.</p>
+
+    <h2>5. Cambios a esta Politica de Privacidad</h2>
+    <p>Podemos actualizar esta politica de privacidad de vez en cuando. Le notificaremos sobre cualquier cambio publicando la nueva politica en nuestro sitio web. Le recomendamos que revise esta politica periodicamente para estar informado sobre como protegemos su informacion.</p>
+</div>
+{% endblock %}

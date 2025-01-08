@@ -7,6 +7,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.views.generic import View
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
+from django.urls import reverse_lazy
 
 # Listar clientes y enviar datos
 def listar_clientes(request):
@@ -124,3 +126,10 @@ def iniciar_sesion(request):
 
     form = AuthenticationForm()
     return render(request, "clientes/login.html", {"form": form})
+
+class CustomPasswordChangeView(PasswordChangeView):
+    template_name = 'registration/password_change_form.html'
+    success_url = reverse_lazy('password_change_done')
+
+class CustomPasswordChangeDoneView(PasswordChangeDoneView):
+    template_name = 'registration/password_change_done.html'

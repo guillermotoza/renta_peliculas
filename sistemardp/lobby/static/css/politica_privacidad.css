@@ -1,0 +1,109 @@
+:root {
+    --primary-color: #115fcd;
+    --secondary-color: #f4b400;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --header-color: #ffffff;
+    --hover-color: #14141a;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* General */
+body, html {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--primary-color);
+    color: var(--header-color);
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    header button {
+        background-color: var(--hover-color);
+        color: var(--header-color);
+        border: none;
+        padding: 10px 20px;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        header button:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+/* Contenedor de privacidad */
+.privacy-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+    .privacy-container h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        text-align: center;
+    }
+
+    .privacy-container h2 {
+        font-size: 1.5rem;
+        margin-top: 20px;
+        color: var(--secondary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 5px;
+    }
+
+    .privacy-container p, .privacy-container ul {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .privacy-container ul {
+        padding-left: 20px;
+    }
+
+        .privacy-container ul li {
+            margin-bottom: 10px;
+        }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .privacy-container {
+        padding: 15px;
+    }
+
+        .privacy-container h1 {
+            font-size: 1.75rem;
+        }
+
+        .privacy-container h2 {
+            font-size: 1.25rem;
+        }
+
+        .privacy-container p, .privacy-container ul {
+            font-size: 0.9rem;
+        }
+}

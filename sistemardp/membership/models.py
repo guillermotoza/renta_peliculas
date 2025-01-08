@@ -16,7 +16,7 @@ class Membership(models.Model):
     )
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
-
+    discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0.00) 
     def __str__(self):
         return self.membership_type
 

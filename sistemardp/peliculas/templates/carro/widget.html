@@ -73,7 +73,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="4" class="text-end"><strong>TOTAL:</strong></td>
-                        <td><strong>${{ importe_total_carro }}</strong></td>
+                        <td><strong>${{ importe_total_carro|floatformat:2 }}</strong></td>
                     </tr>
                     {% if request.session.carro and request.session.carro.items %}
                     <tr>
