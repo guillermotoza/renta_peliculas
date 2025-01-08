@@ -4,57 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Generar pedido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Carrito de Películas</title>
     <script src="{% static 'miMuebleria/js/app.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
 </head>
-<body onload="deshabilitaRetroceso()">
+<body style="padding: 0% !important; margin:0;">
     <center>
-        <div class="table-responsive">
-            <table class="table table-bordered" style="color: rgb(22, 21, 21) !important; width:80% !important; justify-content:center !important;">
-                <thead>
+        <div class="table-responsive mt-4" style="padding: 0% !important; margin:0;">
+            <table class="table table-bordered text-center" style="width:80%; padding:0% !important;">
+                <thead style="padding: 0% !important; margin:0;">
                     <tr>
-                        <th colspan="5" class="text-center">
-                            Artículos Seleccionados
-                        </th>
+                        <th colspan="5" style="padding: 0% !important; margin:0;">Artículos Seleccionados</th>
                     </tr>
-                    <tr>
-                        <th>Eliminar</th>
-                        <th>Película</th>
-                        <th>Agregar/Quitar</th>
-                        <th>N. Días</th>
-                        <th>Subtotal</th>
+                    <tr style="padding: 0% !important; margin:0;">
+                        <th style="padding: 0% !important; margin:0;">Eliminar</th>
+                        <th style="padding: 0% !important; margin:0;">Película</th>
+                        <th style="padding: 0% !important; margin:0;">Acciones</th>
+                        <th style="padding: 0% !important; margin:0;">Días</th>
+                        <th style="padding: 0% !important; margin:0;">Subtotal</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="padding: 0% !important; margin:0;">
                     {% if request.session.carro and request.session.carro.items %}
                     {% for key, value in request.session.carro.items %}
-                    <tr class="text-center">
+                    <tr>
+                        <!-- Botón para eliminar -->
                         <td>
-                            <form method="post" action="{% url 'carro:eliminar' key %}" style="display:inline; padding:0% !important;">
+                            <form method="post" action="{% url 'carro:carro_eliminar' key %}" style="display:inline; padding:0% !important;">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger" style="width:70% !important;">Borrar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" aria-label="Eliminar {{ value.titulo }}">
+                                    Borrar
+                                </button>
                             </form>
                         </td>
+                        <!-- Título de la película -->
                         <td>{{ value.titulo }}</td>
+                        <!-- Botones para agregar/restar -->
                         <td>
-                            <!--BOTÓN AUMENTAR Producto-->
-                            <form method="post" action="{% url 'carro:agregar' key %}" style="display: inline; padding: 0% !important;">
+                            <form method="post" action="{% url 'carro:carro_agregar' key %}" style="display:inline; padding:0% !important;">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-success" style="width:70% !important;">+</button>
+                                <button type="submit" class="btn btn-success btn-sm" aria-label="Agregar un día a {{ value.titulo }}">+</button>
                             </form>
-                            <!--BOTÓN RESTAR Producto-->
-                            <form method="post" action="{% url 'carro:restar' key %}" style="display: inline; padding: 0% !important;">
+                            <form method="post" action="{% url 'carro:carro_restar' key %}" style="display:inline; padding:0% !important;">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-warning" style="width:70% !important;">-</button>
+                                <button type="submit" class="btn btn-warning btn-sm" aria-label="Restar un día a {{ value.titulo }}">-</button>
                             </form>
                         </td>
+                        <!-- Días seleccionados -->
                         <td>{{ value.dias }}</td>
+                        <!-- Precio final o precio estándar -->
                         {% if value.descuento > 0 %}
                         <td>$ {{ value.precio_final }}</td>
                         {% else %}
@@ -64,9 +62,9 @@
                     {% endfor %}
                     {% else %}
                     <tr>
-                        <td colspan="5">
-                            <div class="alert alert-danger text-center">
-                                <p>Sin artículos</p>
+                        <td colspan="5" class="text-center">
+                            <div class="alert alert-danger">
+                                No hay artículos en el carrito.
                             </div>
                         </td>
                     </tr>
@@ -74,20 +72,21 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="5" class="text-right">
-                            <strong>TOTAL: {{ importe_total_carro }}</strong>
-                        </td>
+                        <td colspan="4" class="text-end"><strong>TOTAL:</strong></td>
+                        <td><strong>${{ importe_total_carro }}</strong></td>
                     </tr>
-                    {% if request.session.carro.items %}
+                    {% if request.session.carro and request.session.carro.items %}
                     <tr>
-                        <td colspan="1" class="text-center">
-                            <form method="post" action="{% url 'carro:vaciar' %}" style="display: inline; padding: 0% !important;">
+                        <!-- Botón para vaciar el carrito -->
+                        <td colspan="1">
+                            <form method="post" action="{% url 'carro:carro_limpiar' %}" style="display:inline; padding:0% !important;">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-warning">Vaciar carro</button>
+                                <button type="submit" class="btn btn-warning btn-sm">Vaciar Carro</button>
                             </form>
                         </td>
-                        <td colspan="4" class="text-center">
-                            <a href="{% url 'pedidos' %}" class="btn btn-success">Hacer pedido</a>
+                        <!-- Botón para realizar pedido -->
+                        <td colspan="4">
+                            <a href="{% url 'pedidos' %}" class="btn btn-success">Hacer Pedido</a>
                         </td>
                     </tr>
                     {% endif %}

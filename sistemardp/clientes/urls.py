@@ -4,7 +4,7 @@ from .views import Vregistro
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('clientes/', views.cargar_clientes, name='cargar_clientes'),  
+    path('clientes/cargar/', views.cargar_clientes, name='cargar_clientes'),  
     path('usuario', views.agregar_cliente, name='agregar_cliente'),
     path('clientes/eliminar/<int:cliente_id>/', views.eliminar_cliente, name='eliminar_cliente'),
     path('clientes/', views.listar_clientes, name='listar_clientes'),

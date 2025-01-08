@@ -5,14 +5,12 @@
     "\\sistemardp\\carro",
     "\\sistemardp\\lobby",
     "\\sistemardp\\lobby\\templates",
-    "\\sistemardp\\membership",
-    "\\sistemardp\\membership\\templates",
-    "\\sistemardp\\pedidos",
-    "\\sistemardp\\pedidos\\templates",
-    "\\sistemardp\\pedidos\\templates\\email",
     "\\sistemardp\\peliculas",
+    "\\sistemardp\\peliculas\\static",
+    "\\sistemardp\\peliculas\\static\\peliculas",
+    "\\sistemardp\\peliculas\\static\\peliculas\\js",
     "\\sistemardp\\peliculas\\templates"
   ],
-  "SelectedNode": "\\sistemardp\\clientes\\templates\\clientes\\registro.html",
+  "SelectedNode": "\\sistemardp\\lobby\\templates\\base.html",
   "PreviewInSolutionExplorer": false
 }

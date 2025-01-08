@@ -33,7 +33,7 @@ def procesar_pedido(request):
     pedido = Pedido.objects.create(user=request.user)
     carro = Carro(request)
     lineas_pedido = []
-    total_pedido = sum(linea.total_pedido for linea in lineas_pedido)
+    total_pedido = sum(linea.total_pedido for linea in lineas_pedido) 
 
     for key, value in carro.carro.items():
         lineas_pedido.append(LineaPedido(

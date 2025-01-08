@@ -36,8 +36,7 @@ class Carro:
                     # Actualiza el precio final total (aunque este valor puede depender de c mo se quiera mostrar en la vista)
                     value["precio_final"] = str(Decimal(value["precio_final"]) + precio_con_descuento)
                     #value["precio"] = round(float(value["precio"])+ float(pelicula.precio_final),2)
-                break
-
+                    break
         self.guardar_carro()
 
     def guardar_carro(self):
@@ -55,17 +54,16 @@ class Carro:
             if key == str(pelicula.id):
                 value["dias"]=value["dias"]-1
                 # Calcular el precio considerando si hay descuento o no
-                if float(value["descuento"]) > 0:
-                # Si hay descuento, recalculamos el precio con descuento
+                if Decimal(value["descuento"]) > 0:
                     precio_con_descuento = pelicula.precio - (pelicula.precio * pelicula.descuento / 100)
                     value["precio"] = str(Decimal(value["precio"]) - precio_con_descuento)
                 else:
-                    # Si no hay descuento, restamos el precio unitario directamente
                     value["precio"] = str(Decimal(value["precio"]) - pelicula.precio)
                 if value["dias"] < 1:
                     self.eliminar(pelicula)
-
-            break
+                if value["dias"] < 1:
+                    self.eliminar(pelicula)
+                break
         self.guardar_carro()
 
     def obtener_cantidad(self, pelicula):

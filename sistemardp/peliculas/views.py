@@ -6,36 +6,26 @@ from django.contrib import messages
 from datetime import datetime
 from carro.carro import Carro
 from django.views import View
+from django.http import JsonResponse
+from django.core import serializers
 
 User = get_user_model()
 
-def busqueda_peliculas(request):
-    carro = Carro(request)
-    top_10_peliculas = Pelicula.objects.order_by('-ventas_totales')[:10]
-    todas_peliculas = Pelicula.objects.all()
-    categoria_accion = CategoriaPel.objects.get(nombreCatPel='accion')
-    categoria_infantil = CategoriaPel.objects.get(nombreCatPel='Infantil')
-    peliculas_accion = Pelicula.objects.filter(categorias=categoria_accion)
-    peliculas_infantiles = Pelicula.objects.filter(categorias=categoria_infantil)
-    context = {
-        'top_10_peliculas': top_10_peliculas,
-        'todas_peliculas': todas_peliculas,
-        'peliculas_accion': peliculas_accion,
-        'peliculas_infantiles': peliculas_infantiles,
-    }
-    return render(request, "busqueda_peliculas.html", context)
+class TiendaView(View):
+    def get(self, request):
+        peliculas = Pelicula.objects.all()
+        if request.headers.get('Accept') == 'application/json':
+            peliculas_json = serializers.serialize('json', peliculas)
+            return JsonResponse(peliculas_json, safe=False)    
 
-class ConfirmacionPedidoView(View):
-    def get(self, request, pedido_id):
-        pedido = get_object_or_404(Pedido, id=pedido_id, user=request.user)
-        lineas_pedido = pedido.lineapedido_set.all()
-        total_pedido = sum(linea.total_pedido for linea in lineas_pedido)
-        context = {
-            'pedido': pedido,
-            'lineas_pedido': lineas_pedido,
-            'total_pedido': total_pedido,
-        }
-        return render(request, 'confirmacion_pedido.html', context)
+        
+        return render(request, "resultados_busqueda_peliculas.html", {"peliculas": peliculas})
+
+class PeliculasJsonView(View):
+    def get(self, request):
+        peliculas = Pelicula.objects.all()
+        peliculas_json = serializers.serialize('json', peliculas)
+        return JsonResponse(peliculas_json, safe=False)
 
 def resultados_peliculas(request):
     carro = Carro(request)
@@ -53,10 +43,6 @@ def resultados_peliculas(request):
             messages.error(request, 'Texto de búsqueda demasiado largo')
             return redirect('busqueda_peliculas')
 
-        elif pelicula_nombre == "venom":
-            messages.error(request, '¡Que fea película, elige otra!')
-            return redirect('busqueda_peliculas')
-
         if fecha_inicio and fecha_devolver and fecha_inicio > fecha_devolver:
             messages.error(request, 'La fecha de inicio no puede ser mayor a la de devolución.')
             return redirect('busqueda_peliculas')
@@ -71,8 +57,33 @@ def resultados_peliculas(request):
 def mostrar_peliculas(request, pelicula_nombre):
     # Filtrar las películas por el nombre
     pelicula_buscar = Pelicula.objects.filter(titulo__icontains=pelicula_nombre)
+
+    if request.headers.get('Accept') == 'application/json':
+        # Serializar resultados en JSON
+        peliculas_json = serializers.serialize('json', pelicula_buscar)
+        return JsonResponse({'peliculas': peliculas_json}, safe=False)
+
     return render(request, "resultados_busqueda_peliculas.html", {"peliculas": pelicula_buscar})
 
 def pelicula_detalles(request, pelicula_id):
     filtro_pelicula = Pelicula.objects.get(id=pelicula_id)
     return render(request, "detalles_pelicula.html", {"pelicula": filtro_pelicula})
+
+def busqueda_peliculas(request):
+    carro = Carro(request)
+    top_10_peliculas = Pelicula.objects.order_by('-ventas_totales')[:10]
+    todas_peliculas = Pelicula.objects.all()
+    categoria_accion = CategoriaPel.objects.get(nombreCatPel='accion')
+    categoria_infantil = CategoriaPel.objects.get(nombreCatPel='Infantil')
+    peliculas_accion = Pelicula.objects.filter(categorias=categoria_accion)
+    peliculas_infantiles = Pelicula.objects.filter(categorias=categoria_infantil)
+    context = {
+        'top_10_peliculas': top_10_peliculas,
+        'todas_peliculas': todas_peliculas,
+        'peliculas_accion': peliculas_accion,
+        'peliculas_infantiles': peliculas_infantiles,
+    }
+    return render(request, "busqueda_peliculas.html", context)
+
+
+
