@@ -33,43 +33,23 @@ def obtener_descuento_membresia(request):
 
 class AgregarPeliculaView(BaseCarroView):
     def post(self, request, pelicula_id):
-        # Obtén el carrito y la película
         carro = self.get_carro(request)
         pelicula = self.get_pelicula(pelicula_id)
-        
-        # Máximo de días permitidos para rentar
+
         dias_maximos = 15
         dias_rentados_en_carro = carro.obtener_cantidad(pelicula)
-        
-        # Calcula el descuento de la membresía del usuario
-        descuento_membresia = obtener_descuento_membresia(request)
-        
-        if dias_rentados_en_carro < dias_maximos:
-            # Agrega la película al carrito con el descuento correspondiente
-            carro.agregar(pelicula=pelicula, descuento_membresia=descuento_membresia)
-            
-            # Respuestas en caso de éxito
-            messages.success(request, f'Película "{pelicula.titulo}" agregada al carrito.')
-            response = {
-                "success": True,
-                "message": f'Película "{pelicula.titulo}" agregada al carrito.',
-                "descuento": float(descuento_membresia),  # Envíalo en la respuesta si es necesario
-            }
-        else:
-            # Respuestas en caso de error
-            messages.error(request, "Lo sentimos, el máximo de días permitidos son 15.")
-            response = {
-                "success": False,
-                "message": "Lo sentimos, el máximo de días permitidos son 15.",
-            }
-        
-        # Si la petición es AJAX, responde con JSON
-        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
-            return JsonResponse(response)
-        
-        # Si no es AJAX, redirige a la tienda
-        return redirect("tienda")
 
+        if dias_rentados_en_carro < dias_maximos:
+            carro.agregar(pelicula=pelicula)
+            messages.success(request, f'Película "{pelicula.titulo}" agregada al carrito.')
+            response = {"success": True, "message": f'Película "{pelicula.titulo}" agregada al carrito.'}
+        else:
+            messages.error(request, "Lo sentimos, el máximo de días permitidos son 15.")
+            response = {"success": False, "message": "Lo sentimos, el máximo de días permitidos son 15."}
+
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":  
+            return JsonResponse(response)
+        return redirect("tienda")
 
 class EliminarPeliculaView(BaseCarroView):
     def post(self, request, pelicula_id):

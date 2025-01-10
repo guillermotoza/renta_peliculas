@@ -70,12 +70,12 @@ def complete_subscription(request, membership_slug, user_id):
         f'- Tipo de Membresía: {membership.membership_type}\n'
         f'- Precio: ${membership.price}\n'
         f'- Descripción: {membership.description}\n\n'
-        'Tu membresía estará activa hasta el {user_membership.subscription_set.latest("end_date").end_date.strftime("%d/%m/%Y")}. '
+        f'Tu membresía estará activa hasta el {user_membership.subscription_set.latest("end_date").end_date.strftime("%d/%m/%Y")}. '
         'Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos.\n\n'
         '¡Disfruta de todos los beneficios que ofrecemos y gracias por elegirnos!\n\n'
         'Saludos cordiales,\n'
         'El equipo de Renta de Películas',
-        'tu_correo@gmail.com',
+        'moises.ramirezr@fgr.org.mx',
         [user.email], 
         fail_silently=False,
     )

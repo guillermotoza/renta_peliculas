@@ -4,6 +4,7 @@
 {% block content %}
 <header class="py-4" style="background: linear-gradient(blue,purple);" >
     <h1 class="text-center">Resultados de Búsqueda</h1>
+    
     <div class="text-center">
         <a href="{% url 'busqueda_peliculas' %}" class="btn btn-link" style="color:whitesmoke;">Volver a buscar</a>
     </div>
@@ -16,13 +17,13 @@
                 <table class="table table-striped table-hover mb-5">
                     <thead class="table-dark">
                         <tr>
-                            <th>Título</th>
+                            <th>Título </th>
                             <th>Categoría</th>
                             <th>Disponibilidad</th>
                             <th>Precio</th>
                             <th>Calificación</th>
                             <th>Imagen</th>
-                            <th>Trailer</th>
+                            <th>Trailer </th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -54,16 +55,27 @@
                             </td>
                             <td>
                                 <center>
-                                    <form method="post" action="{% url 'carro:carro_agregar' pelicula.id %}" class="form-oval" style="padding: 0; margin: 0; margin-bottom:-20px !important;">
-                                        {% csrf_token %}
-                                        <button type="submit" class=" add-to-cart btn {% if pelicula.stock > 0 %}btn-outline-success{% else %}btn-secondary disabled{% endif %}" data-pelicula-id="{{ pelicula.id }}">
-                                            {% if pelicula.stock > 0 %}
-                                                RENTAR 
-                                            {% else %}
+                                    {% if request.user.is_authenticated %}
+                                        <form method="post" action="{% url 'carro:carro_agregar' pelicula.id %}" class="form-oval" style="padding: 0; margin: 0; margin-bottom:-20px !important;">
+                                            {% csrf_token %}
+                                            <button type="submit" class=" add-to-cart btn {% if pelicula.stock > 0 %}btn-outline-success{% else %}btn-secondary disabled{% endif %}" data-pelicula-id="{{ pelicula.id }}">
+                                                {% if pelicula.stock > 0 %}
+                                                RENTAR
+                                                {% else %}
                                                 Sin stock
+                                                {% endif %}
+                                            </button>
+                                        </form>
+                                    {% else %}
+                                        <button type="submit" class=" add-to-cart btn {% if pelicula.stock > 0 %}btn-outline-success{% else %}btn-secondary disabled{% endif %}" data-pelicula-id="{{ pelicula.id }}" style="padding: 0; margin: 0; margin-bottom:-20px !important;">
+                                            {% if pelicula.stock > 0 %}
+                                            RENTAR
+                                            {% else %}
+                                            Sin stock
                                             {% endif %}
                                         </button>
-                                    </form>
+                                    {% endif %} 
+
                                 </center>
                             </td>
                         </tr>

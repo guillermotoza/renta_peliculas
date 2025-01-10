@@ -12,105 +12,41 @@
     <h3>Detalles de las peliculas rentadas:</h3>
     <ul>
         {% for linea in lineas_pedido %}
-            <li id="lineas-pedido">
-                <b>Producto: {{linea.pelicula.titulo}}</b><br>
-                Producto ID: <span class="producto-id">{{ linea.pelicula_id }}</span><br>
-                Cantidad: <span class="dias">{{ linea.dias }}</span><br>
-                Sub-total: 
-                {% if linea.pelicula.descuento > 0 %}
-                    <span class="precio">${{ linea.pelicula.precio_final }}</span>
-                {% else %}
-                    <span class="precio">${{ linea.pelicula.precio }}</span>
-                {% endif %}
-            </li>
-        <hr style="color:darkred;"> 
+        <li id="lineas-pedido">
+            <b>Producto: {{linea.pelicula.titulo}}</b><br>
+            Producto ID: <span class="producto-id">{{ linea.pelicula_id }}</span><br>
+            Cantidad: <span class="dias">{{ linea.dias }}</span><br>
+            Sub-total:
+            {% if linea.pelicula.descuento > 0 %}
+            <span class="precio">${{ linea.pelicula.precio_final }}</span>
+            {% else %}
+            <span class="precio">${{ linea.pelicula.precio }}</span>
+            {% endif %}
+        </li>
+        <hr style="color:darkred;">
         {% empty %}
-            <p>No hay productos en el pedido.</p>
+        <p>No hay productos en el pedido.</p>
         {% endfor %}
-        <li><p id="total"><b>TOTAL: {{ importe_total_carro }}</b></p></li>
+        {% if  descuento  > 0 %}
+            <li><strong> $ {{total_carro_con_descuento|floatformat:2 }} mxn</strong></li>
+            <li> usted ahorro: $ {{ ahorro }}</li>
+        
+        {% else %}
+            <li><p id="total"><b>TOTAL:$ {{ importe_total_carro }} mxn</b></p></li>
+        {% endif %}
+
     </ul>
     <p>Gracias por tu compra, {{ request.user.username }}!</p>
 
     <b><a href="{% url 'busqueda_peliculas' %}">Volver al inicio</a></b>
+    <br />
      <a href="{% url 'generar_pdf_pedido' pedido.id %}" class="btn btn-success">GENERAR PDF (django)</a>
- <br>
- <a href="{% url 'generar_excel_pedido' pedido.id %}" class="btn btn-success">GENERAR EXCEL (django)</a>
+    <a href="{% url 'generar_excel_pedido' pedido.id %}" class="btn btn-success">GENERAR EXCEL (django)</a>
     
     
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var pdfButton = document.getElementById('pdfoutb');
 
-        if (pdfButton) {
-            pdfButton.onclick = function(event) {
-                event.preventDefault();
-
-                // Obtener los datos del HTML
-                var pedidoNumeroElement = document.getElementById('pedido-numero');
-                var usuarioElement = document.getElementById('usuario');
-                var totalElement = document.getElementById('total');
-                var lineasElement = document.querySelectorAll('#lineas-pedido');
-
-                if (!pedidoNumeroElement || !usuarioElement || !totalElement) {
-                    console.error("Error: Uno o más elementos no se encontraron en el DOM.");
-                    alert("Error en la generación del PDF. Consulta la consola para más detalles.");
-                    return;
-                }
-
-                // Extrae los valores necesarios
-                var pedidoNumero = pedidoNumeroElement.textContent.split(': ')[1];
-                var usuario = usuarioElement.textContent.split(': ')[1];
-                var total = totalElement.textContent.split(': ')[1];
-                
-                var rows = [];
-
-                // Itera sobre cada elemento de línea
-                lineasElement.forEach(function(linea) {
-                    var producto = linea.querySelector("b").textContent.split(': ')[1];
-                    var productoId = linea.querySelector(".pelicula-id").textContent;
-                    var cantidad = linea.querySelector(".dias").textContent;
-                    var precio = linea.querySelector(".precio").textContent;
-
-                    rows.push([pelicula, peliculaId, dias, precio]);
-                });
-
-                // Definir el contenido del documento
-                var docDefinition = {
-                    content: [
-                        { text: 'Confirmación de Pedido', style: 'header', alignment: 'center' },
-                        { text: 'Pedido Número: ' + pedidoNumero, style: 'subheader' },
-                        { text: 'Usuario: ' + usuario, style: 'subheader' },
-                        {
-                            table: {
-                                headerRows: 1,
-                                widths: ['*', '*', '*', '*'],
-                                body: [
-                                    [{ text: 'Producto', style: 'tableHeader', alignment: 'center' }, { text: 'ID Pelicula', style: 'tableHeader', alignment: 'center' }, { text: 'dias', style: 'tableHeader', alignment: 'center' }, { text: 'Precio', style: 'tableHeader', alignment: 'center' }],
-                                    ...rows
-                                ]
-                            },
-                            alignment: 'center'
-                        },
-                        { text: 'Total: ' + total, style: 'total', alignment: 'right' }
-                    ],
-                    styles: {
-                        header: { fontSize: 18, bold: true, margin: [0, 0, 0, 10] },
-                        subheader: { fontSize: 14, margin: [0, 5, 0, 5] },
-                        total: { fontSize: 14, bold: true, margin: [0, 10, 0, 0] },
-                        tableHeader: { bold: true, fillColor: '#CCCCCC' }
-                    }
-                };
-
-                // Crear y descargar el PDF
-                pdfMake.createPdf(docDefinition).download('Compra_' + pedidoNumero + '.pdf');
-            };
-        } else {
-            console.error("Error: El botón para generar el PDF no se encontró en el DOM.");
-        }
-    });
-</script>
 {% endblock %}

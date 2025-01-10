@@ -1,3 +1,4 @@
+from unittest.mock import DEFAULT
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -9,11 +10,7 @@ class Membership(models.Model):
     )
     
     slug = models.SlugField()
-    membership_type = models.CharField(
-        choices=MEMBERSHIP_CHOICES,
-        default='Free',
-        max_length=30
-    )
+    membership_type = models.CharField(choices=MEMBERSHIP_CHOICES,default='Free',max_length=30)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0.00) 

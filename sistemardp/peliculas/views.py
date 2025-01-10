@@ -8,6 +8,10 @@ from carro.carro import Carro
 from django.views import View
 from django.http import JsonResponse
 from django.core import serializers
+from decimal import Decimal
+from membership.models import UserMembership
+from carro.context_processor import importe_total_carro
+from pedidos.views import calcular_descuento_membresia
 
 User = get_user_model()
 
@@ -84,6 +88,4 @@ def busqueda_peliculas(request):
         'peliculas_infantiles': peliculas_infantiles,
     }
     return render(request, "busqueda_peliculas.html", context)
-
-
 

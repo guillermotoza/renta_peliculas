@@ -28,11 +28,16 @@
             {% endif %}
         </li>
         {% empty %}
-        <p>No hay productos en el pedido.</p>
+        <li>No hay productos en el pedido.</li>
         {% endfor %}
-        <p id="total"><b>TOTAL: {{ importe_total_carro }}</b></p>
+
+        {% if descuento > 0 %}
+          <li><b>TOTAL: {{ total_carro_con_descuento }}</b></li> 
+        {% else %}
+            <li> <b>TOTAL: {{ importe_total_carro }}</b> <li/>
+        {% endif %}
     </ul>
-    <p>Gracias por tu compra, {{ request.user.username }}!</p>
+    <p>Gracias por tu compra, {{ nombre }}!</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
     <script>

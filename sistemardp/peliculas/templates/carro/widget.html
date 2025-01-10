@@ -73,8 +73,16 @@
                 <tfoot>
                     <tr>
                         <td colspan="4" class="text-end"><strong>TOTAL:</strong></td>
-                        <td><strong>${{ importe_total_carro|floatformat:2 }}</strong></td>
+                        <td><strong>${{ importe_total_carro|floatformat:2 }} </strong></td>
+
                     </tr>
+                    {% if  descuento  > 0 %}
+                        <tr>
+                            <td colspan="2"> !! Por usar Membresia !! </td>
+                            <td colspan="2"> <strong>precio con descuento </strong></td>
+                            <td> {{total_carro_con_descuento|floatformat:2 }}</td>
+                        </tr>
+                    {% endif %} 
                     {% if request.session.carro and request.session.carro.items %}
                     <tr>
                         <!-- Botón para vaciar el carrito -->

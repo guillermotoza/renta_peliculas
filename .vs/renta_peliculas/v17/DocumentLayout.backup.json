@@ -3,104 +3,92 @@
   "WorkspaceRootPath": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\lobby\\templates\\base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\lobby\\templates\\base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\carro\\widget.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\carro\\widget.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\busqueda_peliculas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\busqueda_peliculas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\detalles_pelicula.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\detalles_pelicula.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\pedidos\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\clientes\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\carro.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\static\\peliculas\\js\\carro.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\static\\peliculas\\js\\scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\carro.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\carro.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\context_processor.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\context_processor.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\pedidos\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\membership\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\membership\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\static\\clientes\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\clientes\\static\\clientes\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\detalles_pelicula.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\detalles_pelicula.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\context_processor.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\context_processor.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\clientes\\templates\\clientes\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\pedidos\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\confirmar_pedido.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\confirmar_pedido.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\auth\\password_reset_email.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\clientes\\templates\\clientes\\auth\\password_reset_email.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\clientes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\clientes\\templates\\clientes\\clientes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\sistemardp\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\sistemardp\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\carro.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\carro.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\carro\\carro_extras.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\carro\\carro_extras.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\lobby\\templates\\base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\lobby\\templates\\base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\carro.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\static\\peliculas\\js\\carro.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\tienda.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\templates\\tienda.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\carro\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\pedidos\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\sistemardp\\settings.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\sistemardp\\settings.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\static\\clientes\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\clientes\\static\\clientes\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\sistemardp\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\sistemardp\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sistemardp\\peliculas\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,11 +98,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 554,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "urls.py",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\sistemardp\\urls.py",
               "RelativeDocumentMoniker": "sistemardp\\sistemardp\\urls.py",
@@ -128,118 +116,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "carro.py",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\carro.py",
               "RelativeDocumentMoniker": "sistemardp\\carro\\carro.py",
               "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\carro.py",
               "RelativeToolTip": "sistemardp\\carro\\carro.py",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-01-07T18:27:42.17Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "detalles_pelicula.html",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\detalles_pelicula.html",
               "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\detalles_pelicula.html",
               "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\detalles_pelicula.html",
               "RelativeToolTip": "sistemardp\\peliculas\\templates\\detalles_pelicula.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-01-08T15:41:21.935Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "carro.js",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
-              "RelativeToolTip": "sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-07T22:21:50.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "scripts.js",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\scripts.js",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\static\\peliculas\\js\\scripts.js",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\scripts.js",
-              "RelativeToolTip": "sistemardp\\peliculas\\static\\peliculas\\js\\scripts.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-07T22:21:39.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "urls.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\urls.py",
-              "RelativeDocumentMoniker": "sistemardp\\carro\\urls.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\urls.py",
-              "RelativeToolTip": "sistemardp\\carro\\urls.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-07T19:57:23.598Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "views.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\views.py",
-              "RelativeDocumentMoniker": "sistemardp\\pedidos\\views.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\views.py",
-              "RelativeToolTip": "sistemardp\\pedidos\\views.py",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAC0AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-07T18:35:21.071Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "context_processor.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\context_processor.py",
-              "RelativeDocumentMoniker": "sistemardp\\carro\\context_processor.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\context_processor.py",
-              "RelativeToolTip": "sistemardp\\carro\\context_processor.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-07T18:34:50.891Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "views.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\views.py",
-              "RelativeDocumentMoniker": "sistemardp\\carro\\views.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\views.py",
-              "RelativeToolTip": "sistemardp\\carro\\views.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-07T18:34:40.252Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "models.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\membership\\models.py",
-              "RelativeDocumentMoniker": "sistemardp\\membership\\models.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\membership\\models.py",
-              "RelativeToolTip": "sistemardp\\membership\\models.py",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-07T18:33:09.685Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "busqueda.css",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css",
               "RelativeDocumentMoniker": "sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css",
@@ -247,61 +151,148 @@
               "RelativeToolTip": "sistemardp\\peliculas\\static\\peliculas\\css\\busqueda.css",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-01-07T17:34:17.44Z"
+              "WhenOpened": "2025-01-07T17:34:17.44Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "models.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\models.py",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\models.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\models.py",
-              "RelativeToolTip": "sistemardp\\peliculas\\models.py",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-07T17:18:06.28Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "login.html",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\login.html",
-              "RelativeDocumentMoniker": "sistemardp\\clientes\\templates\\clientes\\login.html",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\login.html",
-              "RelativeToolTip": "sistemardp\\clientes\\templates\\clientes\\login.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "resultados_busqueda_peliculas.html",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
+              "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
+              "RelativeToolTip": "sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-07T16:52:57.457Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "busqueda_peliculas.html",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\busqueda_peliculas.html",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\busqueda_peliculas.html",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\busqueda_peliculas.html",
-              "RelativeToolTip": "sistemardp\\peliculas\\templates\\busqueda_peliculas.html",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAC4AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-06T23:09:43.977Z",
+              "WhenOpened": "2025-01-09T00:42:47.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "models.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\models.py",
+              "RelativeDocumentMoniker": "sistemardp\\pedidos\\models.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\models.py",
+              "RelativeToolTip": "sistemardp\\pedidos\\models.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-09T00:08:26.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "tienda.html",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\tienda.html",
+              "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\tienda.html",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\tienda.html",
+              "RelativeToolTip": "sistemardp\\peliculas\\templates\\tienda.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-08T23:57:57.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "base.html",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\lobby\\templates\\base.html",
               "RelativeDocumentMoniker": "sistemardp\\lobby\\templates\\base.html",
               "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\lobby\\templates\\base.html",
               "RelativeToolTip": "sistemardp\\lobby\\templates\\base.html",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAABxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-06T23:08:36.196Z",
+              "WhenOpened": "2025-01-09T00:04:10.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "urls.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\urls.py",
+              "RelativeDocumentMoniker": "sistemardp\\carro\\urls.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\urls.py",
+              "RelativeToolTip": "sistemardp\\carro\\urls.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-08T23:54:54.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "urls.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\urls.py",
+              "RelativeDocumentMoniker": "sistemardp\\peliculas\\urls.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\urls.py",
+              "RelativeToolTip": "sistemardp\\peliculas\\urls.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-08T23:52:58.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "urls.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\urls.py",
+              "RelativeDocumentMoniker": "sistemardp\\pedidos\\urls.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\urls.py",
+              "RelativeToolTip": "sistemardp\\pedidos\\urls.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-08T23:52:49.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "widget.html",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\carro\\widget.html",
+              "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\carro\\widget.html",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\carro\\widget.html",
+              "RelativeToolTip": "sistemardp\\peliculas\\templates\\carro\\widget.html",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAE0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-09T00:15:54.398Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 8,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\views.py",
+              "RelativeDocumentMoniker": "sistemardp\\carro\\views.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\views.py",
+              "RelativeToolTip": "sistemardp\\carro\\views.py",
+              "ViewState": "AgIAADgAAAAAAAAAAAAuwFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-08T23:43:23.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "carro.js",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
+              "RelativeDocumentMoniker": "sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
+              "RelativeToolTip": "sistemardp\\peliculas\\static\\peliculas\\js\\carro.js",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAABgAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-07T22:21:50.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "context_processor.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\context_processor.py",
+              "RelativeDocumentMoniker": "sistemardp\\carro\\context_processor.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\carro\\context_processor.py",
+              "RelativeToolTip": "sistemardp\\carro\\context_processor.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-07T18:34:50.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "carro_extras.py",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\carro\\carro_extras.py",
               "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\carro\\carro_extras.py",
@@ -313,55 +304,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "password_reset_email.html",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\auth\\password_reset_email.html",
-              "RelativeDocumentMoniker": "sistemardp\\clientes\\templates\\clientes\\auth\\password_reset_email.html",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\auth\\password_reset_email.html",
-              "RelativeToolTip": "sistemardp\\clientes\\templates\\clientes\\auth\\password_reset_email.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-04T00:39:59.148Z"
+              "DocumentIndex": 7,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\views.py",
+              "RelativeDocumentMoniker": "sistemardp\\pedidos\\views.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\pedidos\\views.py",
+              "RelativeToolTip": "sistemardp\\pedidos\\views.py",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACQAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-09T00:58:59.623Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "confirmar_pedido.html",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\confirmar_pedido.html",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\confirmar_pedido.html",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\confirmar_pedido.html",
-              "RelativeToolTip": "sistemardp\\peliculas\\templates\\confirmar_pedido.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-03T23:54:41.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 17,
               "Title": "settings.py",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\sistemardp\\settings.py",
               "RelativeDocumentMoniker": "sistemardp\\sistemardp\\settings.py",
               "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\sistemardp\\settings.py",
               "RelativeToolTip": "sistemardp\\sistemardp\\settings.py",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAJQAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAAKAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-01-03T23:34:53.797Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "clientes.html",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\clientes.html",
-              "RelativeDocumentMoniker": "sistemardp\\clientes\\templates\\clientes\\clientes.html",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\templates\\clientes\\clientes.html",
-              "RelativeToolTip": "sistemardp\\clientes\\templates\\clientes\\clientes.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-12-06T20:21:53.865Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\static\\clientes\\css\\style.css",
               "RelativeDocumentMoniker": "sistemardp\\clientes\\static\\clientes\\css\\style.css",
@@ -373,19 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "urls.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\urls.py",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\urls.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\urls.py",
-              "RelativeToolTip": "sistemardp\\peliculas\\urls.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-01-06T23:18:37.48Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 21,
               "Title": "admin.py",
               "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\admin.py",
               "RelativeDocumentMoniker": "sistemardp\\peliculas\\admin.py",
@@ -403,12 +358,12 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "ef50cc8c-bb20-460e-8482-644ff6563d7d",
-        "Display": 1,
+        "Id": "62bf49b2-09c3-4c8b-b02e-a643d29f3c4f",
+        "Display": 0,
         "X": 521,
-        "Y": 244,
+        "Y": 225,
         "Width": 1404,
-        "Height": 625,
+        "Height": 727,
         "WindowState": 2
       },
       "DocumentGroups": [
@@ -418,15 +373,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "resultados_busqueda_peliculas.html",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
-              "RelativeDocumentMoniker": "sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
-              "RelativeToolTip": "sistemardp\\peliculas\\templates\\resultados_busqueda_peliculas.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-01-06T20:16:27.153Z",
+              "DocumentIndex": 1,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\views.py",
+              "RelativeDocumentMoniker": "sistemardp\\peliculas\\views.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\peliculas\\views.py",
+              "RelativeToolTip": "sistemardp\\peliculas\\views.py",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-08T23:34:16.156Z",
               "EditorCaption": ""
             }
           ]
@@ -437,13 +392,13 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "6ebb2010-ad7f-453c-91d8-99a7d35a74af",
+        "Id": "b4c2bc39-5432-4b10-8e95-43dd927fe78c",
         "Display": 0,
-        "X": -5,
-        "Y": 295,
+        "X": 108,
+        "Y": 178,
         "Width": 1404,
-        "Height": 625,
-        "WindowState": 0
+        "Height": 727,
+        "WindowState": 2
       },
       "DocumentGroups": [
         {
@@ -452,15 +407,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "models.py",
-              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\models.py",
-              "RelativeDocumentMoniker": "sistemardp\\clientes\\models.py",
-              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\clientes\\models.py",
-              "RelativeToolTip": "sistemardp\\clientes\\models.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\membership\\models.py",
+              "RelativeDocumentMoniker": "sistemardp\\membership\\models.py",
+              "ToolTip": "C:\\Users\\moises.ramirezr\\Documents\\GitHub\\renta_peliculas\\sistemardp\\membership\\models.py",
+              "RelativeToolTip": "sistemardp\\membership\\models.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2024-12-05T17:57:17.807Z",
+              "WhenOpened": "2025-01-09T18:00:12.205Z",
               "EditorCaption": ""
             }
           ]

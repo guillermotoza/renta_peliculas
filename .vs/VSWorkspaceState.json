@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\sistemardp",
-    "\\sistemardp\\lobby",
-    "\\sistemardp\\lobby\\templates",
+    "\\sistemardp\\carro",
+    "\\sistemardp\\pedidos",
+    "\\sistemardp\\pedidos\\templates",
+    "\\sistemardp\\pedidos\\templates\\email",
     "\\sistemardp\\peliculas",
-    "\\sistemardp\\peliculas\\static",
-    "\\sistemardp\\peliculas\\static\\peliculas",
-    "\\sistemardp\\peliculas\\static\\peliculas\\js",
     "\\sistemardp\\peliculas\\templates",
+    "\\sistemardp\\peliculas\\templates\\carro",
     "\\sistemardp\\sistemardp"
   ],
-  "SelectedNode": "\\sistemardp\\lobby\\templates\\base.html",
+  "SelectedNode": "\\sistemardp\\pedidos\\models.py",
   "PreviewInSolutionExplorer": false
 }

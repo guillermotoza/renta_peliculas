@@ -70,7 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'carro.context_processor.importe_total_carro',
+                'carro.context_processor.importe_total_carro', #context para importe total del carro
+                'carro.context_processor.calcular_descuento_global', #context para calcular descuento global
             ],
         },
     },
@@ -150,7 +151,7 @@ EMAIL_HOST = "smtp.office365.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "moises.ramirezr@fgr.org.mx"
-EMAIL_HOST_PASSWORD = "MRR361852h17;99"
+EMAIL_HOST_PASSWORD = "2"
 DEFAULT_FROM_EMAIL = "moises.ramirezr@fgr.org.mx"
 
 # Mostrar mensajes de error
