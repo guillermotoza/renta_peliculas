@@ -12,11 +12,11 @@
     <div class="container mt-5">
         <!-- Informacion de beneficios -->
         <div class="info-section text-center">
-            <h2>Únete a nuestra comunidad de Renta de Películas</h2>
+            <h2>Unete a nuestra comunidad de Renta de Peliculas</h2>
             <p>Disfruta de beneficios exclusivos al crear tu cuenta:</p>
             <ul class="list-unstyled">
                 <li>Acceso a contenido personalizado</li>
-                <li>Historial de membresías</li>
+                <li>Historial de membresias</li>
             </ul>
         </div>
 
@@ -28,6 +28,11 @@
                 <div class="mb-3">
                     <label for="username" class="form-label">Nombre de Usuario</label>
                     <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Correo Electrónico</label>
+                    {{ form.email }}
                 </div>
 
                 <div class="mb-3">

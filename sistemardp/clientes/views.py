@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Cliente
-from .forms import ClienteForm
+from .forms import RegistroForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.csrf import csrf_exempt
@@ -58,12 +58,12 @@ def agregar_cliente(request):
 def editar_cliente(request, cliente_id):
     cliente = get_object_or_404(Cliente, id=cliente_id)
     if request.method == 'POST':
-        form = ClienteForm(request.POST, instance=cliente)
+        form = RegistroForm(request.POST, instance=cliente)
         if form.is_valid():
             form.save()
             return redirect('listar_clientes')  # Redirige a la vista de lista de clientes después de guardar
     else:
-        form = ClienteForm(instance=cliente)
+        form = RegistroForm(instance=cliente)
     return render(request, 'clientes/editar_cliente.html', {'form': form, 'cliente': cliente})
 
 @csrf_exempt
@@ -91,11 +91,11 @@ def cargar_clientes(request):
 # Registro y autenticación
 class Vregistro(View):
     def get(self, request):
-        form = UserCreationForm()
+        form = RegistroForm()
         return render(request, "clientes/registro.html", {"form": form})
     
     def post(self, request):
-        form = UserCreationForm(request.POST)
+        form = RegistroForm(request.POST)
         if form.is_valid():
             usuario = form.save()
             login(request, usuario)
@@ -104,6 +104,7 @@ class Vregistro(View):
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
             return render(request, "clientes/registro.html", {"form": form})
+
 
 def cerrar_sesion(request):
     logout(request) 

@@ -1,15 +1,18 @@
 from django import forms
 from .models import Cliente
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class ClienteForm(forms.ModelForm):
+class RegistroForm(UserCreationForm):
+    email = forms.EmailField(required=True, label="Correo Electronico", widget=forms.EmailInput(attrs={'class': 'form-control'}))
+
     class Meta:
-        model = Cliente
-        fields = ['nombre', 'correo', 'direccion', 'detalles_membresia']
-        widgets = {
-            'detalles_membresia': forms.Textarea(attrs={'rows': 3}),
-        }
+        model = User
+        fields = ["username", "email", "password1", "password2"]
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs['class'] = 'form-control'
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+        return user
