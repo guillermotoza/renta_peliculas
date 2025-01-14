@@ -1,11 +1,13 @@
 import stripe
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from .models import Membership, UserMembership, Subscription
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -17,8 +19,14 @@ def membership_detail(request, membership_slug):
     membership = Membership.objects.get(slug=membership_slug)
     return render(request, 'membership_detail.html', {'membership': membership})
 
+
 def subscribe(request, membership_slug):
-    membership = Membership.objects.get(slug=membership_slug)
+    membership = get_object_or_404(Membership, slug=membership_slug)
+    
+    if not request.user.is_authenticated:
+        messages.error(request, "Debes iniciar sesión o crear una cuenta para obtener una membresía.")
+        return redirect('membership_detail', membership_slug=membership_slug)
+    
     user_membership, created = UserMembership.objects.get_or_create(user=request.user)
     
     # Verificar si el usuario ya tiene una suscripción activa
@@ -33,7 +41,8 @@ def subscribe(request, membership_slug):
         return render(request, 'error.html', {
             'message': f'Ya tienes una membresía activa ({active_membership_type}). No puedes agregar otra hasta que expire.'
         })
-    # Crear una sesión de pago 
+
+    # Crear una sesión de pago
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
@@ -75,7 +84,7 @@ def complete_subscription(request, membership_slug, user_id):
         '¡Disfruta de todos los beneficios que ofrecemos y gracias por elegirnos!\n\n'
         'Saludos cordiales,\n'
         'El equipo de Renta de Películas',
-        'moises.ramirezr@fgr.org.mx',
+        'juan.torresz@fgr.org.mx',
         [user.email], 
         fail_silently=False,
     )
