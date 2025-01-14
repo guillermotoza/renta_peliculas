@@ -9,6 +9,8 @@ from django.contrib import messages
 from django.views.generic import View
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Listar clientes y enviar datos
 def listar_clientes(request):
@@ -134,3 +136,19 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 class CustomPasswordChangeDoneView(PasswordChangeDoneView):
     template_name = 'registration/password_change_done.html'
+
+@login_required
+def editar_perfil(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        correo = request.POST.get('correo')
+
+        # Actualizar los datos del usuario
+        request.user.first_name = nombre
+        request.user.email = correo
+        request.user.save()
+
+        messages.success(request, "Perfil actualizado correctamente.")
+        return redirect('editar_perfil')
+
+    return render(request, 'clientes/editar_perfil.html')
