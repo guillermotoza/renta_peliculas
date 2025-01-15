@@ -18,7 +18,7 @@ def contactar (request):
         subject="reclamacion: "+" "+request.POST["asunto"]
         message="el problema del cliente es: "+""+request.POST["mensaje"]+" el correo del cliente, para contactarlo es: "+request.POST["email"]
         email_from=settings.EMAIL_HOST_USER
-        recipient_list=["moisesr_1000@hotmail.com"]
+        recipient_list=["juan.torresz@hotmail.com"]
         
         if subject and message and email_from:
             send_mail(subject, message, email_from, recipient_list)

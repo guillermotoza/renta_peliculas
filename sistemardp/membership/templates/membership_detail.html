@@ -9,15 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ membership.membership_type }}</title>
 </head>
+
 <body>
     <div class="container">
-        {% if messages %}
-        <div class="alert alert-danger">
-            {% for message in messages %}
-            <p>{{ message }}</p>
-            {% endfor %}
-        </div>
-        {% endif %}
         <div class="membership-card">
             <div class="membership-header {% if membership.membership_type == 'Gold' %}gold{% elif membership.membership_type == 'Silver' %}silver{% endif %}">
                 <h2>{{ membership.membership_type }}</h2>
@@ -26,9 +20,17 @@
                 <p>{{ membership.description }}</p>
                 <p><strong>Precio:</strong> ${{ membership.price }}</p>
             </div>
-            <div class="membership-footer">
-                <a href="{% url 'subscribe' membership.slug %}" class="btn btn-subscribe">Suscribirse</a>
-            </div>
+                {% if request.user.is_authenticated %}
+                <div class="membership-footer">
+                    <a href="{% url 'subscribe' membership.slug %}" class="btn btn-subscribe">Suscribirse</a>
+                </div>
+                {% else %}
+                <div class="membership-footer">
+                    <a class="alert">Debes iniciar sesion para poder suscribirte</a>
+                    <br />
+                    <a href="{% url 'iniciar_sesion' %}" class="btn btn-subscribe">INICIAR SESION</a>
+                </div>
+                {% endif %}
         </div>
     </div>
 </body>

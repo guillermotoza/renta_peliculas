@@ -31,6 +31,8 @@ from .models import Pedido, LineaPedido
 from carro.carro import Carro
 from pedidos.models import LineaPedido, Pedido
 
+import pdb
+
 # Create your views here.
 def calcular_descuento_membresia(request):
     descuento_total = Decimal('0.00')
@@ -56,6 +58,8 @@ def calcular_descuento_membresia(request):
 
 @login_required(login_url="/usuario/iniciar_sesion/")
 def procesar_pedido(request):  
+
+   
    # Context processors  
    total_carro = importe_total_carro(request)["importe_total_carro"]  
    descuento = calcular_descuento_global(request)["descuento"]  
@@ -65,8 +69,13 @@ def procesar_pedido(request):
    carro = Carro(request)  
    carro_items = list(carro.carro.items())  # Copiar los items del carrito  
 
-   # Crear el pedido  
-   pedido = Pedido.objects.create(user=request.user)  
+  # Crear el pedido, mejor guaradar los datos en el modelo por si se consultan despues  
+   pedido = Pedido.objects.create(
+       user=request.user,
+       total=total_carro,
+       descuento=descuento,
+       total_con_descuento=total_carro_con_descuento,
+       )  
    lineas_pedido = []  
 
    for key, value in carro_items:  
@@ -74,7 +83,8 @@ def procesar_pedido(request):
            pelicula_id=key,  
            dias=value["dias"],  
            user=request.user,  
-           pedido=pedido,  
+           pedido=pedido,
+         
        ))  
 
    LineaPedido.objects.bulk_create(lineas_pedido)  
@@ -92,7 +102,7 @@ def procesar_pedido(request):
 
    # Generar reportes antes de vaciar el carrito  
    pdf_response = generar_pdf_pedido(request, pedido_id=pedido.id)  
-   excel_response = generar_excel_pedido(request, pedido_id=pedido.id)  
+   excel_response = generar_excel_pedido(request, pedido_id=pedido.id )  
 
    # Renderizar la página de confirmación del pedido  
    response = render(request, "confirmar_pedido.html", {  
@@ -103,7 +113,7 @@ def procesar_pedido(request):
    })  
 
    # Vaciar el carrito después de renderizar la página  
-   carro.vaciar_carro()  
+   carro.vaciar_carro()
 
    return response
 
@@ -124,7 +134,7 @@ def enviar_mail(**kwargs):
         })
         
         mensaje_texto=strip_tags(mensaje)
-        from_email='moises.ramirezr@fgr.org.mx'
+        from_email='juan.torresz@fgr.org.mx'
         to=kwargs.get("emailusuario")
         
         send_mail(asunto,mensaje_texto,from_email,[to],html_message=mensaje)
@@ -132,13 +142,13 @@ def enviar_mail(**kwargs):
 #funcion para generar pdf
 def generar_pdf_pedido(request, pedido_id):
 
-    total_carro = importe_total_carro(request)["importe_total_carro"]
-    descuento = calcular_descuento_global(request)["descuento"]
-    total_carro_con_descuento = calcular_descuento_global(request)["total_carro_con_descuento"]
-
     pedido = Pedido.objects.get(id=pedido_id, user=request.user)
     lineas_pedidos = LineaPedido.objects.filter(pedido=pedido)
     nombreusuario = request.user.username
+    #consulta del models ya no del context
+    total_carro = pedido.total
+    descuento_carro = pedido.descuento
+    total_carro_con_descuento = pedido.total_con_descuento
 
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'filename=pedido_{pedido.id}.pdf' #nombre del archivo
@@ -171,8 +181,8 @@ def generar_pdf_pedido(request, pedido_id):
             f"${precio_final:.2f}", 
             f"${sub_total:.2f}"
             ])
-        if descuento > 0:
-            data.append(['', '', 'Total', f"${total_carro_con_descuento:.2f}"])
+        if descuento_carro > 0:
+            data.append(['TOTAL', f'{total_carro}', 'Total con descuento', f"${total_carro_con_descuento:.2f}"])
         else:
             data.append(['', '', 'Total', f"${total_carro:.2f}"]) #total del pedido
 
@@ -199,17 +209,18 @@ def generar_pdf_pedido(request, pedido_id):
     buffer.close()
     response.write(pdf)
     return response
+   
 
 #funcion para generar excel
 def generar_excel_pedido(request, pedido_id):
-    #variables del context_processor
-    total_carro = importe_total_carro(request)["importe_total_carro"]
-    descuento = calcular_descuento_global(request)["descuento"]
-    total_carro_con_descuento = calcular_descuento_global(request)["total_carro_con_descuento"]
 
     pedido = Pedido.objects.get(id=pedido_id, user=request.user)
     lineas_pedido = LineaPedido.objects.filter(pedido=pedido)
     nombreusuario = request.user.username
+
+    total_carro = pedido.total
+    descuento = pedido.descuento
+    total_carro_con_descuento = pedido.total_con_descuento
 
     wb = openpyxl.Workbook() #crea un libro de trabajo
     sheet = wb.active   #hoja activa
@@ -242,7 +253,7 @@ def generar_excel_pedido(request, pedido_id):
         ])
     # Agregar el total
     if descuento > 0:
-        sheet.append(["", "", "", "TOTAL", f"${total_carro_con_descuento:.2f}"])
+        sheet.append(["TOTAL", f"{total_carro}", "por usar membresia", "TOTAL con DESCUENTO", f"${total_carro_con_descuento:.2f}"])
     else:
         sheet.append(["", "", "", "TOTAL", f"${total_carro:.2f}"])
 

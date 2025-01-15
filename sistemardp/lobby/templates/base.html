@@ -54,6 +54,7 @@
                     </a>
                     <img src="{% static 'clientes/img/perfil_in.svg' %}" />
                     <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">Mi perfil</a></li>
                         <li><a class="dropdown-item" href="{% url 'password_change' %}">Cambiar Contraseña</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a></li>
