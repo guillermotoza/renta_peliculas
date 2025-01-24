@@ -28,7 +28,8 @@ urlpatterns = [
     path('carro/',include('carro.urls')),
     path('membership/', include('membership.urls')),
     path('pedidos/',include('pedidos.urls')),
-    path('clientes/', include('clientes.urls')), 
+    path('clientes/', include('clientes.urls')),
+    path('bloqueado/', views.bloqueado, name='bloqueado'), # URL para mostrar mensaje de bloqueo
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
 
