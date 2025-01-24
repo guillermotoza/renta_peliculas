@@ -152,3 +152,6 @@ def editar_perfil(request):
         return redirect('editar_perfil')
 
     return render(request, 'clientes/editar_perfil.html')
+
+def bloqueado(request):
+    return render(request, 'clientes/bloqueado.html',{'username':request.GET.get('username')})
