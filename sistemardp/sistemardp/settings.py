@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+from datetime import timedelta
 import os
 from pathlib import Path
+from datetime import timedelta
 from django.contrib.messages import constants as mensajes_de_error
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'carro',
     'pedidos',
     'membership',
+    'axes',
+    'django_ratelimit',
 
 ]
 
@@ -55,7 +58,35 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
+    
 ]
+AUTHENTICATION_BACKENDS = [
+           
+    'axes.backends.AxesStandaloneBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AXES_IPWARE_META_PRECEDENCE_ORDER = [
+    'HTTP_X_REAL_IP'
+]
+
+#configuracion django-axes
+AXES_FAILURE_LIMIT = 5 # Número máximo de intentos fallidos
+AXES_COOLOFF_TIME = timedelta(hours=2) # Tiempo de espera (en horas) después de bloquear
+AXES_LOCKOUT_URL = '/bloqueado/'
+AXES_ONLY_ADMIN_SITE = False # Si True, solo aplica al /admin
+AXES_USE_USER_AGENT = False # Si True, considera el user-agent al rastrear intentos
+AXES_HANDLER = 'axes.handlers.database.AxesDatabaseHandler'
+
+#configuracion django-ratelimit
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
+# Lista de proxies de confianza
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+TRUSTED_PROXIES = ['127.0.0.1', '::1']  # Agrega las IPs de tus proxies de confianza
+
 
 ROOT_URLCONF = 'sistemardp.urls'
 
@@ -90,7 +121,20 @@ DATABASES = {
         
     }
 }
+AXES_CACHE = 'default'
+RATELIMIT_USE_CACHE = 'ratelimit'  # Especifica el backend de caché para ratelimit, redis no puede usar el cache predeterminado
+RATELIMIT_VIEW_DECORATORS_ENABLED = True  # Asegúrate de que los decoradores estén habilitados
 
+CACHES = {
+        'default': {
+                    'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+                    },
+        'ratelimit': {
+                    'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+                    'LOCATION': 'redis://127.0.0.1:6379/1',  # Base de datos separada para ratelimit, hay que iniciarla en wsl
+                    }
+        
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -109,7 +153,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
